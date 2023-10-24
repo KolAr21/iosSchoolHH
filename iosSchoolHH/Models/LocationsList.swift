@@ -9,7 +9,7 @@ import Foundation
 
 struct LocationsList {
     var info: Info
-    var results: Location
+    var results: [Location]
 
     struct Info {
         var count: Int
