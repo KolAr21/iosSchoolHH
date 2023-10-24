@@ -27,5 +27,12 @@ class ViewController: UIViewController {
         let alpha: Brightness = .average
         let description = alpha.description()
         print(description)
+
+        let characterGenerator = CharacterGenerator()
+        for _ in 0...5 {
+            let character = characterGenerator.generate()
+            print(character.id, character.name, character.species, character.image,
+                  character.url, character.episode ?? "none", character.gender, character.status)
+        }
     }
 }
