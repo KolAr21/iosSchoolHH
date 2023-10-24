@@ -8,13 +8,13 @@
 import Foundation
 
 struct LocationsList {
-    var info: Info
-    var results: [Location]
-
     struct Info {
-        var count: Int
-        var pages: Int
-        var next: String?
-        var prev: String?
+        let count: Int
+        let pages: Int
+        let next: String?
+        let prev: String?
     }
+
+    let info: Info
+    let results: [Location]
 }

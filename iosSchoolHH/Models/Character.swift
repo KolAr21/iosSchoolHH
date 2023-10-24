@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Character {
+final class Character {
     enum Gender: String, CaseIterable {
         case female = "Female"
         case male = "Male"
@@ -21,17 +21,23 @@ class Character {
         case unknown
     }
 
-    var id: Int
-    var name: String
-    var species: String
-    var image: String
-    var url: String
-    var episode: [String]
-    var gender: Gender
-    var status: Status
+    let id: Int
+    let name: String
+    let species: String
+    let image: String
+    let url: String
+    let episode: [String]
+    let gender: Gender
+    let status: Status
 
-    init(id: Int, name: String, species: String, image: String, url: String,
-         episode: [String], gender: Gender, status: Status) {
+    init(id: Int,
+         name: String,
+         species: String,
+         image: String,
+         url: String,
+         episode: [String],
+         gender: Gender,
+         status: Status) {
         self.id = id
         self.name = name
         self.species = species

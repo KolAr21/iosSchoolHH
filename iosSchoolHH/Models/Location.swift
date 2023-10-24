@@ -8,9 +8,9 @@
 import Foundation
 
 struct Location {
-    var id: Int
-    var name: String
-    var type: String
-    var dimension: String
-    var residents: [String]
+    let id: Int
+    let name: String
+    let type: String
+    let dimension: String
+    let residents: [String]
 }
