@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         for _ in 0...5 {
             let character = characterGenerator.generate()
             print(character.id, character.name, character.species, character.image,
-                  character.url, character.episode ?? "none", character.gender, character.status)
+                  character.url, character.episode, character.gender, character.status)
         }
     }
 }

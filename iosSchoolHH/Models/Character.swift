@@ -26,12 +26,12 @@ class Character {
     var species: String
     var image: String
     var url: String
-    var episode: String?
+    var episode: [String]
     var gender: Gender
     var status: Status
 
     init(id: Int, name: String, species: String, image: String, url: String,
-         episode: String? = nil, gender: Gender, status: Status) {
+         episode: [String], gender: Gender, status: Status) {
         self.id = id
         self.name = name
         self.species = species
