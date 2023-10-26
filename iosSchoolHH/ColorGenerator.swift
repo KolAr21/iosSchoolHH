@@ -5,7 +5,7 @@
 //  Created by Арина Колганова on 23.10.2023.
 //
 
-import Foundation
+import UIKit
 
 struct Color {
     var alpha: Brightness = .average
@@ -24,11 +24,30 @@ struct Color {
     }
 }
 
-class ColorGenerator {
+protocol ColorGeneratorProtocol {
+    var alpha: Double { get set }
+    var colorCodes: [Double] { get }
+
+    func createColor() -> UIColor
+    init(alpha: Double)
+}
+
+extension ColorGeneratorProtocol {
+    func createColor() -> UIColor {
+        UIColor(white: 1, alpha: alpha)
+    }
+}
+
+class ColorGenerator: ColorGeneratorProtocol {
     var alpha: Double
     let colorCodes: [Double] = [0.0, 51.0, 102.0, 153.0, 204.0, 255.0]
+    let whiteColor: UIColor = .white
 
-    init(alpha: Double) {
+    func createColor() -> UIColor {
+        UIColor(white: 1, alpha: alpha)
+    }
+
+    required init(alpha: Double) {
         self.alpha = alpha
     }
 }

@@ -14,6 +14,7 @@
 		2F3BD8712AE119CF0044F4DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3BD8702AE119CF0044F4DD /* Assets.xcassets */; };
 		2F3BD8742AE119CF0044F4DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F3BD8722AE119CF0044F4DD /* LaunchScreen.storyboard */; };
 		2F61525D2AE69BDD00FCC073 /* ColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61525C2AE69BDD00FCC073 /* ColorGenerator.swift */; };
+		2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6152732AEAA5CB00FCC073 /* Assembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2F3BD8732AE119CF0044F4DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F3BD8752AE119CF0044F4DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F61525C2AE69BDD00FCC073 /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
+		2F6152732AEAA5CB00FCC073 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				2F3BD8672AE119CD0044F4DD /* AppDelegate.swift */,
+				2F6152732AEAA5CB00FCC073 /* Assembly.swift */,
 				2F61525C2AE69BDD00FCC073 /* ColorGenerator.swift */,
 				2F3BD8692AE119CD0044F4DD /* SceneDelegate.swift */,
 				2F3BD86B2AE119CD0044F4DD /* ViewController.swift */,
@@ -168,6 +171,7 @@
 				2F3BD86C2AE119CD0044F4DD /* ViewController.swift in Sources */,
 				2F61525D2AE69BDD00FCC073 /* ColorGenerator.swift in Sources */,
 				2F3BD8682AE119CD0044F4DD /* AppDelegate.swift in Sources */,
+				2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */,
 				2F3BD86A2AE119CD0044F4DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
