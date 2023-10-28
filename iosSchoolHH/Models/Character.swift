@@ -37,7 +37,8 @@ final class Character {
          url: String,
          episode: [String],
          gender: Gender,
-         status: Status) {
+         status: Status
+    ) {
         self.id = id
         self.name = name
         self.species = species

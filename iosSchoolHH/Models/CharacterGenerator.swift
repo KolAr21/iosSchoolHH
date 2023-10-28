@@ -17,10 +17,12 @@ final class CharacterGenerator {
                          species: randomStringOfLetters(length: 10),
                          image: randomStringOfLetters(length: 12),
                          url: "https://ru.pinterest.com/pin/" + randomStringOfNumbers(length: 18),
-                         episode: Array((0..<Int.random(in: 1...5)).map { _ in
-                                  randomStringOfLetters(length: Int.random(in: 1...8)) }),
+                         episode: ((0..<Int.random(in: 1...5)).map { _ in
+                                      randomStringOfLetters(length: Int.random(in: 1...8))
+                                  }),
                          gender: Character.Gender.allCases.randomElement() ?? Character.Gender.unknown,
-                         status: Character.Status.allCases.randomElement() ?? Character.Status.unknown)
+                         status: Character.Status.allCases.randomElement() ?? Character.Status.unknown
+               )
     }
 
     private func randomStringOfLetters(length: Int) -> String {
