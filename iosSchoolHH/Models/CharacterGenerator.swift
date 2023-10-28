@@ -12,16 +12,17 @@ final class CharacterGenerator {
     private let nameMock = ["Bob", "John", "Alex", "Phill", "Diana", "Mary", "Peter"]
 
     func generate() -> Character {
-        return Character(id: Int.random(in: 0...1000),
-                         name: nameMock.randomElement() ?? nameMock[0],
-                         species: randomStringOfLetters(length: 10),
-                         image: randomStringOfLetters(length: 12),
-                         url: "https://ru.pinterest.com/pin/" + randomStringOfNumbers(length: 18),
-                         episode: ((0..<Int.random(in: 1...5)).map { _ in
-                                      randomStringOfLetters(length: Int.random(in: 1...8))
-                                  }),
-                         gender: Character.Gender.allCases.randomElement() ?? Character.Gender.unknown,
-                         status: Character.Status.allCases.randomElement() ?? Character.Status.unknown
+        return Character(
+                        id: Int.random(in: 0...1000),
+                        name: nameMock.randomElement() ?? nameMock[0],
+                        species: randomStringOfLetters(length: 10),
+                        image: randomStringOfLetters(length: 12),
+                        url: "https://ru.pinterest.com/pin/" + randomStringOfNumbers(length: 18),
+                        episode: (0..<Int.random(in: 1...5)).map { _ in
+                                    randomStringOfLetters(length: Int.random(in: 1...8))
+                                 },
+                        gender: Character.Gender.allCases.randomElement() ?? Character.Gender.unknown,
+                        status: Character.Status.allCases.randomElement() ?? Character.Status.unknown
                )
     }
 

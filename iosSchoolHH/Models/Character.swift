@@ -30,14 +30,15 @@ final class Character {
     let gender: Gender
     let status: Status
 
-    init(id: Int,
-         name: String,
-         species: String,
-         image: String,
-         url: String,
-         episode: [String],
-         gender: Gender,
-         status: Status
+    init(
+        id: Int,
+        name: String,
+        species: String,
+        image: String,
+        url: String,
+        episode: [String],
+        gender: Gender,
+        status: Status
     ) {
         self.id = id
         self.name = name
