@@ -14,8 +14,8 @@ class ViewController: UIViewController {
 
         let generator = ColorGenerator(alpha: 0.5)
         let superGenerator: ColorGeneratorProtocol = ColorGenerator(alpha: 1)
+        print(generator, superGenerator)
 
-        
         let characterGenerator = CharacterGenerator()
         for _ in 0...5 {
             let character = characterGenerator.generate()
