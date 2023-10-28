@@ -16,5 +16,11 @@ class ViewController: UIViewController {
         let superGenerator: ColorGeneratorProtocol = ColorGenerator(alpha: 1)
 
         
+        let characterGenerator = CharacterGenerator()
+        for _ in 0...5 {
+            let character = characterGenerator.generate()
+            print(character.id, character.name, character.species, character.image,
+                  character.url, character.episode, character.gender, character.status)
+        }
     }
 }
