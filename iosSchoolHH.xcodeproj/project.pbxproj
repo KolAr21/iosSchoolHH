@@ -18,6 +18,7 @@
 		2F6152702AE7629400FCC073 /* CharacterGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61526C2AE7629400FCC073 /* CharacterGenerator.swift */; };
 		2F6152712AE7629400FCC073 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61526D2AE7629400FCC073 /* Character.swift */; };
 		2F6152722AE7629400FCC073 /* LocationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61526E2AE7629400FCC073 /* LocationsList.swift */; };
+		2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6152732AEAA5CB00FCC073 /* Assembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2F3BD8732AE119CF0044F4DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F3BD8752AE119CF0044F4DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F61525C2AE69BDD00FCC073 /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
+		2F6152732AEAA5CB00FCC073 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2F61526B2AE7629400FCC073 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2F61526C2AE7629400FCC073 /* CharacterGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterGenerator.swift; sourceTree = "<group>"; };
 		2F61526D2AE7629400FCC073 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				2F3BD8672AE119CD0044F4DD /* AppDelegate.swift */,
+				2F6152732AEAA5CB00FCC073 /* Assembly.swift */,
 				2F61525C2AE69BDD00FCC073 /* ColorGenerator.swift */,
 				2F3BD8692AE119CD0044F4DD /* SceneDelegate.swift */,
 				2F3BD86B2AE119CD0044F4DD /* ViewController.swift */,
@@ -191,6 +194,7 @@
 				2F61526F2AE7629400FCC073 /* Location.swift in Sources */,
 				2F6152702AE7629400FCC073 /* CharacterGenerator.swift in Sources */,
 				2F3BD8682AE119CD0044F4DD /* AppDelegate.swift in Sources */,
+				2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */,
 				2F6152722AE7629400FCC073 /* LocationsList.swift in Sources */,
 				2F3BD86A2AE119CD0044F4DD /* SceneDelegate.swift in Sources */,
 			);

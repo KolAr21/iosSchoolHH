@@ -12,6 +12,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let generator = ColorGenerator(alpha: 0.5)
+        let superGenerator: ColorGeneratorProtocol = ColorGenerator(alpha: 1)
+
+        
         let characterGenerator = CharacterGenerator()
         for _ in 0...5 {
             let character = characterGenerator.generate()
