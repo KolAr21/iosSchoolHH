@@ -12,9 +12,9 @@ protocol CharacterGeneratorProtocol {
 }
 
 final class CharacterGenerator: CharacterGeneratorProtocol {
-    
+
     private let nameMock = ["Bob", "John", "Alex", "Phill", "Diana", "Mary", "Peter"]
-    
+
     func generate() -> Character {
         Character(
             id: Int.random(in: 0...1000),
@@ -29,12 +29,12 @@ final class CharacterGenerator: CharacterGeneratorProtocol {
             status: Character.Status.allCases.randomElement() ?? Character.Status.unknown
         )
     }
-    
+
     private func randomStringOfLetters(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         return String((0..<length).map { _ in letters.randomElement() ?? "a" })
     }
-    
+
     private func randomStringOfNumbers(length: Int) -> String {
         let numbers = "0123456789"
         return String((0..<length).map { _ in numbers.randomElement() ?? "0" })
