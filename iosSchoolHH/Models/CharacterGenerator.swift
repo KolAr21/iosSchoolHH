@@ -7,7 +7,11 @@
 
 import Foundation
 
-final class CharacterGenerator {
+protocol CharacterGeneratorProtocol {
+    func generate() -> Character
+}
+
+final class CharacterGenerator: CharacterGeneratorProtocol {
 
     private let nameMock = ["Bob", "John", "Alex", "Phill", "Diana", "Mary", "Peter"]
 
