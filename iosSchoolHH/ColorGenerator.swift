@@ -40,15 +40,36 @@ extension ColorGeneratorProtocol {
 
 class ColorGenerator: ColorGeneratorProtocol {
     var alpha: Double
-    let colorCodes: [Double] = [0.0, 51.0, 102.0, 153.0, 204.0, 255.0]
+    var colorCodes: [Double] = [0.0, 51.0, 102.0, 153.0, 204.0, 255.0]
     let whiteColor: UIColor = .white
 
     func createColor() -> UIColor {
         UIColor(white: 1, alpha: alpha)
     }
 
+    func changeColorCodes(completion: ([Double]) -> Void) {
+        completion([])
+    }
+
     required init(alpha: Double) {
         self.alpha = alpha
+    }
+
+    func changeColor(completion: () -> ([Double])) {
+        colorCodes = completion()
+        print(colorCodes)
+    }
+
+    func test() {
+        changeColorCodes { [weak self] newColorCodes in
+            self?.colorCodes = newColorCodes
+        }
+
+        changeColor { [weak self] in
+            guard let self else { return [] }
+            self.colorCodes = [0, 1, 2]
+            return self.colorCodes
+        }
     }
 }
 

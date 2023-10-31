@@ -39,5 +39,13 @@ class ViewController: UIViewController {
             characterProtocol.status
         )
 
+        let generator = ColorGenerator(alpha: 1)
+        generator.changeColorCodes { colorCodes in
+            print(colorCodes)
+        }
+
+        generator.changeColor {
+            [0]
+        }
     }
 }
