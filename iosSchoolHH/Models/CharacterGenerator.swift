@@ -7,12 +7,16 @@
 
 import Foundation
 
-final class CharacterGenerator {
+protocol CharacterGeneratorProtocol {
+    func generate() -> Character
+}
+
+final class CharacterGenerator: CharacterGeneratorProtocol {
 
     private let nameMock = ["Bob", "John", "Alex", "Phill", "Diana", "Mary", "Peter"]
 
     func generate() -> Character {
-        return Character(
+        Character(
             id: Int.random(in: 0...1000),
             name: nameMock.randomElement() ?? nameMock[0],
             species: randomStringOfLetters(length: 10),

@@ -12,6 +12,33 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let characterGenerator = CharacterGenerator()
+        let character = characterGenerator.generate()
+        let characterGeneratorProtocol: CharacterGeneratorProtocol = CharacterGenerator()
+        let characterProtocol = characterGeneratorProtocol.generate()
+
+        print(
+            character.id,
+            character.name,
+            character.species,
+            character.image,
+            character.url,
+            character.episode,
+            character.gender,
+            character.status
+        )
+
+        print(
+            characterProtocol.id,
+            characterProtocol.name,
+            characterProtocol.species,
+            characterProtocol.image,
+            characterProtocol.url,
+            characterProtocol.episode,
+            characterProtocol.gender,
+            characterProtocol.status
+        )
+
         let generator = ColorGenerator(alpha: 1)
         generator.changeColorCodes { colorCodes in
             print(colorCodes)
