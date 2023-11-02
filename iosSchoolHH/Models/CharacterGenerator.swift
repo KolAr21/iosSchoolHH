@@ -13,7 +13,7 @@ protocol CharacterGeneratorProtocol {
 
 final class CharacterGenerator: CharacterGeneratorProtocol {
 
-    private let nameMock = ["Bob", "John", "Alex", "Phill", "Diana", "Mary", "Peter"]
+    private var nameMock = ["Bob", "John", "Alex", "Phill", "Diana", "Mary", "Peter"]
 
     func generate() -> Character {
         Character(
@@ -30,7 +30,7 @@ final class CharacterGenerator: CharacterGeneratorProtocol {
         )
     }
 
-    private func randomStringOfLetters(length: Int) -> String {
+    func randomStringOfLetters(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
         return String((0..<length).map { _ in letters.randomElement() ?? "a" })
     }
@@ -38,5 +38,26 @@ final class CharacterGenerator: CharacterGeneratorProtocol {
     private func randomStringOfNumbers(length: Int) -> String {
         let numbers = "0123456789"
         return String((0..<length).map { _ in numbers.randomElement() ?? "0" })
+    }
+
+    func generateNameOne(completion: (String) -> Void) {
+        completion(nameMock[Int.random(in: 0..<nameMock.count)])
+    }
+
+    func generateNameTwo(completion: () -> (String)) {
+        nameMock.append(completion())
+    }
+
+    func generateNameTree() -> (String) -> Void {
+        return { (name: String) in
+            print(String(name.reversed()))
+        }
+    }
+
+    func generateNameFour() -> (() -> String) {
+        return { [weak self] in
+            guard let self else { return "" }
+            return self.randomStringOfLetters(length: Int.random(in: 1...7))
+        }
     }
 }
