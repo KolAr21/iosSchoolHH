@@ -13,19 +13,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let characterGenerator = CharacterGenerator()
-        characterGenerator.generateNameOne { (name: String) in
-            print(name)
-        }
+        characterGenerator.generateNameOne { print($0) }
 
-        let closureTwo: () -> (String) = { [weak characterGenerator] in
-            guard let characterGenerator else { return  "" }
+        characterGenerator.generateNameTwo { [weak characterGenerator] in
+            guard let characterGenerator else {
+                return  ""
+            }
             return characterGenerator.randomStringOfLetters(length: Int.random(in: 1...7))
         }
 
-        characterGenerator.generateNameTwo(completion: closureTwo)
-        let getReversedName = characterGenerator.generateNameTree()
-        getReversedName("John")
-        let getName = characterGenerator.generateNameFour()
-        print(getName())
+        characterGenerator.generateNameTree()("John")
+        print(characterGenerator.generateNameFour()())
     }
 }

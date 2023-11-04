@@ -49,14 +49,14 @@ final class CharacterGenerator: CharacterGeneratorProtocol {
     }
 
     func generateNameTree() -> (String) -> Void {
-        return { (name: String) in
-            print(String(name.reversed()))
-        }
+        { print(String($0.reversed())) }
     }
 
     func generateNameFour() -> (() -> String) {
-        return { [weak self] in
-            guard let self else { return "" }
+        { [weak self] in
+            guard let self else {
+                return ""
+            }
             return self.randomStringOfLetters(length: Int.random(in: 1...7))
         }
     }
