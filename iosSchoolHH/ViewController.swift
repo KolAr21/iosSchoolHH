@@ -13,9 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let characterGenerator = CharacterGenerator()
-        let character = characterGenerator.generate()
-        let characterGeneratorProtocol: CharacterGeneratorProtocol = CharacterGenerator()
-        let characterProtocol = characterGeneratorProtocol.generate()
+        characterGenerator.generateNameOne { print($0) }
 
         let generator = ColorGenerator(alpha: 1)
         generator.changeColorCodes { colorCodes in
@@ -65,5 +63,14 @@ class ViewController: UIViewController {
             partialResult + element
         }
 
+        characterGenerator.generateNameTwo { [weak characterGenerator] in
+            guard let characterGenerator else {
+                return  ""
+            }
+            return characterGenerator.randomStringOfLetters(length: Int.random(in: 1...7))
+        }
+
+        characterGenerator.generateNameTree()("John")
+        print(characterGenerator.generateNameFour()())
     }
 }
