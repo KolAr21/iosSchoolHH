@@ -71,6 +71,24 @@ class ColorGenerator: ColorGeneratorProtocol {
             return self.colorCodes
         }
     }
+
+    func convertToArray<T>(element: T) -> [T] {
+        [element]
+    }
+
+    func printAlphaSecond<T: ColorGeneratorProtocol>(generator: T) {
+        print(generator.alpha)
+    }
+
+    func printAlpha<Generator>(generator: Generator) where Generator: ColorGeneratorProtocol {
+        print(generator.alpha)
+    }
+
+    func printAlphaAny(generator: Any) {
+        guard let generator = generator as? ColorGeneratorProtocol else { return }
+        print(generator.alpha)
+    }
+
 }
 
 enum Brightness: Double {
@@ -89,4 +107,12 @@ enum Brightness: Double {
         }
     }
 
+}
+
+class Palette<CustomColor> {
+    let colors: [CustomColor]
+
+    init(colors: [CustomColor]) {
+        self.colors = colors
+    }
 }
