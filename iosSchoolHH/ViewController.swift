@@ -27,33 +27,25 @@ class ViewController: UIViewController {
         })
 
         let episodes: [[String]?] = [["War", "Night"], ["Love"]]
-        let charactersWithEpisodeMap =  episodes.map {
+        let charactersWithEpisodeMap =  episodes.map { episodes in
             var resultOfCharacters: [Character] = []
-            for _ in 0...2 {
-                resultOfCharacters.append(
-                    characterGenerator.generate(id: nil, name: nil, episode: $0)
-                )
-            }
+            resultOfCharacters.append(contentsOf: (0...2).map { _ in
+                characterGenerator.generate(id: nil, name: nil, episode: episodes)
+            })
             return resultOfCharacters
         }
 
-        for character in charactersWithEpisodeMap {
-            printArrayOfCharacter(arrayOfCharacters: character)
-        }
+        charactersWithEpisodeMap.forEach { printArrayOfCharacter(arrayOfCharacters: $0) }
 
-        let charactersWithEpisodeCompactMap = episodes.compactMap {
+        let charactersWithEpisodeCompactMap = episodes.compactMap { episodes in
             var resultOfCharacters: [Character] = []
-            for _ in 0...2 {
-                resultOfCharacters.append(
-                    characterGenerator.generate(id: nil, name: nil, episode: $0)
-                )
-            }
+            resultOfCharacters.append(contentsOf: (0...2).map { _ in
+                characterGenerator.generate(id: nil, name: nil, episode: episodes)
+            })
             return resultOfCharacters
         }
 
-        for character in charactersWithEpisodeCompactMap {
-            printArrayOfCharacter(arrayOfCharacters: character)
-        }
+        charactersWithEpisodeCompactMap.forEach { printArrayOfCharacter(arrayOfCharacters: $0) }
 
         print(arrayOfCharacters.reduce("", { $0 + $1.name }))
     }
