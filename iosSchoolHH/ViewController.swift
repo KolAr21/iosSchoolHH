@@ -28,21 +28,17 @@ class ViewController: UIViewController {
 
         let episodes: [[String]?] = [["War", "Night"], ["Love"]]
         let charactersWithEpisodeMap =  episodes.map { episodes in
-            var resultOfCharacters: [Character] = []
-            resultOfCharacters.append(contentsOf: (0...2).map { _ in
+            (0...2).map { _ in
                 characterGenerator.generate(id: nil, name: nil, episode: episodes)
-            })
-            return resultOfCharacters
+            }
         }
 
         charactersWithEpisodeMap.forEach { printArrayOfCharacter(arrayOfCharacters: $0) }
 
         let charactersWithEpisodeCompactMap = episodes.compactMap { episodes in
-            var resultOfCharacters: [Character] = []
-            resultOfCharacters.append(contentsOf: (0...2).map { _ in
+            (0...2).map { _ in
                 characterGenerator.generate(id: nil, name: nil, episode: episodes)
-            })
-            return resultOfCharacters
+            }
         }
 
         charactersWithEpisodeCompactMap.forEach { printArrayOfCharacter(arrayOfCharacters: $0) }
