@@ -13,64 +13,51 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         let characterGenerator = CharacterGenerator()
-        characterGenerator.generateNameOne { print($0) }
-
-        let generator = ColorGenerator(alpha: 1)
-        generator.changeColorCodes { colorCodes in
-            print(colorCodes)
+        var arrayOfCharacters: [Character] = []
+        for _ in 0...9 {
+            arrayOfCharacters.append(characterGenerator.generate(id: nil, name: nil, episode: nil))
         }
+        printArrayOfCharacter(arrayOfCharacters: arrayOfCharacters.filter { $0.gender == .male })
 
-        generator.changeColor {
-            [0]
-        }
+        printArrayOfCharacter(arrayOfCharacters: arrayOfCharacters.filter { $0.name.contains("a") })
 
-        let color = ColorGenerator(alpha: 1)
+        let nameMock = ["Bob", "John", "Alex", "Phill", "Diana", "Mary", "Peter", "Alice", "Peter", "Jane"]
+        printArrayOfCharacter(arrayOfCharacters: nameMock.enumerated().map {
+            characterGenerator.generate(id: $0, name: $1, episode: nil)
+        })
 
-        let intArray = generator.convertToArray(element: 1)
-        let colorArr = generator.convertToArray(element: color)
-        let stringArray = generator.convertToArray(element: "hello world")
-
-        let palette = Palette(colors: [1, 2, 3, 4])
-        let anotherPalette = Palette(colors: ["red", "green"])
-        let colorPalette = Palette(colors: [color])
-        let pal = Palette(colors: colorArr)
-
-        let arrayInt = [1, 2, 3, 4, 5, 6, 7]
-        let result = arrayInt.filter { elem in
-            return elem % 2 == 0
-        }
-
-        let resultOne = arrayInt.filter { $0 % 2 == 0 }
-
-        let array = [0.1, 0.2, 0.5, 1]
-        let generators = array.map { ColorGenerator(alpha: $0)}
-        let test = array.map { alpha -> ColorGeneratorProtocol? in
-            guard alpha < 1 else { return nil }
-            return ColorGenerator(alpha: alpha)
-        }
-
-        let testOne: [ColorGenerator?] = array.map {
-            guard $0 < 1 else { return nil }
-
-            return ColorGenerator(alpha: $0)
-        }
-
-        let testTwo = testOne.compactMap { $0 }
-        let testThree = testOne.compactMap { $0?.alpha }
-        let testFour = testOne.map { $0?.alpha }
-
-        let resultReduce = arrayInt.reduce(0) { partialResult, element in
-            partialResult + element
-        }
-
-        characterGenerator.generateNameTwo { [weak characterGenerator] in
-            guard let characterGenerator else {
-                return  ""
+        let episodes: [[String]?] = [["War", "Night"], ["Love"]]
+        let charactersWithEpisodeMap =  episodes.map { episodes in
+            (0...2).map { _ in
+                characterGenerator.generate(id: nil, name: nil, episode: episodes)
             }
-            return characterGenerator.randomStringOfLetters(length: Int.random(in: 1...7))
         }
 
-        characterGenerator.generateNameTree()("John")
-        print(characterGenerator.generateNameFour()())
+        charactersWithEpisodeMap.forEach { printArrayOfCharacter(arrayOfCharacters: $0) }
+
+        let charactersWithEpisodeCompactMap = episodes.compactMap { episodes in
+            (0...2).map { _ in
+                characterGenerator.generate(id: nil, name: nil, episode: episodes)
+            }
+        }
+
+        charactersWithEpisodeCompactMap.forEach { printArrayOfCharacter(arrayOfCharacters: $0) }
+
+        print(arrayOfCharacters.reduce("", { $0 + $1.name }))
+    }
+
+    private func printArrayOfCharacter(arrayOfCharacters: [Character]) {
+        for character in arrayOfCharacters {
+            print(
+                character.id,
+                character.name,
+                character.species,
+                character.image,
+                character.url,
+                character.episode,
+                character.gender,
+                character.status
+            )
+        }
     }
 }

@@ -8,21 +8,21 @@
 import Foundation
 
 protocol CharacterGeneratorProtocol {
-    func generate() -> Character
+    func generate(id: Int?, name: String?, episode: [String]?) -> Character
 }
 
 final class CharacterGenerator: CharacterGeneratorProtocol {
 
     private var nameMock = ["Bob", "John", "Alex", "Phill", "Diana", "Mary", "Peter"]
 
-    func generate() -> Character {
+    func generate(id: Int?, name: String?, episode: [String]?) -> Character {
         Character(
-            id: Int.random(in: 0...1000),
-            name: nameMock.randomElement() ?? nameMock[0],
+            id: id ?? Int.random(in: 0...1000),
+            name: name ?? nameMock.randomElement() ?? nameMock[0],
             species: randomStringOfLetters(length: 10),
             image: randomStringOfLetters(length: 12),
             url: "https://ru.pinterest.com/pin/" + randomStringOfNumbers(length: 18),
-            episode: (0..<Int.random(in: 1...5)).map { _ in
+            episode: episode ?? (0..<Int.random(in: 1...5)).map { _ in
                 randomStringOfLetters(length: Int.random(in: 1...8))
             },
             gender: Character.Gender.allCases.randomElement() ?? Character.Gender.unknown,
@@ -35,7 +35,7 @@ final class CharacterGenerator: CharacterGeneratorProtocol {
         return String((0..<length).map { _ in letters.randomElement() ?? "a" })
     }
 
-    private func randomStringOfNumbers(length: Int) -> String {
+    func randomStringOfNumbers(length: Int) -> String {
         let numbers = "0123456789"
         return String((0..<length).map { _ in numbers.randomElement() ?? "0" })
     }
