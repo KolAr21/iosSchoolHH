@@ -26,6 +26,12 @@
 		2FEB76DF2AF9245700EB4B53 /* AuthDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76DE2AF9245700EB4B53 /* AuthDataProvider.swift */; };
 		2FEB76E12AF9249900EB4B53 /* AuthAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76E02AF9249900EB4B53 /* AuthAssembly.swift */; };
 		2FEB76E32AF9261400EB4B53 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76E22AF9261400EB4B53 /* AuthCoordinator.swift */; };
+		2FEB77022AFD12A300EB4B53 /* SplashDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77012AFD12A300EB4B53 /* SplashDataProvider.swift */; };
+		2FEB77042AFD12F700EB4B53 /* SplashViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77032AFD12F700EB4B53 /* SplashViewData.swift */; };
+		2FEB77062AFD131000EB4B53 /* SplashAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77052AFD131000EB4B53 /* SplashAssembly.swift */; };
+		2FEB77082AFD132700EB4B53 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77072AFD132700EB4B53 /* SplashView.swift */; };
+		2FEB770A2AFD136400EB4B53 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77092AFD136400EB4B53 /* SplashViewController.swift */; };
+		2FEB770C2AFD141900EB4B53 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */; };
 		2FEB76FA2AFCE24700EB4B53 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F42AFCE24700EB4B53 /* RegistrationView.swift */; };
 		2FEB76FB2AFCE24700EB4B53 /* RegistrationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F52AFCE24700EB4B53 /* RegistrationAssembly.swift */; };
 		2FEB76FC2AFCE24700EB4B53 /* RegistartionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F62AFCE24700EB4B53 /* RegistartionViewData.swift */; };
@@ -56,6 +62,12 @@
 		2FEB76DE2AF9245700EB4B53 /* AuthDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataProvider.swift; sourceTree = "<group>"; };
 		2FEB76E02AF9249900EB4B53 /* AuthAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAssembly.swift; sourceTree = "<group>"; };
 		2FEB76E22AF9261400EB4B53 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
+		2FEB77012AFD12A300EB4B53 /* SplashDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashDataProvider.swift; sourceTree = "<group>"; };
+		2FEB77032AFD12F700EB4B53 /* SplashViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewData.swift; sourceTree = "<group>"; };
+		2FEB77052AFD131000EB4B53 /* SplashAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAssembly.swift; sourceTree = "<group>"; };
+		2FEB77072AFD132700EB4B53 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		2FEB77092AFD136400EB4B53 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76F42AFCE24700EB4B53 /* RegistrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		2FEB76F52AFCE24700EB4B53 /* RegistrationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationAssembly.swift; sourceTree = "<group>"; };
 		2FEB76F62AFCE24700EB4B53 /* RegistartionViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistartionViewData.swift; sourceTree = "<group>"; };
@@ -124,6 +136,7 @@
 		2FEB76D42AF9223400EB4B53 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2FEB77002AFD128200EB4B53 /* Splash */,
 				2FEB76F32AFCE24700EB4B53 /* Registration */,
 				2FEB76D52AF9225800EB4B53 /* Auth */,
 			);
@@ -141,6 +154,19 @@
 				2FEB76E22AF9261400EB4B53 /* AuthCoordinator.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		2FEB77002AFD128200EB4B53 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				2FEB77012AFD12A300EB4B53 /* SplashDataProvider.swift */,
+				2FEB77032AFD12F700EB4B53 /* SplashViewData.swift */,
+				2FEB77052AFD131000EB4B53 /* SplashAssembly.swift */,
+				2FEB77092AFD136400EB4B53 /* SplashViewController.swift */,
+				2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */,
+				2FEB77072AFD132700EB4B53 /* SplashView.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		2FEB76F32AFCE24700EB4B53 /* Registration */ = {
@@ -265,6 +291,7 @@
 				2F6152702AE7629400FCC073 /* CharacterGenerator.swift in Sources */,
 				2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */,
 				2FEB76DD2AF9242C00EB4B53 /* AuthViewData.swift in Sources */,
+				2FEB77022AFD12A300EB4B53 /* SplashDataProvider.swift in Sources */,
 				2FEB76FE2AFCE24700EB4B53 /* RegistrationViewController.swift in Sources */,
 				2FEB76DB2AF9233E00EB4B53 /* AuthViewController.swift in Sources */,
 				2F3BD8682AE119CD0044F4DD /* AppDelegate.swift in Sources */,
@@ -273,6 +300,11 @@
 				2FEB76FC2AFCE24700EB4B53 /* RegistartionViewData.swift in Sources */,
 				2F3BD86A2AE119CD0044F4DD /* SceneDelegate.swift in Sources */,
 				2FEB76E12AF9249900EB4B53 /* AuthAssembly.swift in Sources */,
+				2FEB77062AFD131000EB4B53 /* SplashAssembly.swift in Sources */,
+				2FEB77042AFD12F700EB4B53 /* SplashViewData.swift in Sources */,
+				2FEB770C2AFD141900EB4B53 /* SplashCoordinator.swift in Sources */,
+				2FEB77082AFD132700EB4B53 /* SplashView.swift in Sources */,
+				2FEB770A2AFD136400EB4B53 /* SplashViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
