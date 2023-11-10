@@ -18,11 +18,14 @@ class AppCoordinator: BaseCoordinator<CoordinatorContext> {
         let coordinator = assembly.splashCoordinator { [weak self] in
             self?.authBootstrap()
         }
-        setRoot(viewController: coordinator.make())
+        let registrationCoordinator = assembly.registrationCoordinator { [weak self] in
+            self?.authBootstrap()
+        }
+        setRoot(viewController: registrationCoordinator.make())
     }
 
     private func authBootstrap() {
-        setRoot(viewController: assembly.authCoordinator().make()) // assembly.registrationCoordinator()
+        print("sixth-homework")
     }
 
     private func setRoot(viewController: UIViewController?) {

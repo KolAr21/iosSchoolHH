@@ -9,9 +9,11 @@ import UIKit
 
 class RegistrationCoordinator: BaseCoordinator<RegistrationCoordinator.Context> {
 
-    struct Context {}
+    struct Context {
+        let onRegistrationSuccess: (() -> Void)?
+    }
 
     override func make() -> UIViewController? {
-        assembly.registrationVC()
+        assembly.registrationVC(onRegistrationSuccess: context.onRegistrationSuccess)
     }
 }
