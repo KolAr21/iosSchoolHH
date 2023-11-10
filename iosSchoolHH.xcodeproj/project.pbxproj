@@ -28,7 +28,6 @@
 		2FEB76E32AF9261400EB4B53 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76E22AF9261400EB4B53 /* AuthCoordinator.swift */; };
 		2FEB76FA2AFCE24700EB4B53 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F42AFCE24700EB4B53 /* RegistrationView.swift */; };
 		2FEB76FB2AFCE24700EB4B53 /* RegistrationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F52AFCE24700EB4B53 /* RegistrationAssembly.swift */; };
-		2FEB76FC2AFCE24700EB4B53 /* RegistartionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F62AFCE24700EB4B53 /* RegistartionViewData.swift */; };
 		2FEB76FD2AFCE24700EB4B53 /* RegistrationDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F72AFCE24700EB4B53 /* RegistrationDataProvider.swift */; };
 		2FEB76FE2AFCE24700EB4B53 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F82AFCE24700EB4B53 /* RegistrationViewController.swift */; };
 		2FEB76FF2AFCE24700EB4B53 /* RegistrationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F92AFCE24700EB4B53 /* RegistrationCoordinator.swift */; };
@@ -38,6 +37,7 @@
 		2FEB77082AFD132700EB4B53 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77072AFD132700EB4B53 /* SplashView.swift */; };
 		2FEB770A2AFD136400EB4B53 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77092AFD136400EB4B53 /* SplashViewController.swift */; };
 		2FEB770C2AFD141900EB4B53 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */; };
+		2FEB770E2AFE650F00EB4B53 /* RegistrationViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB770D2AFE650F00EB4B53 /* RegistrationViewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,7 +64,6 @@
 		2FEB76E22AF9261400EB4B53 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76F42AFCE24700EB4B53 /* RegistrationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		2FEB76F52AFCE24700EB4B53 /* RegistrationAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationAssembly.swift; sourceTree = "<group>"; };
-		2FEB76F62AFCE24700EB4B53 /* RegistartionViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistartionViewData.swift; sourceTree = "<group>"; };
 		2FEB76F72AFCE24700EB4B53 /* RegistrationDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationDataProvider.swift; sourceTree = "<group>"; };
 		2FEB76F82AFCE24700EB4B53 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		2FEB76F92AFCE24700EB4B53 /* RegistrationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationCoordinator.swift; sourceTree = "<group>"; };
@@ -74,6 +73,7 @@
 		2FEB77072AFD132700EB4B53 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		2FEB77092AFD136400EB4B53 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
+		2FEB770D2AFE650F00EB4B53 /* RegistrationViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +161,7 @@
 			children = (
 				2FEB76F42AFCE24700EB4B53 /* RegistrationView.swift */,
 				2FEB76F82AFCE24700EB4B53 /* RegistrationViewController.swift */,
-				2FEB76F62AFCE24700EB4B53 /* RegistartionViewData.swift */,
+				2FEB770D2AFE650F00EB4B53 /* RegistrationViewData.swift */,
 				2FEB76F52AFCE24700EB4B53 /* RegistrationAssembly.swift */,
 				2FEB76F72AFCE24700EB4B53 /* RegistrationDataProvider.swift */,
 				2FEB76F92AFCE24700EB4B53 /* RegistrationCoordinator.swift */,
@@ -297,10 +297,10 @@
 				2F3BD8682AE119CD0044F4DD /* AppDelegate.swift in Sources */,
 				2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */,
 				2F6152722AE7629400FCC073 /* LocationsList.swift in Sources */,
-				2FEB76FC2AFCE24700EB4B53 /* RegistartionViewData.swift in Sources */,
 				2F3BD86A2AE119CD0044F4DD /* SceneDelegate.swift in Sources */,
 				2FEB76E12AF9249900EB4B53 /* AuthAssembly.swift in Sources */,
 				2FEB77062AFD131000EB4B53 /* SplashAssembly.swift in Sources */,
+				2FEB770E2AFE650F00EB4B53 /* RegistrationViewData.swift in Sources */,
 				2FEB77042AFD12F700EB4B53 /* SplashViewData.swift in Sources */,
 				2FEB770C2AFD141900EB4B53 /* SplashCoordinator.swift in Sources */,
 				2FEB77082AFD132700EB4B53 /* SplashView.swift in Sources */,
