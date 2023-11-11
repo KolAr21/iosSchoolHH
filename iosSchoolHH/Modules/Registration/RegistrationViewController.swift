@@ -32,6 +32,6 @@ class RegistrationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        self.onRegistrationSuccess?()
+        onRegistrationSuccess?()
     }
 }
