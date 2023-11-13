@@ -10,9 +10,12 @@ import UIKit
 class RegistrationViewController: UIViewController {
 
     private let dataProvider: RegistrationDataProvider
+    var onRegistrationSuccess: (() -> Void)?
 
-    init(dataProvider: RegistrationDataProvider) {
+    init(dataProvider: RegistrationDataProvider, onRegistrationSuccess: (() -> Void)?) {
         self.dataProvider = dataProvider
+        self.onRegistrationSuccess = onRegistrationSuccess
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -24,5 +27,11 @@ class RegistrationViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .blue
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        onRegistrationSuccess?()
     }
 }
