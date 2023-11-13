@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct LocationsList {
-    struct Info {
+struct LocationsList: Decodable {
+    struct Info: Decodable {
         let count: Int
         let pages: Int
         let next: String?

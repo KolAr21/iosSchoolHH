@@ -38,6 +38,11 @@
 		2FEB770A2AFD136400EB4B53 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77092AFD136400EB4B53 /* SplashViewController.swift */; };
 		2FEB770C2AFD141900EB4B53 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */; };
 		2FEB770E2AFE650F00EB4B53 /* RegistrationViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB770D2AFE650F00EB4B53 /* RegistrationViewData.swift */; };
+		2FEB77202B025A4100EB4B53 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB771F2B025A4100EB4B53 /* TokenResponse.swift */; };
+		2FEB77232B025AF800EB4B53 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77222B025AF800EB4B53 /* ApiClient.swift */; };
+		2FEB77252B025B6000EB4B53 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77242B025B6000EB4B53 /* NetworkConstants.swift */; };
+		2FEB77272B025CBA00EB4B53 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77262B025CBA00EB4B53 /* ApiError.swift */; };
+		2FEB77292B02601500EB4B53 /* AuthApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77282B02601500EB4B53 /* AuthApiClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +79,11 @@
 		2FEB77092AFD136400EB4B53 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
 		2FEB770D2AFE650F00EB4B53 /* RegistrationViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewData.swift; sourceTree = "<group>"; };
+		2FEB771F2B025A4100EB4B53 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		2FEB77222B025AF800EB4B53 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
+		2FEB77242B025B6000EB4B53 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
+		2FEB77262B025CBA00EB4B53 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		2FEB77282B02601500EB4B53 /* AuthApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +116,7 @@
 		2F3BD8662AE119CD0044F4DD /* iosSchoolHH */ = {
 			isa = PBXGroup;
 			children = (
+				2FEB77212B025AE600EB4B53 /* ApiClient */,
 				2FEB76D42AF9223400EB4B53 /* Modules */,
 				2F3BD8672AE119CD0044F4DD /* AppDelegate.swift */,
 				2F6152732AEAA5CB00FCC073 /* Assembly.swift */,
@@ -127,6 +138,7 @@
 			children = (
 				2F61526B2AE7629400FCC073 /* Location.swift */,
 				2F61526C2AE7629400FCC073 /* CharacterGenerator.swift */,
+				2FEB771F2B025A4100EB4B53 /* TokenResponse.swift */,
 				2F61526D2AE7629400FCC073 /* Character.swift */,
 				2F61526E2AE7629400FCC073 /* LocationsList.swift */,
 			);
@@ -136,6 +148,7 @@
 		2FEB76D42AF9223400EB4B53 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				2FEB772A2B026AFB00EB4B53 /* Location */,
 				2FEB77002AFD128200EB4B53 /* Splash */,
 				2FEB76F32AFCE24700EB4B53 /* Registration */,
 				2FEB76D52AF9225800EB4B53 /* Auth */,
@@ -180,6 +193,24 @@
 				2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		2FEB77212B025AE600EB4B53 /* ApiClient */ = {
+			isa = PBXGroup;
+			children = (
+				2FEB77222B025AF800EB4B53 /* ApiClient.swift */,
+				2FEB77262B025CBA00EB4B53 /* ApiError.swift */,
+				2FEB77242B025B6000EB4B53 /* NetworkConstants.swift */,
+				2FEB77282B02601500EB4B53 /* AuthApiClient.swift */,
+			);
+			path = ApiClient;
+			sourceTree = "<group>";
+		};
+		2FEB772A2B026AFB00EB4B53 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,24 +311,29 @@
 				2F3BD86C2AE119CD0044F4DD /* ViewController.swift in Sources */,
 				2FEB76DF2AF9245700EB4B53 /* AuthDataProvider.swift in Sources */,
 				2FEB76FF2AFCE24700EB4B53 /* RegistrationCoordinator.swift in Sources */,
+				2FEB77202B025A4100EB4B53 /* TokenResponse.swift in Sources */,
 				2FEB76FA2AFCE24700EB4B53 /* RegistrationView.swift in Sources */,
 				2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */,
 				2FEB76FB2AFCE24700EB4B53 /* RegistrationAssembly.swift in Sources */,
 				2FEB76E32AF9261400EB4B53 /* AuthCoordinator.swift in Sources */,
 				2F61525D2AE69BDD00FCC073 /* ColorGenerator.swift in Sources */,
 				2F6152712AE7629400FCC073 /* Character.swift in Sources */,
+				2FEB77272B025CBA00EB4B53 /* ApiError.swift in Sources */,
 				2FEB76FD2AFCE24700EB4B53 /* RegistrationDataProvider.swift in Sources */,
 				2F61526F2AE7629400FCC073 /* Location.swift in Sources */,
 				2F6152702AE7629400FCC073 /* CharacterGenerator.swift in Sources */,
 				2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */,
+				2FEB77232B025AF800EB4B53 /* ApiClient.swift in Sources */,
 				2FEB76DD2AF9242C00EB4B53 /* AuthViewData.swift in Sources */,
 				2FEB77022AFD12A300EB4B53 /* SplashDataProvider.swift in Sources */,
 				2FEB76FE2AFCE24700EB4B53 /* RegistrationViewController.swift in Sources */,
 				2FEB76DB2AF9233E00EB4B53 /* AuthViewController.swift in Sources */,
 				2F3BD8682AE119CD0044F4DD /* AppDelegate.swift in Sources */,
 				2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */,
+				2FEB77292B02601500EB4B53 /* AuthApiClient.swift in Sources */,
 				2F6152722AE7629400FCC073 /* LocationsList.swift in Sources */,
 				2F3BD86A2AE119CD0044F4DD /* SceneDelegate.swift in Sources */,
+				2FEB77252B025B6000EB4B53 /* NetworkConstants.swift in Sources */,
 				2FEB76E12AF9249900EB4B53 /* AuthAssembly.swift in Sources */,
 				2FEB77062AFD131000EB4B53 /* SplashAssembly.swift in Sources */,
 				2FEB770E2AFE650F00EB4B53 /* RegistrationViewData.swift in Sources */,

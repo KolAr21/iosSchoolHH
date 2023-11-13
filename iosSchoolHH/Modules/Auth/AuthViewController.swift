@@ -22,7 +22,15 @@ class AuthViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        login()
 
         view.backgroundColor = .red
+    }
+
+    func login() {
+        dataProvider.auth(login: "arina", password: "1111") { token, error in
+            print(token ?? "no token")
+            print(error?.localizedDescription ?? " ")
+        }
     }
 }
