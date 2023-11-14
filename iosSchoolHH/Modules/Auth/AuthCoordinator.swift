@@ -9,9 +9,11 @@ import UIKit
 
 class AuthCoordinator: BaseCoordinator<AuthCoordinator.Context> {
 
-    struct Context {}
+    struct Context {
+        let onAuthSuccess: (() -> Void)?
+    }
 
     override func make() -> UIViewController? {
-        assembly.authVC()
+        assembly.authVC(onAuthSuccess: context.onAuthSuccess)
     }
 }

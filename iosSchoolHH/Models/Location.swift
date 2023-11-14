@@ -18,7 +18,7 @@ struct Location: Codable {
         case id
         case name
         case type
-        case dim = "dimention"
+        case dim = "dimension"
         case residents
     }
 
