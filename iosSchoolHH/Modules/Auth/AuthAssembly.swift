@@ -8,21 +8,21 @@
 import Foundation
 
 protocol AuthAssembly {
-    func authVC(onAuthSuccess: (() -> Void)?) -> AuthViewController
+    func authVC() -> AuthViewController
     func authDataProvider() -> AuthDataProvider
-    func authCoordinator(onAuthSuccess: (() -> Void)?) -> AuthCoordinator
+    func authCoordinator() -> AuthCoordinator
 }
 
 extension Assembly: AuthAssembly {
-    func authVC(onAuthSuccess: (() -> Void)?) -> AuthViewController {
-        .init(dataProvider: authDataProvider(), onAuthSuccess: onAuthSuccess)
+    func authVC() -> AuthViewController {
+        .init(dataProvider: authDataProvider())
     }
 
     func authDataProvider() -> AuthDataProvider {
         AuthDataProviderImp(apiClient: apiClient)
     }
 
-    func authCoordinator(onAuthSuccess: (() -> Void)?) -> AuthCoordinator {
-        AuthCoordinator(assembly: self, context: .init(onAuthSuccess: onAuthSuccess))
+    func authCoordinator() -> AuthCoordinator {
+        AuthCoordinator(assembly: self, context: .init())
     }
 }

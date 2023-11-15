@@ -9,11 +9,9 @@ import UIKit
 
 class LocationViewController: UIViewController {
     private let dataProvider: LocationDataProvider
-    private var onLocationSuccess: (() -> Void)?
 
-    init(dataProvider: LocationDataProvider, onLocationSuccess: (() -> Void)?) {
+    init(dataProvider: LocationDataProvider) {
         self.dataProvider = dataProvider
-        self.onLocationSuccess = onLocationSuccess
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -36,15 +34,6 @@ class LocationViewController: UIViewController {
                 return
             }
             print(location)
-        }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] timer in
-            self?.onLocationSuccess?()
-            timer.invalidate()
         }
     }
 }

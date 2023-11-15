@@ -1,5 +1,5 @@
 //
-//  CharacterCoordinator.swift
+//  LocationCoordinator.swift
 //  iosSchoolHH
 //
 //  Created by Арина Колганова on 14.11.2023.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-class CharacterCoordinator: BaseCoordinator<CharacterCoordinator.Context> {
+class LocationCoordinator: BaseCoordinator<LocationCoordinator.Context> {
 
     struct Context {}
 
     override func make() -> UIViewController? {
-        assembly.characterVC()
+        assembly.locationVC()
     }
 }

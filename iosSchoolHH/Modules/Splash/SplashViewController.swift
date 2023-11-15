@@ -37,5 +37,4 @@ class SplashViewController: UIViewController {
             timer.invalidate()
         }
     }
-
 }

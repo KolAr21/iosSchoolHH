@@ -31,8 +31,9 @@ class RegistrationViewController: UIViewController {
     }
 
     func registration() {
+        let user = User(username: "arina1", password: "12345678")
         print("##################REGISTRATION##################")
-        dataProvider.registration(login: "arina1", password: "12345678") { token, error in
+        dataProvider.registration(user: user) { token, error in
             print(token ?? "no token")
             print(error?.localizedDescription ?? " ")
         }

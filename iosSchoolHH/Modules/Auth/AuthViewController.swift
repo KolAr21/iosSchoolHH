@@ -10,11 +10,9 @@ import UIKit
 class AuthViewController: UIViewController {
 
     private let dataProvider: AuthDataProvider
-    private var onAuthSuccess: (() -> Void)?
 
-    init(dataProvider: AuthDataProvider, onAuthSuccess: (() -> Void)?) {
+    init(dataProvider: AuthDataProvider) {
         self.dataProvider = dataProvider
-        self.onAuthSuccess = onAuthSuccess
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -34,15 +32,6 @@ class AuthViewController: UIViewController {
         dataProvider.auth(login: "arina1", password: "12345678") { token, error in
             print(token ?? "no token")
             print(error?.localizedDescription ?? " ")
-        }
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] timer in
-            self?.onAuthSuccess?()
-            timer.invalidate()
         }
     }
 }

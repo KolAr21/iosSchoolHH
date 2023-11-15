@@ -15,27 +15,6 @@ class AppCoordinator: BaseCoordinator<CoordinatorContext> {
 
     func start(window: UIWindow?) {
         self.window = window
-        let registrationCoordinator = assembly.registrationCoordinator { [weak self] in
-            self?.authBootstrap()
-        }
-        setRoot(viewController: registrationCoordinator.make())
-    }
-
-    private func authBootstrap() {
-        let authCoordinator = assembly.authCoordinator { [weak self] in
-            self?.locationBootstrap()
-        }
-        setRoot(viewController: authCoordinator.make())
-    }
-
-    private func locationBootstrap() {
-        let locationCoordinator = assembly.locationCoordinator { [weak self] in
-            self?.characterBootstrap()
-        }
-        setRoot(viewController: locationCoordinator.make())
-    }
-
-    private func characterBootstrap() {
         setRoot(viewController: assembly.characterCoordinator().make())
     }
 
