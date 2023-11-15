@@ -42,9 +42,6 @@ class RegistrationViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false) { [weak self] timer in
-            self?.onRegistrationSuccess?()
-            timer.invalidate()
-        }
+        onRegistrationSuccess?()
     }
 }
