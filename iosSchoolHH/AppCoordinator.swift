@@ -15,7 +15,7 @@ class AppCoordinator: BaseCoordinator<CoordinatorContext> {
 
     func start(window: UIWindow?) {
         self.window = window
-        setRoot(viewController: assembly.characterCoordinator().make())
+        setRoot(viewController: assembly.authCoordinator().make())
     }
 
     private func setRoot(viewController: UIViewController?) {
