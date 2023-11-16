@@ -7,6 +7,24 @@
 
 import Foundation
 
-protocol RegistrationDataProvider {}
+protocol RegistrationDataProvider {
+    func registration(
+        user: User,
+        onRequestCompleted: @escaping (TokenResponse?, ApiError?) -> Void
+    )
+}
 
-class RegistrationDataProviderImp: RegistrationDataProvider {}
+class RegistrationDataProviderImp: RegistrationDataProvider {
+    private let apiClient: RegistrationApiClient
+
+    init(apiClient: RegistrationApiClient) {
+        self.apiClient = apiClient
+    }
+
+    func registration(
+        user: User,
+        onRequestCompleted: @escaping (TokenResponse?, ApiError?) -> Void
+    ) {
+        apiClient.registration(user: user, onRequestCompleted: onRequestCompleted)
+    }
+}

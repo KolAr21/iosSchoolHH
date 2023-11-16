@@ -88,7 +88,6 @@ class ColorGenerator: ColorGeneratorProtocol {
         guard let generator = generator as? ColorGeneratorProtocol else { return }
         print(generator.alpha)
     }
-
 }
 
 enum Brightness: Double {
@@ -106,7 +105,6 @@ enum Brightness: Double {
             return "Яркий"
         }
     }
-
 }
 
 class Palette<CustomColor> {

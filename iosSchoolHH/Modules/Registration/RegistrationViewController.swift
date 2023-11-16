@@ -10,7 +10,7 @@ import UIKit
 class RegistrationViewController: UIViewController {
 
     private let dataProvider: RegistrationDataProvider
-    var onRegistrationSuccess: (() -> Void)?
+    private var onRegistrationSuccess: (() -> Void)?
 
     init(dataProvider: RegistrationDataProvider, onRegistrationSuccess: (() -> Void)?) {
         self.dataProvider = dataProvider
@@ -25,8 +25,18 @@ class RegistrationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        registration()
 
-        view.backgroundColor = .blue
+        view.backgroundColor = .darkGray
+    }
+
+    func registration() {
+        let user = User(username: "arina1", password: "12345678")
+        print("##################REGISTRATION##################")
+        dataProvider.registration(user: user) { token, error in
+            print(token ?? "no token")
+            print(error?.localizedDescription ?? " ")
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {
