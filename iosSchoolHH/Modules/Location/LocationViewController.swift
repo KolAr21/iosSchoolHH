@@ -27,7 +27,6 @@ class LocationViewController: UIViewController {
     }
 
     private func getListOfLocation() {
-        print("##################LOCATION##################")
         dataProvider.location { location, error in
             guard let location else {
                 print(error ?? "no error")
