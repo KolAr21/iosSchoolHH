@@ -18,20 +18,20 @@
                     <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Регистрация" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sal-V6-68q">
-                    <rect key="frame" x="16" y="279" width="398" height="26.666666666666686"/>
+                    <rect key="frame" x="16" y="274.33333333333331" width="398" height="26.666666666666686"/>
                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NpG-cl-7lN">
-                    <rect key="frame" x="160" y="335.66666666666669" width="110" height="110"/>
+                    <rect key="frame" x="160" y="331" width="110" height="110"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="110" id="byO-qi-7Zv"/>
                         <constraint firstAttribute="width" secondItem="NpG-cl-7lN" secondAttribute="height" multiplier="1:1" id="t2d-De-GGQ"/>
                     </constraints>
                 </imageView>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    Введите логин" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fzr-wc-FML">
-                    <rect key="frame" x="32" y="481.66666666666669" width="366" height="40.000000000000057"/>
+                    <rect key="frame" x="32" y="477" width="366" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="GVl-5z-RvB"/>
                     </constraints>
@@ -39,7 +39,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    Введите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iaA-Hk-GSH">
-                    <rect key="frame" x="32" y="539.66666666666663" width="366" height="40"/>
+                    <rect key="frame" x="32" y="535" width="366" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="84w-Ir-e6V"/>
                     </constraints>
@@ -47,7 +47,7 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    Повторите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HPj-dP-bQX">
-                    <rect key="frame" x="32" y="597.66666666666663" width="366" height="40"/>
+                    <rect key="frame" x="32" y="593" width="366" height="40"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="C6N-o0-zpc"/>
                     </constraints>
@@ -55,7 +55,10 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noo-PH-0b1">
-                    <rect key="frame" x="16" y="768.66666666666663" width="398" height="36"/>
+                    <rect key="frame" x="16" y="760" width="398" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="tNB-Nx-JIk"/>
+                    </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Готово">
@@ -63,7 +66,10 @@
                     </buttonConfiguration>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvE-EH-URf">
-                    <rect key="frame" x="16" y="816.66666666666663" width="398" height="35.333333333333371"/>
+                    <rect key="frame" x="16" y="812" width="398" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="zgn-92-JU0"/>
+                    </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Button"/>
                     <buttonConfiguration key="configuration" style="plain" title="Назад">

@@ -23,18 +23,8 @@ class RegistrationViewImp: UIView, RegistrationView {
     @IBOutlet private var backButton: UIButton!
 
     func setView() {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [
-            UIColor(red: 1, green: 1, blue: 1, alpha: 1).cgColor,
-            UIColor(red: 0.635, green: 0.876, blue: 0.614, alpha: 0.69).cgColor,
-            UIColor(red: 0.443, green: 0.826, blue: 0.41, alpha: 0.14).cgColor
-        ]
-        gradientLayer.startPoint = .init(x: 0.5, y: 0)
-        gradientLayer.endPoint = .init(x: 0.5, y: 1)
-        gradientLayer.locations = [0, 0.5, 0.9]
-        gradientLayer.frame = imageView.frame
-        gradientLayer.position = imageView.center
-        imageView.layer.addSublayer(gradientLayer)
+        imageView.image = UIImage(named: "registration-background")
+        imageView.contentMode = .scaleAspectFill
 
         avatarView.clipsToBounds = false
         avatarView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
