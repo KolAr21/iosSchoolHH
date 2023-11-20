@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController<View: RegistrationView>: BaseViewController<View> {
 
     private let dataProvider: RegistrationDataProvider
     private var onRegistrationSuccess: (() -> Void)?
@@ -25,14 +25,12 @@ class RegistrationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        rootView.setView()
         registration()
-
-        view.backgroundColor = .darkGray
     }
 
     func registration() {
         let user = User(username: "arina1", password: "12345678")
-        print("##################REGISTRATION##################")
         dataProvider.registration(user: user) { token, error in
             print(token ?? "no token")
             print(error?.localizedDescription ?? " ")

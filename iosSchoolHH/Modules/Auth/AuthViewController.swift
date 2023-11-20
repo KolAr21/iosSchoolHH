@@ -28,7 +28,6 @@ class AuthViewController<View: AuthView>: BaseViewController<View> {
     }
 
     func login() {
-        print("##################LOGIN##################")
         dataProvider.auth(login: "arina1", password: "12345678") { token, error in
             print(token ?? "no token")
             print(error?.localizedDescription ?? " ")

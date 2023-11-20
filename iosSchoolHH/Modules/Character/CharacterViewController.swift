@@ -26,7 +26,6 @@ class CharacterViewController: UIViewController {
     }
 
     private func character() {
-        print("##################CHARACTER##################")
         dataProvider.character { character, _ in
             guard let character else { return }
             print(

@@ -19,6 +19,7 @@
 		2F531D222B051864009477A3 /* LocationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F531D212B051864009477A3 /* LocationCoordinator.swift */; };
 		2F531D282B0640CD009477A3 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F531D272B0640CD009477A3 /* BaseViewController.swift */; };
 		2F531D2B2B0642EE009477A3 /* AuthViewImp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F531D2A2B0642EE009477A3 /* AuthViewImp.xib */; };
+		2F531D2E2B0672EE009477A3 /* RegistrationViewImp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F531D2D2B0672EE009477A3 /* RegistrationViewImp.xib */; };
 		2F61525D2AE69BDD00FCC073 /* ColorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61525C2AE69BDD00FCC073 /* ColorGenerator.swift */; };
 		2F61526F2AE7629400FCC073 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61526B2AE7629400FCC073 /* Location.swift */; };
 		2F6152712AE7629400FCC073 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61526D2AE7629400FCC073 /* Character.swift */; };
@@ -72,6 +73,7 @@
 		2F531D212B051864009477A3 /* LocationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCoordinator.swift; sourceTree = "<group>"; };
 		2F531D272B0640CD009477A3 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2F531D2A2B0642EE009477A3 /* AuthViewImp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuthViewImp.xib; sourceTree = "<group>"; };
+		2F531D2D2B0672EE009477A3 /* RegistrationViewImp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationViewImp.xib; sourceTree = "<group>"; };
 		2F61525C2AE69BDD00FCC073 /* ColorGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorGenerator.swift; sourceTree = "<group>"; };
 		2F61526B2AE7629400FCC073 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		2F61526D2AE7629400FCC073 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
@@ -173,6 +175,14 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		2F531D2C2B0672C1009477A3 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				2F531D2D2B0672EE009477A3 /* RegistrationViewImp.xib */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		2F61526A2AE7629400FCC073 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +224,7 @@
 		2FEB76F32AFCE24700EB4B53 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				2F531D2C2B0672C1009477A3 /* Subviews */,
 				2FEB76F42AFCE24700EB4B53 /* RegistrationView.swift */,
 				2FEB76F82AFCE24700EB4B53 /* RegistrationViewController.swift */,
 				2FEB770D2AFE650F00EB4B53 /* RegistrationViewData.swift */,
@@ -332,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F531D2E2B0672EE009477A3 /* RegistrationViewImp.xib in Resources */,
 				2F3BD8742AE119CF0044F4DD /* LaunchScreen.storyboard in Resources */,
 				2F3BD8712AE119CF0044F4DD /* Assets.xcassets in Resources */,
 				2F531D2B2B0642EE009477A3 /* AuthViewImp.xib in Resources */,

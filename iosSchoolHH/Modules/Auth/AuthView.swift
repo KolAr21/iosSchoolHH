@@ -13,7 +13,7 @@ protocol AuthView: UIView {
 
 class AuthViewImp: UIView, AuthView {
 
-    @IBOutlet var imageView: UIImageView!
+    @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var labelView: UIView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subTitleLabel: UILabel!
