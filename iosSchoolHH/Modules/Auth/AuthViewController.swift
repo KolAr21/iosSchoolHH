@@ -39,14 +39,13 @@ class AuthViewController<View: AuthView>: BaseViewController<View> {
 extension AuthViewController: AuthViewDelegate {
     func loginButtonDidTap(login: String, password: String) {
         HUD.show(.progress)
-        onOpenLogin?()
         dataProvider.auth(login: login, password: password) { [weak self] token, error in
             DispatchQueue.main.async {
                 HUD.hide()
             }
             guard let self, token != nil else {
                 DispatchQueue.main.async {
-                    SPIndicator.present(title: error?.localizedDescription ?? "", haptic: .error)
+                    SPIndicator.present(title: error?.rawValue ?? "", haptic: .error)
                 }
                 return
             }

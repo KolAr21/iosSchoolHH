@@ -30,6 +30,7 @@
 		2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6152732AEAA5CB00FCC073 /* Assembly.swift */; };
 		2FB23E4C2B0FABDA0073ABFC /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB23E4B2B0FABDA0073ABFC /* SPIndicator */; };
 		2FB23E4E2B0FABDD0073ABFC /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB23E4D2B0FABDD0073ABFC /* PKHUD */; };
+		2FB23E512B0FAF460073ABFC /* SplashViewImp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FB23E502B0FAF460073ABFC /* SplashViewImp.xib */; };
 		2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */; };
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
@@ -87,6 +88,7 @@
 		2F61526D2AE7629400FCC073 /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		2F61526E2AE7629400FCC073 /* LocationsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsList.swift; sourceTree = "<group>"; };
 		2F6152732AEAA5CB00FCC073 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		2FB23E502B0FAF460073ABFC /* SplashViewImp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewImp.xib; sourceTree = "<group>"; };
 		2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D82AF9231900EB4B53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -224,6 +226,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2FB23E4F2B0FAF1A0073ABFC /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				2FB23E502B0FAF460073ABFC /* SplashViewImp.xib */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
 		2FEB76D42AF9223400EB4B53 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +277,7 @@
 		2FEB77002AFD128200EB4B53 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
+				2FB23E4F2B0FAF1A0073ABFC /* Subviews */,
 				2FEB77072AFD132700EB4B53 /* SplashView.swift */,
 				2FEB77092AFD136400EB4B53 /* SplashViewController.swift */,
 				2FEB77032AFD12F700EB4B53 /* SplashViewData.swift */,
@@ -380,6 +391,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB23E512B0FAF460073ABFC /* SplashViewImp.xib in Resources */,
 				2F531D2E2B0672EE009477A3 /* RegistrationViewImp.xib in Resources */,
 				2F3BD8742AE119CF0044F4DD /* LaunchScreen.storyboard in Resources */,
 				2F3BD8712AE119CF0044F4DD /* Assets.xcassets in Resources */,
