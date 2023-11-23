@@ -84,7 +84,7 @@
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                             <connections>
-                                                <action selector="loginDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="gHs-Lg-cei"/>
+                                                <action selector="loginDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="0CO-kP-Fz8"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5f-88-RWk">

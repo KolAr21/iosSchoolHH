@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F21B3AB2B0F88B1001BCB65 /* RootTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21B3AA2B0F88B1001BCB65 /* RootTab.swift */; };
+		2F21B3AE2B0F896F001BCB65 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F21B3AD2B0F896F001BCB65 /* BaseNavigationController.swift */; };
 		2F3BD8682AE119CD0044F4DD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3BD8672AE119CD0044F4DD /* AppDelegate.swift */; };
 		2F3BD86A2AE119CD0044F4DD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3BD8692AE119CD0044F4DD /* SceneDelegate.swift */; };
 		2F3BD8712AE119CF0044F4DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3BD8702AE119CF0044F4DD /* Assets.xcassets */; };
 		2F3BD8742AE119CF0044F4DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F3BD8722AE119CF0044F4DD /* LaunchScreen.storyboard */; };
+		2F4D70192B0FA7F1001133B9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4D70182B0FA7F1001133B9 /* TabBarController.swift */; };
 		2F531D182B05182E009477A3 /* CharacterApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F531D172B05182E009477A3 /* CharacterApiClient.swift */; };
 		2F531D1A2B05183F009477A3 /* CharacterAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F531D192B05183F009477A3 /* CharacterAssembly.swift */; };
 		2F531D1C2B051846009477A3 /* CharacterDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F531D1B2B051846009477A3 /* CharacterDataProvider.swift */; };
@@ -25,6 +28,8 @@
 		2F6152712AE7629400FCC073 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61526D2AE7629400FCC073 /* Character.swift */; };
 		2F6152722AE7629400FCC073 /* LocationsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F61526E2AE7629400FCC073 /* LocationsList.swift */; };
 		2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6152732AEAA5CB00FCC073 /* Assembly.swift */; };
+		2FB23E4C2B0FABDA0073ABFC /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB23E4B2B0FABDA0073ABFC /* SPIndicator */; };
+		2FB23E4E2B0FABDD0073ABFC /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB23E4D2B0FABDD0073ABFC /* PKHUD */; };
 		2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */; };
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
@@ -59,12 +64,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F21B3AA2B0F88B1001BCB65 /* RootTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTab.swift; sourceTree = "<group>"; };
+		2F21B3AD2B0F896F001BCB65 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		2F3BD8642AE119CD0044F4DD /* iosSchoolHH.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosSchoolHH.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3BD8672AE119CD0044F4DD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F3BD8692AE119CD0044F4DD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2F3BD8702AE119CF0044F4DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F3BD8732AE119CF0044F4DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2F3BD8752AE119CF0044F4DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F4D70182B0FA7F1001133B9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		2F531D172B05182E009477A3 /* CharacterApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterApiClient.swift; sourceTree = "<group>"; };
 		2F531D192B05183F009477A3 /* CharacterAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterAssembly.swift; sourceTree = "<group>"; };
 		2F531D1B2B051846009477A3 /* CharacterDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CharacterDataProvider.swift; sourceTree = "<group>"; };
@@ -117,17 +125,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB23E4C2B0FABDA0073ABFC /* SPIndicator in Frameworks */,
+				2FB23E4E2B0FABDD0073ABFC /* PKHUD in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F21B3A92B0F889C001BCB65 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				2F21B3AA2B0F88B1001BCB65 /* RootTab.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
 		2F3BD85B2AE119CD0044F4DD = {
 			isa = PBXGroup;
 			children = (
 				2F3BD8662AE119CD0044F4DD /* iosSchoolHH */,
 				2F3BD8652AE119CD0044F4DD /* Products */,
+				2FB23E4A2B0FABD40073ABFC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -142,6 +161,7 @@
 		2F3BD8662AE119CD0044F4DD /* iosSchoolHH */ = {
 			isa = PBXGroup;
 			children = (
+				2F21B3A92B0F889C001BCB65 /* UIKit */,
 				2FEB77212B025AE600EB4B53 /* ApiClient */,
 				2FEB76D42AF9223400EB4B53 /* Modules */,
 				2F3BD8672AE119CD0044F4DD /* AppDelegate.swift */,
@@ -163,6 +183,8 @@
 			children = (
 				2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */,
 				2F531D272B0640CD009477A3 /* BaseViewController.swift */,
+				2F21B3AD2B0F896F001BCB65 /* BaseNavigationController.swift */,
+				2F4D70182B0FA7F1001133B9 /* TabBarController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -193,6 +215,13 @@
 				2FEB77472B03357E00EB4B53 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2FB23E4A2B0FABD40073ABFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		2FEB76D42AF9223400EB4B53 /* Modules */ = {
@@ -301,6 +330,10 @@
 			dependencies = (
 			);
 			name = iosSchoolHH;
+			packageProductDependencies = (
+				2FB23E4B2B0FABDA0073ABFC /* SPIndicator */,
+				2FB23E4D2B0FABDD0073ABFC /* PKHUD */,
+			);
 			productName = iosSchoolHH;
 			productReference = 2F3BD8642AE119CD0044F4DD /* iosSchoolHH.app */;
 			productType = "com.apple.product-type.application";
@@ -329,6 +362,10 @@
 				Base,
 			);
 			mainGroup = 2F3BD85B2AE119CD0044F4DD;
+			packageReferences = (
+				2F21B3AF2B0F923F001BCB65 /* XCRemoteSwiftPackageReference "SPIndicator" */,
+				2F21B3B22B0F9437001BCB65 /* XCRemoteSwiftPackageReference "PKHUD" */,
+			);
 			productRefGroup = 2F3BD8652AE119CD0044F4DD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -386,6 +423,8 @@
 				2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */,
 				2F531D222B051864009477A3 /* LocationCoordinator.swift in Sources */,
 				2F531D282B0640CD009477A3 /* BaseViewController.swift in Sources */,
+				2F21B3AB2B0F88B1001BCB65 /* RootTab.swift in Sources */,
+				2F21B3AE2B0F896F001BCB65 /* BaseNavigationController.swift in Sources */,
 				2FEB76DF2AF9245700EB4B53 /* AuthDataProvider.swift in Sources */,
 				2FEB76FF2AFCE24700EB4B53 /* RegistrationCoordinator.swift in Sources */,
 				2FEB77202B025A4100EB4B53 /* TokenResponse.swift in Sources */,
@@ -411,6 +450,7 @@
 				2F3BD8682AE119CD0044F4DD /* AppDelegate.swift in Sources */,
 				2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */,
 				2FEB77292B02601500EB4B53 /* AuthApiClient.swift in Sources */,
+				2F4D70192B0FA7F1001133B9 /* TabBarController.swift in Sources */,
 				2F531D1A2B05183F009477A3 /* CharacterAssembly.swift in Sources */,
 				2F6152722AE7629400FCC073 /* LocationsList.swift in Sources */,
 				2FEB774A2B03386900EB4B53 /* CharacterCoordinator.swift in Sources */,
@@ -632,6 +672,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2F21B3AF2B0F923F001BCB65 /* XCRemoteSwiftPackageReference "SPIndicator" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ivanvorobei/SPIndicator";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.5;
+			};
+		};
+		2F21B3B22B0F9437001BCB65 /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2FB23E4B2B0FABDA0073ABFC /* SPIndicator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F21B3AF2B0F923F001BCB65 /* XCRemoteSwiftPackageReference "SPIndicator" */;
+			productName = SPIndicator;
+		};
+		2FB23E4D2B0FABDD0073ABFC /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2F21B3B22B0F9437001BCB65 /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2F3BD85C2AE119CD0044F4DD /* Project object */;
 }
