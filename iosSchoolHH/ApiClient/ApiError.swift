@@ -21,7 +21,8 @@ enum ApiError: Error {
         case let .common(data):
             if let data {
                 let error = try? JSONDecoder().decode(CommonError.self, from: data)
-                return error?.code.capitalizingFirstLetter().replacingOccurrences(of: "_", with: " ") ?? ""
+                let returnError = error?.code ?? error?.message ?? ""
+                return returnError.capitalizingFirstLetter().replacingOccurrences(of: "_", with: " ")
             } else {
                 return "Произошла неизвестная ошибка"
             }
@@ -30,7 +31,8 @@ enum ApiError: Error {
 }
 
 struct CommonError: Codable {
-    var code: String
+    var code: String?
+    var message: String?
 }
 
 extension String {
