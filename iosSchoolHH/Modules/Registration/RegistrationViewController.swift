@@ -26,6 +26,7 @@ class RegistrationViewController<View: RegistrationView>: BaseViewController<Vie
     override func viewDidLoad() {
         super.viewDidLoad()
         rootView.setView()
+        rootView.delegate = self
         registration()
     }
 
@@ -41,5 +42,11 @@ class RegistrationViewController<View: RegistrationView>: BaseViewController<Vie
         super.viewDidAppear(animated)
 
         onRegistrationSuccess?()
+    }
+}
+
+extension RegistrationViewController: RegistrationViewDelegate {
+    func backButtonDidTap() {
+        dismiss(animated: true)
     }
 }

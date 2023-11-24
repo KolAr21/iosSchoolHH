@@ -8,10 +8,16 @@
 import UIKit
 
 protocol RegistrationView: UIView {
+    var delegate: RegistrationViewDelegate? { get set }
     func setView()
 }
 
+protocol RegistrationViewDelegate: AnyObject {
+    func backButtonDidTap()
+}
+
 class RegistrationViewImp: UIView, RegistrationView {
+    weak var delegate: RegistrationViewDelegate?
 
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
@@ -60,6 +66,16 @@ class RegistrationViewImp: UIView, RegistrationView {
 
         setSettingsButton(button: &registrationButton)
         setSettingsButton(button: &backButton)
+    }
+
+    // MARK: - Private func
+
+    @IBAction private func backDidTap(_ sender: UIButton) {
+        loginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        repeatPasswordTextField.resignFirstResponder()
+
+        delegate?.backButtonDidTap()
     }
 
     private func setSettingsTextField(textField: inout UITextField) {
