@@ -27,7 +27,9 @@ class CharacterViewController: UIViewController {
 
     private func character() {
         dataProvider.character { character, _ in
-            guard let character else { return }
+            guard let character else {
+                return
+            }
             print(
                 character.id,
                 character.name,
