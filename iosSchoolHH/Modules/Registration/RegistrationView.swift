@@ -134,14 +134,6 @@ class RegistrationViewImp: UIView, RegistrationView {
         button.layer.cornerRadius = 10
     }
 
-    @IBAction private func registrationDidTap(_ sender: UIButton) {
-        loginTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
-        repeatPasswordTextField.resignFirstResponder()
-    }
-
-    @IBAction private func backDidTap(_ sender: UIButton) {}
-
     @objc private func keyboardWillShow(notification: Notification) {
         guard let userInfo = notification.userInfo else {
             return
