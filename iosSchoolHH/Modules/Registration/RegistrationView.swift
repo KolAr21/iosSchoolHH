@@ -8,10 +8,17 @@
 import UIKit
 
 protocol RegistrationView: UIView {
+    var delegate: RegistrationViewDelegate? { get set }
     func setView()
 }
 
+protocol RegistrationViewDelegate: AnyObject {
+    func backButtonDidTap()
+    func registrationButtonDidTap(login: String, password: String)
+}
+
 class RegistrationViewImp: UIView, RegistrationView {
+    weak var delegate: RegistrationViewDelegate?
 
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var imageView: UIImageView!
@@ -85,7 +92,23 @@ class RegistrationViewImp: UIView, RegistrationView {
         )
     }
 
-    // MARK: - Private
+    // MARK: - Private func
+
+    @IBAction private func backDidTap(_ sender: UIButton) {
+        loginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        repeatPasswordTextField.resignFirstResponder()
+
+        delegate?.backButtonDidTap()
+    }
+
+    @IBAction private func registrationDidTap(_ sender: UIButton) {
+        loginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        repeatPasswordTextField.resignFirstResponder()
+
+        delegate?.registrationButtonDidTap(login: loginTextField.text ?? "", password: passwordTextField.text ?? "")
+    }
 
     private func setSettingsTextField(textField: inout UITextField) {
         textField.borderStyle = .none

@@ -20,14 +20,23 @@ enum ApiError: Error {
             return "Ошибка получения данных"
         case let .common(data):
             if let data {
-                return String(decoding: data, as: UTF8.self)
+                let error = try? JSONDecoder().decode(CommonError.self, from: data)
+                let returnError = error?.code ?? error?.message ?? ""
+                return returnError.capitalizingFirstLetter().replacingOccurrences(of: "_", with: " ")
             } else {
                 return "Произошла неизвестная ошибка"
             }
         }
     }
+}
 
-    var localizedDescription: String {
-        rawValue
+struct CommonError: Codable {
+    var code: String?
+    var message: String?
+}
+
+extension String {
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).uppercased() + self.lowercased().dropFirst()
     }
 }

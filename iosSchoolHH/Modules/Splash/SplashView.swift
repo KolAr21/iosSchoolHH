@@ -7,6 +7,13 @@
 
 import UIKit
 
-protocol SplashView: UIView {}
+protocol SplashView: UIView {
+    func setView()
+}
 
-class SplashViewImp: UIView, SplashView {}
+class SplashViewImp: UIView, SplashView {
+
+    func setView() {
+        self.backgroundColor = UIColor(named: "iceberg")
+    }
+}
