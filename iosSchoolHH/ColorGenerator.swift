@@ -66,7 +66,9 @@ class ColorGenerator: ColorGeneratorProtocol {
         }
 
         changeColor { [weak self] in
-            guard let self else { return [] }
+            guard let self else {
+                return []
+            }
             self.colorCodes = [0, 1, 2]
             return self.colorCodes
         }
@@ -85,7 +87,9 @@ class ColorGenerator: ColorGeneratorProtocol {
     }
 
     func printAlphaAny(generator: Any) {
-        guard let generator = generator as? ColorGeneratorProtocol else { return }
+        guard let generator = generator as? ColorGeneratorProtocol else {
+            return
+        }
         print(generator.alpha)
     }
 }

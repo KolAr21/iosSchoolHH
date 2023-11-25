@@ -15,7 +15,7 @@ class ApiClient {
         onRequestCompleted: @escaping (Result<ResponseModel, ApiError>) -> Void
     ) {
         guard let url = URL(string: url) else {
-             onRequestCompleted(.failure(.dataParsing))
+            onRequestCompleted(.failure(.dataParsing))
             return
         }
 

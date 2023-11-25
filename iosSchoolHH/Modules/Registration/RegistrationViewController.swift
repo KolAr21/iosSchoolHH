@@ -38,6 +38,8 @@ class RegistrationViewController<View: RegistrationView>: BaseViewController<Vie
     }
 }
 
+// MARK: - RegistrationViewDelegate
+
 extension RegistrationViewController: RegistrationViewDelegate {
     func backButtonDidTap() {
         dismiss(animated: true)
