@@ -66,10 +66,10 @@
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5XO-85-alf">
-                                    <rect key="frame" x="32" y="674" width="311" height="92"/>
+                                    <rect key="frame" x="16" y="674" width="343" height="92"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ei1-Cr-PtQ" userLabel="Registration">
-                                            <rect key="frame" x="0.0" y="0.0" width="311" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Iv0-Xa-beu"/>
                                             </constraints>
@@ -83,7 +83,7 @@
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilG-qH-dan" userLabel="Back">
-                                            <rect key="frame" x="0.0" y="52" width="311" height="40"/>
+                                            <rect key="frame" x="0.0" y="52" width="343" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="DXL-Td-biA"/>
                                             </constraints>
@@ -102,12 +102,11 @@
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Pk9-Q1-2lr" secondAttribute="trailing" constant="16" id="5WW-XP-i2p"/>
-                                <constraint firstAttribute="trailing" secondItem="5XO-85-alf" secondAttribute="trailing" constant="32" id="7k7-tl-OUv"/>
+                                <constraint firstAttribute="trailing" secondItem="5XO-85-alf" secondAttribute="trailing" constant="16" id="7k7-tl-OUv"/>
                                 <constraint firstItem="ljT-Fs-Qmm" firstAttribute="centerX" secondItem="RHQ-w6-6CQ" secondAttribute="centerX" id="ISm-1h-YVj"/>
                                 <constraint firstItem="Pk9-Q1-2lr" firstAttribute="top" secondItem="RHQ-w6-6CQ" secondAttribute="top" priority="600" constant="220" id="J6z-6D-UQv"/>
-                                <constraint firstItem="5XO-85-alf" firstAttribute="leading" secondItem="RHQ-w6-6CQ" secondAttribute="leading" constant="32" id="MAl-LQ-bEh"/>
+                                <constraint firstItem="5XO-85-alf" firstAttribute="leading" secondItem="RHQ-w6-6CQ" secondAttribute="leading" constant="16" id="MAl-LQ-bEh"/>
                                 <constraint firstAttribute="bottom" secondItem="5XO-85-alf" secondAttribute="bottom" constant="46" id="Mul-O9-DGd"/>
-                                <constraint firstItem="ljT-Fs-Qmm" firstAttribute="width" secondItem="ljT-Fs-Qmm" secondAttribute="height" multiplier="1:1" id="Swe-37-BxM"/>
                                 <constraint firstItem="Pk9-Q1-2lr" firstAttribute="leading" secondItem="RHQ-w6-6CQ" secondAttribute="leading" constant="16" id="cRa-sK-12X"/>
                                 <constraint firstItem="ljT-Fs-Qmm" firstAttribute="top" secondItem="Pk9-Q1-2lr" secondAttribute="bottom" constant="30" id="dZq-xv-Xxx"/>
                                 <constraint firstAttribute="trailing" secondItem="iqc-57-C4v" secondAttribute="trailing" constant="32" id="hbW-pI-uZl"/>

@@ -120,8 +120,12 @@ class RegistrationViewImp: UIView, RegistrationView {
     @IBAction private func backDidTap(_ sender: UIButton) {}
 
     @objc private func keyboardWillShow(notification: Notification) {
-        guard let userInfo = notification.userInfo else { return }
-        guard let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        guard let userInfo = notification.userInfo else {
+            return
+        }
+        guard let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {
+            return
+        }
         let keyboardHeight = keyboardFrame.cgRectValue.height
         scrollView.contentInset.bottom = keyboardHeight
         scrollView.verticalScrollIndicatorInsets.bottom = keyboardHeight
