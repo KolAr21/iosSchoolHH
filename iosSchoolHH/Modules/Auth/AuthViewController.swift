@@ -6,13 +6,19 @@
 //
 
 import UIKit
+import SPIndicator
+import PKHUD
 
 class AuthViewController<View: AuthView>: BaseViewController<View> {
 
     private let dataProvider: AuthDataProvider
+    private var onOpenLogin: (() -> Void)?
+    var onOpenRegistration: (() -> Void)?
 
-    init(dataProvider: AuthDataProvider) {
+    init(dataProvider: AuthDataProvider, onOpenLogin: (() -> Void)?) {
         self.dataProvider = dataProvider
+        self.onOpenLogin = onOpenLogin
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -24,13 +30,31 @@ class AuthViewController<View: AuthView>: BaseViewController<View> {
         super.viewDidLoad()
 
         rootView.setView()
-        login()
+        rootView.delegate = self
+    }
+}
+
+// MARK: - AuthViewDelegate
+
+extension AuthViewController: AuthViewDelegate {
+    func loginButtonDidTap(login: String, password: String) {
+        HUD.show(.progress)
+        onOpenLogin?()
+        dataProvider.auth(login: login, password: password) { [weak self] token, error in
+            DispatchQueue.main.async {
+                HUD.hide()
+            }
+            guard let self, token != nil else {
+                DispatchQueue.main.async {
+                    SPIndicator.present(title: error?.localizedDescription ?? "", haptic: .error)
+                }
+                return
+            }
+            self.onOpenLogin?()
+        }
     }
 
-    func login() {
-        dataProvider.auth(login: "arina1", password: "12345678") { token, error in
-            print(token ?? "no token")
-            print(error?.localizedDescription ?? " ")
-        }
+    func registrationButtonDidTap() {
+        onOpenRegistration?()
     }
 }
