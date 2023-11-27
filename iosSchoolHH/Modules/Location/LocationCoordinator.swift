@@ -12,6 +12,20 @@ class LocationCoordinator: BaseCoordinator<LocationCoordinator.Context> {
     struct Context {}
 
     override func make() -> UIViewController? {
-        assembly.locationVC()
+        let locationVC = assembly.locationVC()
+        locationVC.selectLocation = { [weak locationVC] locationData in
+            let coordinator = self.assembly.characterCoordinator()
+            guard let characterVC = coordinator.make() else {
+                return
+            }
+            locationVC?.navigationController?.pushViewController(characterVC, animated: true)
+            /*let coordinator = self.assembly.characterCoordinator(viewModel: locationVC)
+            guard let characterVC = coordinator.make() else {
+                return
+            }
+            locationVC?.navigationController?.pushViewController(characterVC, animated: true)*/
+
+        }
+        return locationVC
     }
 }

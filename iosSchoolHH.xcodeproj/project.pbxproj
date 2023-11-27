@@ -31,6 +31,12 @@
 		2FB23E4C2B0FABDA0073ABFC /* SPIndicator in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB23E4B2B0FABDA0073ABFC /* SPIndicator */; };
 		2FB23E4E2B0FABDD0073ABFC /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB23E4D2B0FABDD0073ABFC /* PKHUD */; };
 		2FB23E512B0FAF460073ABFC /* SplashViewImp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FB23E502B0FAF460073ABFC /* SplashViewImp.xib */; };
+		2FB23E7C2B14C25C0073ABFC /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E7B2B14C25C0073ABFC /* LocationView.swift */; };
+		2FB23E7E2B14D1850073ABFC /* LocationViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E7D2B14D1850073ABFC /* LocationViewData.swift */; };
+		2FB23E822B14D1FB0073ABFC /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E802B14D1FB0073ABFC /* LocationCell.swift */; };
+		2FB23E832B14D1FB0073ABFC /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FB23E812B14D1FB0073ABFC /* LocationCell.xib */; };
+		2FB23E852B14D4D80073ABFC /* LocationCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E842B14D4D80073ABFC /* LocationCellData.swift */; };
+		2FB23E882B14D7B00073ABFC /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E872B14D7B00073ABFC /* NSObject+ClassName.swift */; };
 		2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */; };
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
@@ -89,6 +95,12 @@
 		2F61526E2AE7629400FCC073 /* LocationsList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationsList.swift; sourceTree = "<group>"; };
 		2F6152732AEAA5CB00FCC073 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
 		2FB23E502B0FAF460073ABFC /* SplashViewImp.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplashViewImp.xib; sourceTree = "<group>"; };
+		2FB23E7B2B14C25C0073ABFC /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		2FB23E7D2B14D1850073ABFC /* LocationViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewData.swift; sourceTree = "<group>"; };
+		2FB23E802B14D1FB0073ABFC /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		2FB23E812B14D1FB0073ABFC /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
+		2FB23E842B14D4D80073ABFC /* LocationCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellData.swift; sourceTree = "<group>"; };
+		2FB23E872B14D7B00073ABFC /* NSObject+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
 		2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D82AF9231900EB4B53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -163,6 +175,7 @@
 		2F3BD8662AE119CD0044F4DD /* iosSchoolHH */ = {
 			isa = PBXGroup;
 			children = (
+				2FB23E862B14D7950073ABFC /* Extensions */,
 				2F21B3A92B0F889C001BCB65 /* UIKit */,
 				2FEB77212B025AE600EB4B53 /* ApiClient */,
 				2FEB76D42AF9223400EB4B53 /* Modules */,
@@ -232,6 +245,24 @@
 				2FB23E502B0FAF460073ABFC /* SplashViewImp.xib */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		2FB23E7F2B14D1C10073ABFC /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				2FB23E802B14D1FB0073ABFC /* LocationCell.swift */,
+				2FB23E812B14D1FB0073ABFC /* LocationCell.xib */,
+				2FB23E842B14D4D80073ABFC /* LocationCellData.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		2FB23E862B14D7950073ABFC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2FB23E872B14D7B00073ABFC /* NSObject+ClassName.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2FEB76D42AF9223400EB4B53 /* Modules */ = {
@@ -305,10 +336,13 @@
 		2FEB772F2B028DF900EB4B53 /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				2FB23E7F2B14D1C10073ABFC /* Subviews */,
 				2FEB77302B028DF900EB4B53 /* LocationViewController.swift */,
+				2FB23E7B2B14C25C0073ABFC /* LocationView.swift */,
 				2FEB77312B028DF900EB4B53 /* LocationDataProvider.swift */,
 				2F531D212B051864009477A3 /* LocationCoordinator.swift */,
 				2F531D1F2B051858009477A3 /* LocationAssembly.swift */,
+				2FB23E7D2B14D1850073ABFC /* LocationViewData.swift */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -391,6 +425,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB23E832B14D1FB0073ABFC /* LocationCell.xib in Resources */,
 				2FB23E512B0FAF460073ABFC /* SplashViewImp.xib in Resources */,
 				2F531D2E2B0672EE009477A3 /* RegistrationViewImp.xib in Resources */,
 				2F3BD8742AE119CF0044F4DD /* LaunchScreen.storyboard in Resources */,
@@ -434,6 +469,7 @@
 				2FEB77352B028E4700EB4B53 /* LocationApiClient.swift in Sources */,
 				2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */,
 				2F531D222B051864009477A3 /* LocationCoordinator.swift in Sources */,
+				2FB23E7E2B14D1850073ABFC /* LocationViewData.swift in Sources */,
 				2F531D282B0640CD009477A3 /* BaseViewController.swift in Sources */,
 				2F21B3AB2B0F88B1001BCB65 /* RootTab.swift in Sources */,
 				2F21B3AE2B0F896F001BCB65 /* BaseNavigationController.swift in Sources */,
@@ -443,14 +479,17 @@
 				2F531D1C2B051846009477A3 /* CharacterDataProvider.swift in Sources */,
 				2FEB76FA2AFCE24700EB4B53 /* RegistrationView.swift in Sources */,
 				2F531D202B051858009477A3 /* LocationAssembly.swift in Sources */,
+				2FB23E882B14D7B00073ABFC /* NSObject+ClassName.swift in Sources */,
 				2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */,
 				2FEB76FB2AFCE24700EB4B53 /* RegistrationAssembly.swift in Sources */,
 				2FEB76E32AF9261400EB4B53 /* AuthCoordinator.swift in Sources */,
 				2FEB77462B02A9E400EB4B53 /* RegistrationApiClient.swift in Sources */,
 				2F61525D2AE69BDD00FCC073 /* ColorGenerator.swift in Sources */,
 				2F6152712AE7629400FCC073 /* Character.swift in Sources */,
+				2FB23E822B14D1FB0073ABFC /* LocationCell.swift in Sources */,
 				2FEB77272B025CBA00EB4B53 /* ApiError.swift in Sources */,
 				2FEB76FD2AFCE24700EB4B53 /* RegistrationDataProvider.swift in Sources */,
+				2FB23E852B14D4D80073ABFC /* LocationCellData.swift in Sources */,
 				2F61526F2AE7629400FCC073 /* Location.swift in Sources */,
 				2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */,
 				2FEB77232B025AF800EB4B53 /* ApiClient.swift in Sources */,
@@ -461,6 +500,7 @@
 				2FEB76DB2AF9233E00EB4B53 /* AuthViewController.swift in Sources */,
 				2F3BD8682AE119CD0044F4DD /* AppDelegate.swift in Sources */,
 				2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */,
+				2FB23E7C2B14C25C0073ABFC /* LocationView.swift in Sources */,
 				2FEB77292B02601500EB4B53 /* AuthApiClient.swift in Sources */,
 				2F4D70192B0FA7F1001133B9 /* TabBarController.swift in Sources */,
 				2F531D1A2B05183F009477A3 /* CharacterAssembly.swift in Sources */,

@@ -54,29 +54,29 @@ class RegistrationViewImp: UIView, RegistrationView {
         avatar.clipsToBounds = true
         avatarView.addSubview(avatar)
 
-        setSettingsTextField(textField: &loginTextField)
+        setSettingsTextField(textField: loginTextField)
         loginTextField.attributedPlaceholder = NSAttributedString(
             string: "Введите логин",
             attributes:
                 [NSAttributedString.Key.foregroundColor: UIColor(named: "placeholder-darkGray") ?? .darkGray]
         )
 
-        setSettingsTextField(textField: &passwordTextField)
+        setSettingsTextField(textField: passwordTextField)
         passwordTextField.attributedPlaceholder = NSAttributedString(
             string: "Введите пароль",
             attributes:
                 [NSAttributedString.Key.foregroundColor: UIColor(named: "placeholder-darkGray") ?? .darkGray]
         )
 
-        setSettingsTextField(textField: &repeatPasswordTextField)
+        setSettingsTextField(textField: repeatPasswordTextField)
         repeatPasswordTextField.attributedPlaceholder = NSAttributedString(
             string: "Повторите пароль",
             attributes:
                 [NSAttributedString.Key.foregroundColor: UIColor(named: "placeholder-darkGray") ?? .darkGray]
         )
 
-        setSettingsButton(button: &registrationButton)
-        setSettingsButton(button: &backButton)
+        setSettingsButton(button: registrationButton)
+        setSettingsButton(button: backButton)
 
         NotificationCenter.default.addObserver(
             self,
@@ -110,7 +110,7 @@ class RegistrationViewImp: UIView, RegistrationView {
         delegate?.registrationButtonDidTap(login: loginTextField.text ?? "", password: passwordTextField.text ?? "")
     }
 
-    private func setSettingsTextField(textField: inout UITextField) {
+    private func setSettingsTextField(textField: UITextField) {
         textField.borderStyle = .none
         textField.backgroundColor = .white
         textField.layer.borderWidth = 1
@@ -125,7 +125,7 @@ class RegistrationViewImp: UIView, RegistrationView {
         textField.leftViewMode = .always
     }
 
-    private func setSettingsButton(button: inout UIButton) {
+    private func setSettingsButton(button: UIButton) {
         button.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
         button.layer.shadowOpacity = 1
         button.layer.shadowRadius = 8
