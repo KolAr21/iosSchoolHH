@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SplashViewController<View: SplashView>: BaseViewController<View> {
+final class SplashViewController<View: SplashView>: BaseViewController<View> {
 
     private let dataProvider: SplashDataProvider
     private let onSuccess: (() -> Void)?

@@ -37,6 +37,8 @@
 		2FB23E832B14D1FB0073ABFC /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FB23E812B14D1FB0073ABFC /* LocationCell.xib */; };
 		2FB23E852B14D4D80073ABFC /* LocationCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E842B14D4D80073ABFC /* LocationCellData.swift */; };
 		2FB23E882B14D7B00073ABFC /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E872B14D7B00073ABFC /* NSObject+ClassName.swift */; };
+		2FB23E8A2B1519B40073ABFC /* String+capitalizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E892B1519B40073ABFC /* String+capitalizing.swift */; };
+		2FB23E8C2B1519FE0073ABFC /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E8B2B1519FE0073ABFC /* CommonError.swift */; };
 		2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */; };
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
@@ -101,6 +103,8 @@
 		2FB23E812B14D1FB0073ABFC /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		2FB23E842B14D4D80073ABFC /* LocationCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCellData.swift; sourceTree = "<group>"; };
 		2FB23E872B14D7B00073ABFC /* NSObject+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
+		2FB23E892B1519B40073ABFC /* String+capitalizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+capitalizing.swift"; sourceTree = "<group>"; };
+		2FB23E8B2B1519FE0073ABFC /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D82AF9231900EB4B53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -182,9 +186,9 @@
 				2F3BD8672AE119CD0044F4DD /* AppDelegate.swift */,
 				2F6152732AEAA5CB00FCC073 /* Assembly.swift */,
 				2F531D242B064069009477A3 /* Common */,
-				2F61525C2AE69BDD00FCC073 /* ColorGenerator.swift */,
 				2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */,
 				2F3BD8692AE119CD0044F4DD /* SceneDelegate.swift */,
+				2F61525C2AE69BDD00FCC073 /* ColorGenerator.swift */,
 				2F61526A2AE7629400FCC073 /* Models */,
 				2F3BD8702AE119CF0044F4DD /* Assets.xcassets */,
 				2F3BD8722AE119CF0044F4DD /* LaunchScreen.storyboard */,
@@ -228,6 +232,7 @@
 				2F61526D2AE7629400FCC073 /* Character.swift */,
 				2F61526E2AE7629400FCC073 /* LocationsList.swift */,
 				2FEB77472B03357E00EB4B53 /* User.swift */,
+				2FB23E8B2B1519FE0073ABFC /* CommonError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -261,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				2FB23E872B14D7B00073ABFC /* NSObject+ClassName.swift */,
+				2FB23E892B1519B40073ABFC /* String+capitalizing.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -483,6 +489,7 @@
 				2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */,
 				2FEB76FB2AFCE24700EB4B53 /* RegistrationAssembly.swift in Sources */,
 				2FEB76E32AF9261400EB4B53 /* AuthCoordinator.swift in Sources */,
+				2FB23E8A2B1519B40073ABFC /* String+capitalizing.swift in Sources */,
 				2FEB77462B02A9E400EB4B53 /* RegistrationApiClient.swift in Sources */,
 				2F61525D2AE69BDD00FCC073 /* ColorGenerator.swift in Sources */,
 				2F6152712AE7629400FCC073 /* Character.swift in Sources */,
@@ -498,6 +505,7 @@
 				2FEB77022AFD12A300EB4B53 /* SplashDataProvider.swift in Sources */,
 				2FEB76FE2AFCE24700EB4B53 /* RegistrationViewController.swift in Sources */,
 				2FEB76DB2AF9233E00EB4B53 /* AuthViewController.swift in Sources */,
+				2FB23E8C2B1519FE0073ABFC /* CommonError.swift in Sources */,
 				2F3BD8682AE119CD0044F4DD /* AppDelegate.swift in Sources */,
 				2F6152742AEAA5CB00FCC073 /* Assembly.swift in Sources */,
 				2FB23E7C2B14C25C0073ABFC /* LocationView.swift in Sources */,

@@ -11,7 +11,7 @@ protocol LocationDataProvider {
     func location(onRequestCompleted: @escaping (LocationsList?, ApiError?) -> Void)
 }
 
-class LocationDataProviderImp: LocationDataProvider {
+final class LocationDataProviderImp: LocationDataProvider {
     private let apiClient: LocationApiClient
 
     init(apiClient: LocationApiClient) {

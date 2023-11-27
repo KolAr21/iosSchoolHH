@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LocationCoordinator: BaseCoordinator<LocationCoordinator.Context> {
+final class LocationCoordinator: BaseCoordinator<LocationCoordinator.Context> {
 
     struct Context {}
 

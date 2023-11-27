@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RegistrationCoordinator: BaseCoordinator<RegistrationCoordinator.Context> {
+final class RegistrationCoordinator: BaseCoordinator<RegistrationCoordinator.Context> {
 
     struct Context {
         let onRegistrationSuccess: (() -> Void)?

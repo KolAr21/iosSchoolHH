@@ -11,7 +11,7 @@ protocol CharacterDataProvider {
     func character(onRequestCompleted: @escaping (Character?, ApiError?) -> Void)
 }
 
-class CharacterDataProviderImp: CharacterDataProvider {
+final class CharacterDataProviderImp: CharacterDataProvider {
     private let apiClient: CharacterApiClient
 
     init(apiClient: CharacterApiClient) {

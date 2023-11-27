@@ -6,7 +6,7 @@
 //
 import UIKit
 
-class CharacterViewController: UIViewController {
+final class CharacterViewController: UIViewController {
     private let dataProvider: CharacterDataProvider
 
     init(dataProvider: CharacterDataProvider) {
@@ -24,6 +24,8 @@ class CharacterViewController: UIViewController {
         view.backgroundColor = .brown
         character()
     }
+
+    // MARK: - Private func
 
     private func character() {
         dataProvider.character { character, _ in

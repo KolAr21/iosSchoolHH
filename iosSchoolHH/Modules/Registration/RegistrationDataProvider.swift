@@ -14,7 +14,7 @@ protocol RegistrationDataProvider {
     )
 }
 
-class RegistrationDataProviderImp: RegistrationDataProvider {
+final class RegistrationDataProviderImp: RegistrationDataProvider {
     private let apiClient: RegistrationApiClient
 
     init(apiClient: RegistrationApiClient) {

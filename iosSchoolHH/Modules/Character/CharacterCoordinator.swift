@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharacterCoordinator: BaseCoordinator<CharacterCoordinator.Context> {
+final class CharacterCoordinator: BaseCoordinator<CharacterCoordinator.Context> {
 
     struct Context {}
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AuthCoordinator: BaseCoordinator<AuthCoordinator.Context> {
+final class AuthCoordinator: BaseCoordinator<AuthCoordinator.Context> {
 
     struct Context {
         let onOpenLogin: (() -> Void)?
@@ -16,7 +16,11 @@ class AuthCoordinator: BaseCoordinator<AuthCoordinator.Context> {
     override func make() -> UIViewController? {
         let controller = assembly.authVC(onOpenLogin: context.onOpenLogin)
         controller.onOpenRegistration = { [weak controller] in
-            let coordinator = self.assembly.registrationCoordinator {}
+            let coordinator = self.assembly.registrationCoordinator { [weak self] in
+                DispatchQueue.main.async {
+                    self?.context.onOpenLogin?()
+                }
+            }
             guard let registrationVC = coordinator.make() else {
                 return
             }

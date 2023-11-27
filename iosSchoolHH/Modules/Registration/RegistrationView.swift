@@ -58,21 +58,21 @@ class RegistrationViewImp: UIView, RegistrationView {
         loginTextField.attributedPlaceholder = NSAttributedString(
             string: "Введите логин",
             attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "placeholder-darkGray") ?? .darkGray]
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
         )
 
         setSettingsTextField(textField: passwordTextField)
         passwordTextField.attributedPlaceholder = NSAttributedString(
             string: "Введите пароль",
             attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "placeholder-darkGray") ?? .darkGray]
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
         )
 
         setSettingsTextField(textField: repeatPasswordTextField)
         repeatPasswordTextField.attributedPlaceholder = NSAttributedString(
             string: "Повторите пароль",
             attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "placeholder-darkGray") ?? .darkGray]
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
         )
 
         setSettingsButton(button: registrationButton)
@@ -114,7 +114,7 @@ class RegistrationViewImp: UIView, RegistrationView {
         textField.borderStyle = .none
         textField.backgroundColor = .white
         textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor(named: "border-black")?.cgColor
+        textField.layer.borderColor = UIColor(named: "black")?.cgColor
         textField.layer.cornerRadius = 15
         textField.layer.shadowOpacity = 1
         textField.layer.shadowRadius = 8
@@ -130,7 +130,7 @@ class RegistrationViewImp: UIView, RegistrationView {
         button.layer.shadowOpacity = 1
         button.layer.shadowRadius = 8
         button.layer.shadowOffset = CGSize(width: 0, height: 5)
-        button.backgroundColor = UIColor(named: "button-blue")
+        button.backgroundColor = UIColor(named: "blue")
         button.layer.cornerRadius = 10
     }
 

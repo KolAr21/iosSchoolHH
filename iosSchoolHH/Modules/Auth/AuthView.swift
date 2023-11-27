@@ -17,7 +17,7 @@ protocol AuthViewDelegate: AnyObject {
     func registrationButtonDidTap()
 }
 
-class AuthViewImp: UIView, AuthView {
+final class AuthViewImp: UIView, AuthView {
 
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var imageView: UIImageView!
@@ -42,13 +42,35 @@ class AuthViewImp: UIView, AuthView {
         addGestureRecognizer(recognizer)
 
         imageView.image = UIImage(named: "auth-background")
+        imageView.backgroundColor = UIColor(named: "silver")
         imageView.contentMode = .scaleAspectFill
-        layer.cornerRadius = 10
-        labelView.layer.masksToBounds = true
-        labelView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+
+        labelView.clipsToBounds = false
+        labelView.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
         labelView.layer.shadowOpacity = 1
         labelView.layer.shadowRadius = 10
         labelView.layer.shadowOffset = CGSize(width: 0, height: 8)
+        labelView.backgroundColor = .clear
+
+        labelView.layer.cornerRadius = 10
+        labelView.backgroundColor = UIColor(named: "shadow-silver")
+
+        setSettingsTextField(textField: loginTextField)
+        loginTextField.attributedPlaceholder = NSAttributedString(
+            string: "Логин",
+            attributes:
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        )
+
+        setSettingsTextField(textField: passwordTextField)
+        passwordTextField.attributedPlaceholder = NSAttributedString(
+            string: "Пароль",
+            attributes:
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        )
+
+        setSettingsButton(button: loginButton)
+        setSettingsButton(button: registrationButton)
 
         registrationButton.addTarget(self, action: #selector(registrationDidTap), for: .touchUpInside)
 
@@ -67,7 +89,7 @@ class AuthViewImp: UIView, AuthView {
 
     }
 
-    // MARK: - Private
+    // MARK: - Private func
 
     @IBAction private func loginDidTap(_ sender: UIButton) {
         loginTextField.resignFirstResponder()
@@ -100,5 +122,29 @@ class AuthViewImp: UIView, AuthView {
     @objc private func viewDidTap() {
         loginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
+    }
+
+    private func setSettingsTextField(textField: UITextField) {
+        textField.borderStyle = .none
+        textField.backgroundColor = .white
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor(named: "black")?.cgColor
+        textField.layer.cornerRadius = 15
+        textField.layer.shadowOpacity = 1
+        textField.layer.shadowRadius = 8
+        textField.layer.shadowOffset = CGSize(width: 0, height: 5)
+        textField.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: textField.frame.height))
+        textField.leftView = paddingView
+        textField.leftViewMode = .always
+    }
+
+    private func setSettingsButton(button: UIButton) {
+        button.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
+        button.layer.shadowOpacity = 1
+        button.layer.shadowRadius = 8
+        button.layer.shadowOffset = CGSize(width: 0, height: 5)
+        button.backgroundColor = UIColor(named: "blue")
+        button.layer.cornerRadius = 10
     }
 }
