@@ -51,7 +51,6 @@ final class AuthViewImp: UIView, AuthView {
         labelView.layer.shadowRadius = 10
         labelView.layer.shadowOffset = CGSize(width: 0, height: 8)
         labelView.backgroundColor = .clear
-
         labelView.layer.cornerRadius = 10
         labelView.backgroundColor = UIColor(named: "shadow-silver")
 
@@ -125,6 +124,7 @@ final class AuthViewImp: UIView, AuthView {
     }
 
     private func setSettingsTextField(textField: UITextField) {
+        textField.backgroundColor = UIColor(named: "lightGray")
         textField.borderStyle = .none
         textField.backgroundColor = .white
         textField.layer.borderWidth = 1

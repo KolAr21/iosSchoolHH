@@ -10,11 +10,11 @@ import Foundation
 struct LocationCellData {
     let name: String
     let type: String
-    let population: Int
+    let population: String
 
     init(location: Location) {
         name = location.name
         type = location.type
-        population = location.residents.count
+        population = "Население: \(location.residents.count)"
     }
 }

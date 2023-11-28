@@ -33,6 +33,6 @@ final class LocationCell: UITableViewCell {
     private func update(data: LocationCellData) {
         nameLabel.text = data.name
         typeLabel.text = data.type
-        populationLabel.text = "Население: \(data.population)"
+        populationLabel.text = data.population
     }
 }
