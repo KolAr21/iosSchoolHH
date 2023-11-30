@@ -31,14 +31,13 @@ final class CharacterViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .brown
-
+        print(charactersUrlList)
         charactersUrlList.forEach { url in
             requestCharacter(url: url) { [weak self] character in
-                self?.imageService.getImage(url: url, completion: { [weak self] image in
+                self?.imageService.getImage(url: character.image, completion: { [weak self] image in
                     guard let image else {
                         return
                     }
-                    print("sucess")
                 })
             }
         }
