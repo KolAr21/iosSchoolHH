@@ -9,7 +9,7 @@ import UIKit
 import SPIndicator
 import PKHUD
 
-class RegistrationViewController<View: RegistrationView>: BaseViewController<View> {
+final class RegistrationViewController<View: RegistrationView>: BaseViewController<View> {
 
     private let dataProvider: RegistrationDataProvider
     private var onRegistrationSuccess: (() -> Void)?
@@ -29,12 +29,6 @@ class RegistrationViewController<View: RegistrationView>: BaseViewController<Vie
         super.viewDidLoad()
         rootView.setView()
         rootView.delegate = self
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        onRegistrationSuccess?()
     }
 }
 

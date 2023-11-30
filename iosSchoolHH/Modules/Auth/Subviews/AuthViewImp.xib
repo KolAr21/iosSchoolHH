@@ -53,7 +53,7 @@
                                     </constraints>
                                 </view>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="a2J-NB-Nt9">
-                                    <rect key="frame" x="32" y="539" width="366" height="98"/>
+                                    <rect key="frame" x="32" y="527" width="366" height="98"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lOH-Jl-Qb4">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
@@ -73,27 +73,33 @@
                                         </textField>
                                     </subviews>
                                 </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="hGM-CP-0xS">
-                                    <rect key="frame" x="16" y="806" width="398" height="80"/>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hGM-CP-0xS">
+                                    <rect key="frame" x="16" y="794" width="398" height="92"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRL-nI-2Yj">
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Rdg-in-P1g"/>
                                             </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Войти">
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                            </buttonConfiguration>
                                             <connections>
                                                 <action selector="loginDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="0CO-kP-Fz8"/>
                                             </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5f-88-RWk">
-                                            <rect key="frame" x="0.0" y="40" width="398" height="40"/>
+                                            <rect key="frame" x="0.0" y="52" width="398" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="dBF-Ek-kY5"/>
                                             </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                            <buttonConfiguration key="configuration" style="plain" title="Зарегистрироваться">
+                                                <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                            </buttonConfiguration>
                                         </button>
                                     </subviews>
                                 </stackView>

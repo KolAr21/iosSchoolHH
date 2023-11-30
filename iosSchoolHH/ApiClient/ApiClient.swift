@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ApiClient {
+final class ApiClient {
     func performRequest<ResponseModel: Decodable> (
         url: String,
         data: Data?,

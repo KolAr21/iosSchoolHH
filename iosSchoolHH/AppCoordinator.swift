@@ -9,7 +9,7 @@ import UIKit
 
 struct CoordinatorContext {}
 
-class AppCoordinator: BaseCoordinator<CoordinatorContext> {
+final class AppCoordinator: BaseCoordinator<CoordinatorContext> {
 
     private var window: UIWindow?
 
@@ -21,9 +21,10 @@ class AppCoordinator: BaseCoordinator<CoordinatorContext> {
         setRoot(viewController: coordinator.make())
     }
 
+    // MARK: - Private func
+
     private func authBootstrap() {
         let authCoordinator = assembly.authCoordinator { [weak self] in
-            print("assembly.authCoordinator")
             DispatchQueue.main.async {
                 self?.setTabVC()
             }
@@ -32,7 +33,6 @@ class AppCoordinator: BaseCoordinator<CoordinatorContext> {
     }
 
     private func setTabVC() {
-        print("assembly.setTabVC")
         let tabVC = assembly.rootTabBarController()
 
         let locationsCoord = assembly.locationCoordinator()

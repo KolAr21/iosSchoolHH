@@ -9,7 +9,7 @@ import UIKit
 import SPIndicator
 import PKHUD
 
-class AuthViewController<View: AuthView>: BaseViewController<View> {
+final class AuthViewController<View: AuthView>: BaseViewController<View> {
 
     private let dataProvider: AuthDataProvider
     private var onOpenLogin: (() -> Void)?
@@ -38,20 +38,19 @@ class AuthViewController<View: AuthView>: BaseViewController<View> {
 
 extension AuthViewController: AuthViewDelegate {
     func loginButtonDidTap(login: String, password: String) {
-        onOpenLogin?()
-//        HUD.show(.progress)
-//        dataProvider.auth(login: login, password: password) { [weak self] token, error in
-//            DispatchQueue.main.async {
-//                HUD.hide()
-//            }
-//            guard let self, token != nil else {
-//                DispatchQueue.main.async {
-//                    SPIndicator.present(title: error?.rawValue ?? "", haptic: .error)
-//                }
-//                return
-//            }
-//            self.onOpenLogin?()
-//        }
+        HUD.show(.progress)
+        dataProvider.auth(login: login, password: password) { [weak self] token, error in
+            DispatchQueue.main.async {
+                HUD.hide()
+            }
+            guard let self, token != nil else {
+                DispatchQueue.main.async {
+                    SPIndicator.present(title: error?.rawValue ?? "", haptic: .error)
+                }
+                return
+            }
+            self.onOpenLogin?()
+        }
     }
 
     func registrationButtonDidTap() {

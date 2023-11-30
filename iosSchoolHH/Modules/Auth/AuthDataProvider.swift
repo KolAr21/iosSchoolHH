@@ -15,7 +15,7 @@ protocol AuthDataProvider {
     )
 }
 
-class AuthDataProviderImp: AuthDataProvider {
+final class AuthDataProviderImp: AuthDataProvider {
 
     private let apiClient: AuthApiClient
 

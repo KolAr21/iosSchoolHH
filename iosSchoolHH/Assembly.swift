@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Assembly {
+final class Assembly {
 
     var apiClient: ApiClient {
         ApiClient()
@@ -16,10 +16,6 @@ class Assembly {
     func colorGenerator(alpha: Double) -> ColorGenerator {
         ColorGenerator(alpha: alpha)
     }
-
-//    func locationCoordinator() -> LocationCoordinator {
-//        LocationCoordinator(assembly: self, context: .init())
-//    }
 
     func appCoordinator() -> AppCoordinator {
         AppCoordinator(assembly: self, context: .init())

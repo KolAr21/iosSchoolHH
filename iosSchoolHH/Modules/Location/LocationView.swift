@@ -14,7 +14,7 @@ protocol LocationView: UIView {
     func update(data: LocationViewData)
 }
 
-class LocationViewImp: UIView, LocationView {
+final class LocationViewImp: UIView, LocationView {
 
     var selectLocation: ((LocationCellData) -> Void)?
     private var viewData: LocationViewData?
@@ -35,6 +35,7 @@ class LocationViewImp: UIView, LocationView {
         imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 
         let nib = UINib(nibName: LocationCell.className, bundle: nil)
+        tableView.separatorColor = .black
         tableView.register(nib, forCellReuseIdentifier: LocationCell.className)
         tableView.contentInset = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         tableView.backgroundColor = .clear
