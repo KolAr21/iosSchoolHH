@@ -39,6 +39,7 @@
 		2FB23E882B14D7B00073ABFC /* NSObject+ClassName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E872B14D7B00073ABFC /* NSObject+ClassName.swift */; };
 		2FB23E8A2B1519B40073ABFC /* String+capitalizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E892B1519B40073ABFC /* String+capitalizing.swift */; };
 		2FB23E8C2B1519FE0073ABFC /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E8B2B1519FE0073ABFC /* CommonError.swift */; };
+		2FB23E952B18CC6C0073ABFC /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E942B18CC6C0073ABFC /* ImageService.swift */; };
 		2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */; };
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
@@ -105,6 +106,7 @@
 		2FB23E872B14D7B00073ABFC /* NSObject+ClassName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+ClassName.swift"; sourceTree = "<group>"; };
 		2FB23E892B1519B40073ABFC /* String+capitalizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+capitalizing.swift"; sourceTree = "<group>"; };
 		2FB23E8B2B1519FE0073ABFC /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
+		2FB23E942B18CC6C0073ABFC /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D82AF9231900EB4B53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		2F3BD8662AE119CD0044F4DD /* iosSchoolHH */ = {
 			isa = PBXGroup;
 			children = (
+				2FB23E932B18CC5C0073ABFC /* Services */,
 				2FB23E862B14D7950073ABFC /* Extensions */,
 				2F21B3A92B0F889C001BCB65 /* UIKit */,
 				2FEB77212B025AE600EB4B53 /* ApiClient */,
@@ -269,6 +272,14 @@
 				2FB23E892B1519B40073ABFC /* String+capitalizing.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2FB23E932B18CC5C0073ABFC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2FB23E942B18CC6C0073ABFC /* ImageService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		2FEB76D42AF9223400EB4B53 /* Modules */ = {
@@ -511,6 +522,7 @@
 				2FB23E7C2B14C25C0073ABFC /* LocationView.swift in Sources */,
 				2FEB77292B02601500EB4B53 /* AuthApiClient.swift in Sources */,
 				2F4D70192B0FA7F1001133B9 /* TabBarController.swift in Sources */,
+				2FB23E952B18CC6C0073ABFC /* ImageService.swift in Sources */,
 				2F531D1A2B05183F009477A3 /* CharacterAssembly.swift in Sources */,
 				2F6152722AE7629400FCC073 /* LocationsList.swift in Sources */,
 				2FEB774A2B03386900EB4B53 /* CharacterCoordinator.swift in Sources */,
