@@ -17,11 +17,11 @@ extension Assembly: CharacterAssembly {
     func characterVC(data: LocationCellData) -> CharacterViewController {
         .init(dataProvider: characterDataProvider(), data: data, imageService: imageService)
     }
-    
+
     func characterDataProvider() -> CharacterDataProvider {
         CharacterDataProviderImp(apiClient: apiClient)
     }
-    
+
     func characterCoordinator(data: LocationCellData) -> CharacterCoordinator {
         CharacterCoordinator(assembly: self, context: .init(data: data))
     }

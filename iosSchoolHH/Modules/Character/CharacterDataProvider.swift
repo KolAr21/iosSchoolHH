@@ -14,15 +14,15 @@ protocol CharacterDataProvider {
 
 final class CharacterDataProviderImp: CharacterDataProvider {
     private let apiClient: CharacterApiClient
-    
+
     init(apiClient: CharacterApiClient) {
         self.apiClient = apiClient
     }
-    
+
     func character(onRequestCompleted: @escaping (Character?, ApiError?) -> Void) {
         apiClient.character(onRequestCompleted: onRequestCompleted)
     }
-    
+
     func character(url: String, onRequestCompleted: @escaping (Character?, ApiError?) -> Void) {
         apiClient.character(url: url, onRequestCompleted: onRequestCompleted)
     }
