@@ -12,11 +12,13 @@ import PKHUD
 final class RegistrationViewController<View: RegistrationView>: BaseViewController<View> {
 
     private let dataProvider: RegistrationDataProvider
+    private let storageManager: StorageManager
     private var onRegistrationSuccess: (() -> Void)?
 
-    init(dataProvider: RegistrationDataProvider, onRegistrationSuccess: (() -> Void)?) {
+    init(dataProvider: RegistrationDataProvider, storageManager: StorageManager, onRegistrationSuccess: (() -> Void)?) {
         self.dataProvider = dataProvider
         self.onRegistrationSuccess = onRegistrationSuccess
+        self.storageManager = storageManager
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -46,12 +48,13 @@ extension RegistrationViewController: RegistrationViewDelegate {
             DispatchQueue.main.async {
                 HUD.hide()
             }
-            guard let self, token != nil else {
+            guard let self, let token else {
                 DispatchQueue.main.async {
                     SPIndicator.present(title: error?.rawValue ?? "", haptic: .error)
                 }
                 return
             }
+            self.storageManager.saveToken(token: token)
             self.onRegistrationSuccess?()
         }
     }

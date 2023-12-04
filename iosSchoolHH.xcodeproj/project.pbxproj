@@ -40,6 +40,8 @@
 		2FB23E8A2B1519B40073ABFC /* String+capitalizing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E892B1519B40073ABFC /* String+capitalizing.swift */; };
 		2FB23E8C2B1519FE0073ABFC /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E8B2B1519FE0073ABFC /* CommonError.swift */; };
 		2FB23E952B18CC6C0073ABFC /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E942B18CC6C0073ABFC /* ImageService.swift */; };
+		2FB23EA72B1E014B0073ABFC /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB23EA62B1E014B0073ABFC /* KeychainAccess */; };
+		2FB23EA92B1E01940073ABFC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23EA82B1E01940073ABFC /* StorageManager.swift */; };
 		2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */; };
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
@@ -107,6 +109,7 @@
 		2FB23E892B1519B40073ABFC /* String+capitalizing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+capitalizing.swift"; sourceTree = "<group>"; };
 		2FB23E8B2B1519FE0073ABFC /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		2FB23E942B18CC6C0073ABFC /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		2FB23EA82B1E01940073ABFC /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D82AF9231900EB4B53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -147,6 +150,7 @@
 			files = (
 				2FB23E4C2B0FABDA0073ABFC /* SPIndicator in Frameworks */,
 				2FB23E4E2B0FABDD0073ABFC /* PKHUD in Frameworks */,
+				2FB23EA72B1E014B0073ABFC /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				2FB23E942B18CC6C0073ABFC /* ImageService.swift */,
+				2FB23EA82B1E01940073ABFC /* StorageManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -395,6 +400,7 @@
 			packageProductDependencies = (
 				2FB23E4B2B0FABDA0073ABFC /* SPIndicator */,
 				2FB23E4D2B0FABDD0073ABFC /* PKHUD */,
+				2FB23EA62B1E014B0073ABFC /* KeychainAccess */,
 			);
 			productName = iosSchoolHH;
 			productReference = 2F3BD8642AE119CD0044F4DD /* iosSchoolHH.app */;
@@ -427,6 +433,7 @@
 			packageReferences = (
 				2F21B3AF2B0F923F001BCB65 /* XCRemoteSwiftPackageReference "SPIndicator" */,
 				2F21B3B22B0F9437001BCB65 /* XCRemoteSwiftPackageReference "PKHUD" */,
+				2FB23EA52B1E014B0073ABFC /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 2F3BD8652AE119CD0044F4DD /* Products */;
 			projectDirPath = "";
@@ -490,6 +497,7 @@
 				2F531D282B0640CD009477A3 /* BaseViewController.swift in Sources */,
 				2F21B3AB2B0F88B1001BCB65 /* RootTab.swift in Sources */,
 				2F21B3AE2B0F896F001BCB65 /* BaseNavigationController.swift in Sources */,
+				2FB23EA92B1E01940073ABFC /* StorageManager.swift in Sources */,
 				2FEB76DF2AF9245700EB4B53 /* AuthDataProvider.swift in Sources */,
 				2FEB76FF2AFCE24700EB4B53 /* RegistrationCoordinator.swift in Sources */,
 				2FEB77202B025A4100EB4B53 /* TokenResponse.swift in Sources */,
@@ -762,6 +770,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		2FB23EA52B1E014B0073ABFC /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -774,6 +790,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2F21B3B22B0F9437001BCB65 /* XCRemoteSwiftPackageReference "PKHUD" */;
 			productName = PKHUD;
+		};
+		2FB23EA62B1E014B0073ABFC /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2FB23EA52B1E014B0073ABFC /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

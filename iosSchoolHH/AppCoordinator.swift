@@ -24,6 +24,11 @@ final class AppCoordinator: BaseCoordinator<CoordinatorContext> {
     // MARK: - Private func
 
     private func authBootstrap() {
+        guard assembly.storageManager.getToken() == nil else {
+            setTabVC()
+            return
+        }
+
         let authCoordinator = assembly.authCoordinator { [weak self] in
             DispatchQueue.main.async {
                 self?.setTabVC()
