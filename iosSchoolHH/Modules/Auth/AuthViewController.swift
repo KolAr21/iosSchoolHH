@@ -52,6 +52,8 @@ extension AuthViewController: AuthViewDelegate {
                 return
             }
             self.storageManager.saveToken(token: token)
+            self.storageManager.saveDateLastLogin()
+            print(self.storageManager.getDateLastLogin())
             self.onOpenLogin?()
         }
     }

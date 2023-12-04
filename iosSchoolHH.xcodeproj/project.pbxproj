@@ -42,6 +42,7 @@
 		2FB23E952B18CC6C0073ABFC /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23E942B18CC6C0073ABFC /* ImageService.swift */; };
 		2FB23EA72B1E014B0073ABFC /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 2FB23EA62B1E014B0073ABFC /* KeychainAccess */; };
 		2FB23EA92B1E01940073ABFC /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23EA82B1E01940073ABFC /* StorageManager.swift */; };
+		2FB23EAB2B1E39640073ABFC /* Date+dateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB23EAA2B1E39640073ABFC /* Date+dateFormatter.swift */; };
 		2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */; };
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
@@ -110,6 +111,7 @@
 		2FB23E8B2B1519FE0073ABFC /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		2FB23E942B18CC6C0073ABFC /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		2FB23EA82B1E01940073ABFC /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		2FB23EAA2B1E39640073ABFC /* Date+dateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+dateFormatter.swift"; sourceTree = "<group>"; };
 		2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D82AF9231900EB4B53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -274,6 +276,7 @@
 			children = (
 				2FB23E872B14D7B00073ABFC /* NSObject+ClassName.swift */,
 				2FB23E892B1519B40073ABFC /* String+capitalizing.swift */,
+				2FB23EAA2B1E39640073ABFC /* Date+dateFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -500,6 +503,7 @@
 				2FB23EA92B1E01940073ABFC /* StorageManager.swift in Sources */,
 				2FEB76DF2AF9245700EB4B53 /* AuthDataProvider.swift in Sources */,
 				2FEB76FF2AFCE24700EB4B53 /* RegistrationCoordinator.swift in Sources */,
+				2FB23EAB2B1E39640073ABFC /* Date+dateFormatter.swift in Sources */,
 				2FEB77202B025A4100EB4B53 /* TokenResponse.swift in Sources */,
 				2F531D1C2B051846009477A3 /* CharacterDataProvider.swift in Sources */,
 				2FEB76FA2AFCE24700EB4B53 /* RegistrationView.swift in Sources */,
