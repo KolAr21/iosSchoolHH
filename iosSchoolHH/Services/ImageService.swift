@@ -31,9 +31,13 @@ final class ImageServiceImp: ImageService {
             }
             DispatchQueue.global().async {
                 self.apiClient.requestImageData(url: url) { [weak self] data in
-                    guard let data, let dataImage = UIImage(data: data) else { return }
-                    self?.imageDict[url] = dataImage
-                    completion(dataImage)
+                    guard let self, let data, let dataImage = UIImage(data: data) else {
+                        return
+                    }
+                    self.updateQueue.async {
+                        self.imageDict[url] = dataImage
+                        completion(dataImage)
+                    }
                 }
             }
         }
