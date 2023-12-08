@@ -18,6 +18,7 @@ enum RootTab: Int {
             tag: self.rawValue
         )
         let appearance = UITabBarAppearance()
+        appearance.backgroundColor = UIColor(named: "iceberg")
         appearance.stackedLayoutAppearance.selected.titleTextAttributes = [
             .foregroundColor: UIColor(named: "black") ?? .black,
             .font: UIFont.systemFont(ofSize: 10)

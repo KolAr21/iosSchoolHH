@@ -8,6 +8,7 @@
 import UIKit
 
 final class TabBarController: UITabBarController {
+    var blurView: UIVisualEffectView!
 
     init() {
         super.init(nibName: nil, bundle: nil)

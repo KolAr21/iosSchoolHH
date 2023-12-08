@@ -6,7 +6,7 @@
 //
 import UIKit
 
-final class CharacterViewController: UIViewController {
+final class CharacterViewController<View: CharacterView>: BaseViewController<View> {
 
     private var characters: [Character] = []
 
@@ -30,15 +30,28 @@ final class CharacterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .brown
+        rootView.setView()
+        rootView.update(data: CharacterViewData(cells: charactersUrlList.map({ CharacterCellData(url: $0) })))
+        view.backgroundColor = UIColor(named: "iceberg")
 
-        charactersUrlList.forEach { url in
+        charactersUrlList.enumerated().forEach { idx, url in
             requestCharacter(url: url) { [weak self] character in
-                self?.imageService.getImage(url: url, completion: { [weak self] image in
+                guard let self else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    self.rootView.updateCharacter(idx: idx, with: CharacterCellData(
+                        character: character,
+                        isLoading: true,
+                        image: nil,
+                        selectClosure: nil
+                    ))
+
+                }
+                self.imageService.getImage(url: url, completion: { [weak self] image in
                     guard let image else {
                         return
                     }
-                    print("sucess")
                 })
             }
         }
