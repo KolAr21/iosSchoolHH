@@ -20,7 +20,7 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
         charactersUrlList = data.residents
         self.imageService = imageService
         super.init(nibName: nil, bundle: nil)
-        title = "Жители локации \(data.name)"
+        title = "Жители локации \"\(data.name)\""
     }
 
     required init?(coder: NSCoder) {
@@ -32,13 +32,13 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
 
         rootView.setView()
         rootView.update(data: CharacterViewData(cells: charactersUrlList.map({ CharacterCellData(url: $0) })))
-        view.backgroundColor = UIColor(named: "iceberg")
 
         charactersUrlList.enumerated().forEach { idx, url in
             requestCharacter(url: url) { [weak self] character in
                 guard let self else {
                     return
                 }
+
                 DispatchQueue.main.async {
                     self.rootView.updateCharacter(idx: idx, with: CharacterCellData(
                         character: character,
@@ -46,11 +46,21 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
                         image: nil,
                         selectClosure: nil
                     ))
-
                 }
-                self.imageService.getImage(url: url, completion: { [weak self] image in
+
+                self.imageService.getImage(url: character.image, completion: { [weak self] image in
                     guard let image else {
                         return
+                    }
+
+                    DispatchQueue.main.async {
+                        self?.rootView.updateCharacter(idx: idx, with: CharacterCellData(
+                            character: character,
+                            isLoading: false,
+                            image: image,
+                            selectClosure: nil
+                        ))
+
                     }
                 })
             }

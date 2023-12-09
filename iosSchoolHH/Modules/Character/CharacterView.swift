@@ -25,6 +25,7 @@ class CharacterViewImp: UIView, CharacterView {
     }()
 
     func setView() {
+        self.backgroundColor = UIColor(named: "silver")
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -78,7 +79,19 @@ extension CharacterViewImp: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        section?.cell(collectionView: collectionView, indexPath: indexPath) ?? UICollectionViewCell()
+        guard let cell = section?.cell(collectionView: collectionView, indexPath: indexPath) else {
+            return UICollectionViewCell()
+        }
+
+        cell.backgroundColor = UIColor(named: "iceberg")
+        cell.layer.cornerRadius = 15
+        cell.clipsToBounds = false
+        cell.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
+        cell.layer.shadowOpacity = 1
+        cell.layer.shadowOffset = CGSize(width: 0, height: 5)
+        cell.layer.shadowRadius = 8
+
+        return cell
     }
 }
 
