@@ -17,10 +17,9 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dOV-9x-2fa">
-                        <rect key="frame" x="23" y="6" width="167" height="120"/>
+                        <rect key="frame" x="6" y="6" width="201" height="120"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="120" id="LN4-iQ-3eH"/>
-                            <constraint firstAttribute="width" constant="167" id="pRb-3L-0Wn"/>
+                            <constraint firstAttribute="height" constant="120" id="XnZ-MT-Vk1"/>
                         </constraints>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RPv-OC-gBD">
@@ -50,9 +49,12 @@
             <constraints>
                 <constraint firstItem="dOV-9x-2fa" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="EOv-IK-qLh"/>
                 <constraint firstItem="k0N-rL-YZQ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="GB1-Wy-edW"/>
+                <constraint firstItem="dOV-9x-2fa" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="Iwx-KT-sXL"/>
                 <constraint firstAttribute="trailing" secondItem="RPv-OC-gBD" secondAttribute="trailing" constant="16" id="L4l-zH-1nT"/>
                 <constraint firstItem="dOV-9x-2fa" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="6" id="Sv1-b0-q07"/>
                 <constraint firstAttribute="bottom" secondItem="RPv-OC-gBD" secondAttribute="bottom" constant="3" id="Zjp-kv-dyl"/>
+                <constraint firstAttribute="trailing" secondItem="dOV-9x-2fa" secondAttribute="trailing" constant="6" id="hvY-XU-lVP"/>
+                <constraint firstItem="qMj-Pt-2Vx" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dOV-9x-2fa" secondAttribute="bottom" constant="1" id="kna-m4-UbE"/>
                 <constraint firstItem="k0N-rL-YZQ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="kua-gj-W8y"/>
                 <constraint firstItem="RPv-OC-gBD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="ooi-aw-mAn"/>
             </constraints>

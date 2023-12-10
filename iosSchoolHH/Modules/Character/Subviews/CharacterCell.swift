@@ -38,6 +38,14 @@ class CharacterCell: UICollectionViewCell, CoreCellView {
     }
 
     func update(with inputData: CharacterCellData) {
+        backgroundColor = UIColor(named: "iceberg")
+        layer.cornerRadius = 15
+        clipsToBounds = false
+        layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize(width: 0, height: 5)
+        layer.shadowRadius = 8
+
         if inputData.isLoading {
             activityIndicator.startAnimating()
             imageView.image = UIImage(named: "character-placeholder")
