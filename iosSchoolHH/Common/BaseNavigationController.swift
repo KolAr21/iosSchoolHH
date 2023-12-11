@@ -12,17 +12,9 @@ final class BaseNavigationController: UINavigationController, UINavigationContro
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rectInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 0)
-        let backButton = UIImage(named: "character-back")?.withAlignmentRectInsets(rectInsets)
 
         let navigationBarAppearance = UINavigationBarAppearance()
         navigationBarAppearance.configureWithTransparentBackground()
-        navigationBarAppearance.backButtonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.clear]
-        navigationBarAppearance.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.black,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18)
-        ]
-        navigationBarAppearance.setBackIndicatorImage(backButton, transitionMaskImage: backButton)
 
         UINavigationBar.appearance().standardAppearance = navigationBarAppearance
         UINavigationBar.appearance().compactAppearance = navigationBarAppearance

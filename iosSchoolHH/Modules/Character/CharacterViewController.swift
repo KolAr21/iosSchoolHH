@@ -30,6 +30,7 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupBar()
         rootView.setView()
         rootView.update(data: CharacterViewData(cells: charactersUrlList.map({ CharacterCellData(url: $0) })))
 
@@ -86,5 +87,18 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
                 }
             }
         }
+    }
+
+    private func setupBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "character-back"),
+            style: .plain,
+            target: self,
+            action: #selector(back)
+        )
+    }
+
+    @objc private func back() {
+        self.navigationController?.popViewController(animated: true)
     }
 }
