@@ -61,10 +61,11 @@ class CharacterViewImp: UIView, CharacterView {
 
     func updateCharacter(idx: Int, with data: CharacterCellData) {
         section?.updateCell(at: IndexPath(item: idx, section: 0), with: data)
-        guard let cell = section?.cell(
+        let cell = section?.cell(
             collectionView: collectionView,
             indexPath: IndexPath(item: idx, section: 0)
-        ) as? CharacterCell else { return }
+        )
+        guard let cell = cell as? CharacterCell else { return }
     }
 }
 
