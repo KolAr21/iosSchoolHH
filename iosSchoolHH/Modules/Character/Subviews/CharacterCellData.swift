@@ -13,6 +13,7 @@ struct CharacterCellData: CoreCellInputData {
     let url: String
     let isLoading: Bool
     let name: String?
+    let gender: String?
     let imageUrl: String?
     let image: UIImage?
 
@@ -20,6 +21,7 @@ struct CharacterCellData: CoreCellInputData {
         url = character.url
         self.isLoading = isLoading
         name = character.name
+        gender = "\(character.species) \(character.gender)"
         imageUrl = character.image
         self.image = image
     }
@@ -28,6 +30,7 @@ struct CharacterCellData: CoreCellInputData {
         self.url = url
         isLoading = true
         name = nil
+        gender = nil
         imageUrl = nil
         image = nil
     }

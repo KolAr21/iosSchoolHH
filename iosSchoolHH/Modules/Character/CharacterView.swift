@@ -25,6 +25,7 @@ class CharacterViewImp: UIView, CharacterView {
     }()
 
     func setView() {
+        self.backgroundColor = UIColor(named: "silver")
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -63,7 +64,10 @@ class CharacterViewImp: UIView, CharacterView {
         guard let cell = section?.cell(
             collectionView: collectionView,
             indexPath: IndexPath(item: idx, section: 0)
-        ) as? CharacterCell else { return }
+            ) as? CharacterCell else {
+            return
+        }
+        cell.update(with: data)
     }
 }
 
