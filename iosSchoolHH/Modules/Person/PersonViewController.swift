@@ -6,21 +6,23 @@
 //
 
 import UIKit
+import PKHUD
 
 final class PersonViewController<View: PersonView>: BaseViewController<View> {
 
-//    private var characters: [Character] = []
-//
+    private var episodes: [Episode] = []
+
     private let dataProvider: PersonDataProvider
-    private let episodes: [String]
-//    private let updateQueue = DispatchQueue(label: "CharacterRequestQueue")
-//    private let imageService: ImageService
+    private let episodeUrls: [String]
+    private let updateQueue = DispatchQueue(label: "PersonRequestQueue")
+    private let imageURL: String?
+    private let imageService: ImageService
 
     init(dataProvider: PersonDataProvider, data: CharacterCellData, imageService: ImageService) {
         self.dataProvider = dataProvider
-        self.episodes = data.episodes
-//        charactersUrlList = data.residents
-//        self.imageService = imageService
+        episodeUrls = data.episodes
+        imageURL = data.imageUrl
+        self.imageService = imageService
         super.init(nibName: nil, bundle: nil)
         title = "Жители локации \"\(data.name ?? "")\""
     }
@@ -34,63 +36,45 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
 
         setupBar()
         rootView.setView()
-        rootView.update(data: .init(image: nil, episodeUrls: episodes))
-//        rootView.update(data: CharacterViewData(cells: charactersUrlList.map({ CharacterCellData(url: $0) })))
 
-//        charactersUrlList.enumerated().forEach { idx, url in
-//            requestCharacter(url: url) { [weak self] character in
-//                guard let self else {
-//                    return
-//                }
-//
-//                DispatchQueue.main.async {
-//                    self.rootView.updateCharacter(idx: idx, with: CharacterCellData(
-//                        character: character,
-//                        isLoading: true,
-//                        image: nil,
-//                        selectClosure: nil
-//                    ))
-//                }
-//
-//                self.imageService.getImage(url: character.image, completion: { [weak self] image in
-//                    guard let image else {
-//                        return
-//                    }
-//
-//                    DispatchQueue.main.async {
-//                        self?.rootView.updateCharacter(idx: idx, with: CharacterCellData(
-//                            character: character,
-//                            isLoading: false,
-//                            image: image,
-//                            selectClosure: nil
-//                        ))
-//
-//                    }
-//                })
-//            }
-//        }
+        guard let imageURL else { return }
+        imageService.getImage(url: imageURL) { [weak self] image in
+            guard let image else {
+                return
+            }
+            self?.episodeUrls.forEach { url in
+                self?.requestEpisode(url: url) { episode in
+                    DispatchQueue.main.async {
+                        self?.episodes.append(episode)
+                    }
+                }
+            }
+            DispatchQueue.main.async {
+                self?.rootView.update(
+                    data: .init(image: image,
+                                episodes: self?.episodes.sorted(by: { $0.id < $1.id }) ?? []
+                               )
+                )
+            }
+        }
     }
 
     // MARK: - Private func
 
-//    private func requestCharacter(url: String, completion: @escaping (Character) -> Void) {
-//        if let character = characters.first(where: { $0.url == url }) {
-//            completion(character)
-//            return
-//        }
-//        DispatchQueue.global().async {
-//            self.dataProvider.character(url: url) { [weak self] character, error in
-//                guard let character else {
-//                    print(error ?? "no error")
-//                    return
-//                }
-//                self?.updateQueue.async {
-//                    self?.characters.append(character)
-//                    completion(character)
-//                }
-//            }
-//        }
-//    }
+    private func requestEpisode(url: String, completion: @escaping (Episode) -> Void) {
+        DispatchQueue.global().async {
+            self.dataProvider.episode(url: url) { [weak self] episode, error in
+                guard let episode else {
+                    print(error ?? "no error")
+                    return
+                }
+                self?.updateQueue.async {
+                    self?.episodes.append(episode)
+                    completion(episode)
+                }
+            }
+        }
+    }
 
     private func setupBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(
@@ -105,4 +89,3 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
         self.navigationController?.popViewController(animated: true)
     }
 }
-

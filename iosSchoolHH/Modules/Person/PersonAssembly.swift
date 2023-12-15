@@ -19,7 +19,7 @@ extension Assembly: PersonAssembly {
     }
 
     func personDataProvider() -> PersonDataProvider {
-        PersonDataProviderImp(/*apiClient: apiClient*/)
+        PersonDataProviderImp(apiClient: apiClient)
     }
 
     func personCoordinator(data: CharacterCellData) -> PersonCoordinator {

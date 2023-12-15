@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="288" height="253"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="character-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="NBW-GX-YSo">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="character-placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="NBW-GX-YSo">
                         <rect key="frame" x="16" y="16" width="256" height="221"/>
                     </imageView>
                 </subviews>
@@ -29,6 +29,9 @@
                 <constraint firstAttribute="trailing" secondItem="NBW-GX-YSo" secondAttribute="trailing" constant="16" id="oui-3N-q7Q"/>
             </constraints>
             <size key="customSize" width="288" height="253"/>
+            <connections>
+                <outlet property="imageView" destination="NBW-GX-YSo" id="FDf-VN-Ybe"/>
+            </connections>
             <point key="canvasLocation" x="224.42748091603053" y="91.197183098591552"/>
         </collectionViewCell>
     </objects>

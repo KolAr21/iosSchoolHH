@@ -43,38 +43,38 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
             self?.selectCharacter?(data)
         }
 
-                charactersUrlList.enumerated().forEach { idx, url in
-                    requestCharacter(url: url) { [weak self] character in
-                        guard let self else {
-                            return
-                        }
-//
-                        DispatchQueue.main.async {
-                            self.rootView.updateCharacter(idx: idx, with: CharacterCellData(
-                                character: character,
-                                isLoading: true,
-                                image: nil,
-                                selectClosure: selectClosure
-                            ))
-                        }
-//
-                        self.imageService.getImage(url: character.image, completion: { [weak self] image in
-                            guard let image else {
-                                return
-                            }
-//
-                            DispatchQueue.main.async {
-                                self?.rootView.updateCharacter(idx: idx, with: CharacterCellData(
-                                    character: character,
-                                    isLoading: false,
-                                    image: image,
-                                    selectClosure: selectClosure
-                                ))
-                            }
-                        })
-                    }
+        charactersUrlList.enumerated().forEach { idx, url in
+            requestCharacter(url: url) { [weak self] character in
+                guard let self else {
+                    return
                 }
-//            }
+
+                DispatchQueue.main.async {
+                    self.rootView.updateCharacter(idx: idx, with: CharacterCellData(
+                        character: character,
+                        isLoading: true,
+                        image: nil,
+                        selectClosure: selectClosure
+                    ))
+                }
+
+                self.imageService.getImage(url: character.image, completion: { [weak self] image in
+                    guard let image else {
+                        return
+                    }
+
+                    DispatchQueue.main.async {
+                        self?.rootView.updateCharacter(idx: idx, with: CharacterCellData(
+                            character: character,
+                            isLoading: false,
+                            image: image,
+                            selectClosure: selectClosure
+                        ))
+                    }
+                })
+            }
+        }
+        //            }
     }
 
     // MARK: - Private func

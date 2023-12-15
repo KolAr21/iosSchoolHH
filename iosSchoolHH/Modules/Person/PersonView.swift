@@ -10,7 +10,6 @@ import UIKit
 protocol PersonView: UIView {
     func setView()
     func update(data: PersonViewData)
-//    func updatePerson(idx: Int, with data: PersonCellData)
 }
 
 class PersonViewImp: UIView, PersonView {
@@ -70,17 +69,6 @@ class PersonViewImp: UIView, PersonView {
             return layoutSection
         }
     }
-//
-//    func updateCharacter(idx: Int, with data: CharacterCellData) {
-//        section?.updateCell(at: IndexPath(item: idx, section: 0), with: data)
-//        guard let cell = section?.cell(
-//            collectionView: collectionView,
-//            indexPath: IndexPath(item: idx, section: 0)
-//            ) as? CharacterCell else {
-//            return
-//        }
-//        cell.update(with: data)
-//    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -102,8 +90,15 @@ extension PersonViewImp: UICollectionViewDataSource {
         sections[indexPath.section].cell(collectionView: collectionView, indexPath: indexPath) ?? UICollectionViewCell()
     }
 
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        sections[indexPath.section].reusableView(collectionView: collectionView, indexPath: indexPath, kind: kind) ?? UICollectionReusableView()
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        sections[indexPath.section].reusableView(
+            collectionView: collectionView,
+            indexPath: indexPath, kind: kind
+        ) ?? UICollectionReusableView()
     }
 }
 
@@ -111,4 +106,3 @@ private extension PersonViewImp {
     typealias PersonPhotoSection = Section<PersonPhotoCell, EmptyReusableView, EmptyReusableView>
     typealias PersonEpisodeSection = Section<PersonEpisodeCell, PersonHeaderView, EmptyReusableView>
 }
-

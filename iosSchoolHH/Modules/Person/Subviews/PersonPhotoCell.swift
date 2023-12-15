@@ -9,20 +9,34 @@ import UIKit
 
 class PersonPhotoCell: UICollectionViewCell, CoreCellView {
 
+    @IBOutlet weak var imageView: UIImageView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+
         backgroundColor = UIColor(named: "iceberg")
+        clipsToBounds = false
+        layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowOffset = CGSize(width: 0, height: 5)
+        layer.shadowRadius = 8
+        layer.cornerRadius = 15
+
+        imageView.layer.cornerRadius = 15
     }
 
     static func layoutSection() -> NSCollectionLayoutSection {
+
+        let sizeCell = PersonSizeCell(screenSize: (PersonSizeCell.screenHeight > 800 ? .bigSize : .smallSize))
+
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.5)
+            heightDimension: .fractionalHeight(1)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.5)
+            heightDimension: .fractionalHeight(sizeCell.fractionalPhotoCell)
         )
 
         let group = NSCollectionLayoutGroup.vertical(
@@ -31,13 +45,18 @@ class PersonPhotoCell: UICollectionViewCell, CoreCellView {
             count: 1
         )
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 37, leading: 16, bottom: 84, trailing: 16)
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: sizeCell.topSpacePhotoCell,
+            leading: 16,
+            bottom: sizeCell.spaceBetweenPhotoAndEpisode,
+            trailing: 16
+        )
         return section
 
     }
 
     func update(with inputData: PersonPhotoCellData) {
-
+        imageView.image = inputData.image
     }
 
 }
