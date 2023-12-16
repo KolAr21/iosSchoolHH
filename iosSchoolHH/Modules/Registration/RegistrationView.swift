@@ -43,12 +43,16 @@ final class RegistrationViewImp: UIView, RegistrationView {
         imageView.image = UIImage(named: "registration-background")
         imageView.contentMode = .scaleAspectFill
 
-        avatarView.setSettingsImage()
+        avatarView.clipsToBounds = false
+        avatarView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        avatarView.layer.shadowRadius = 8
+        avatarView.layer.shadowOffset = CGSize(width: 0, height: 5)
+        avatarView.layer.shadowOpacity = 1
         let avatar = UIImageView(frame: CGRect(x: 0, y: 0, width: 110, height: 110))
         avatar.image = UIImage(named: "registration-avatar")
         avatar.layer.cornerRadius = avatar.frame.width / 2
         avatar.clipsToBounds = true
-        addSubview(avatar)
+        avatarView.addSubview(avatar)
 
         loginTextField.setSettingsTextField(placeholder: "Введите логин")
         passwordTextField.setSettingsTextField(placeholder: "Введите пароль")

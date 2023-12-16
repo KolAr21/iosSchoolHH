@@ -15,8 +15,11 @@ final class ProfilePhotoCell: UICollectionViewCell, CoreCellView {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundImage.image = UIImage(named: "profile-background")
-
-        avatarImage.setSettingsImage()
+        avatarImage.clipsToBounds = false
+        avatarImage.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
+        avatarImage.layer.shadowOffset = CGSize(width: 0, height: 5)
+        avatarImage.layer.shadowOpacity = 1
+        avatarImage.layer.shadowRadius = 4
     }
 
     static func layoutSection() -> NSCollectionLayoutSection {
