@@ -17,7 +17,7 @@ protocol RegistrationViewDelegate: AnyObject {
     func registrationButtonDidTap(login: String, password: String)
 }
 
-class RegistrationViewImp: UIView, RegistrationView {
+final class RegistrationViewImp: UIView, RegistrationView {
     weak var delegate: RegistrationViewDelegate?
 
     @IBOutlet private var scrollView: UIScrollView!
@@ -43,40 +43,19 @@ class RegistrationViewImp: UIView, RegistrationView {
         imageView.image = UIImage(named: "registration-background")
         imageView.contentMode = .scaleAspectFill
 
-        avatarView.clipsToBounds = false
-        avatarView.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
-        avatarView.layer.shadowRadius = 8
-        avatarView.layer.shadowOffset = CGSize(width: 0, height: 5)
-        avatarView.layer.shadowOpacity = 1
+        avatarView.setSettingsImage()
         let avatar = UIImageView(frame: CGRect(x: 0, y: 0, width: 110, height: 110))
         avatar.image = UIImage(named: "registration-avatar")
         avatar.layer.cornerRadius = avatar.frame.width / 2
         avatar.clipsToBounds = true
-        avatarView.addSubview(avatar)
+        addSubview(avatar)
 
-        setSettingsTextField(textField: loginTextField)
-        loginTextField.attributedPlaceholder = NSAttributedString(
-            string: "Введите логин",
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
-        )
+        loginTextField.setSettingsTextField(placeholder: "Введите логин")
+        passwordTextField.setSettingsTextField(placeholder: "Введите пароль")
+        repeatPasswordTextField.setSettingsTextField(placeholder: "Повторите пароль")
 
-        setSettingsTextField(textField: passwordTextField)
-        passwordTextField.attributedPlaceholder = NSAttributedString(
-            string: "Введите пароль",
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
-        )
-
-        setSettingsTextField(textField: repeatPasswordTextField)
-        repeatPasswordTextField.attributedPlaceholder = NSAttributedString(
-            string: "Повторите пароль",
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
-        )
-
-        setSettingsButton(button: registrationButton)
-        setSettingsButton(button: backButton)
+        registrationButton.setSettingsButton()
+        backButton.setSettingsButton()
 
         NotificationCenter.default.addObserver(
             self,
@@ -108,30 +87,6 @@ class RegistrationViewImp: UIView, RegistrationView {
         repeatPasswordTextField.resignFirstResponder()
 
         delegate?.registrationButtonDidTap(login: loginTextField.text ?? "", password: passwordTextField.text ?? "")
-    }
-
-    private func setSettingsTextField(textField: UITextField) {
-        textField.borderStyle = .none
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor(named: "black")?.cgColor
-        textField.layer.cornerRadius = 15
-        textField.layer.shadowOpacity = 1
-        textField.layer.shadowRadius = 8
-        textField.layer.shadowOffset = CGSize(width: 0, height: 5)
-        textField.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: textField.frame.height))
-        textField.leftView = paddingView
-        textField.leftViewMode = .always
-    }
-
-    private func setSettingsButton(button: UIButton) {
-        button.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
-        button.layer.shadowOpacity = 1
-        button.layer.shadowRadius = 8
-        button.layer.shadowOffset = CGSize(width: 0, height: 5)
-        button.backgroundColor = UIColor(named: "blue")
-        button.layer.cornerRadius = 10
     }
 
     @objc private func keyboardWillShow(notification: Notification) {

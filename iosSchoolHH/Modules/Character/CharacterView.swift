@@ -13,7 +13,7 @@ protocol CharacterView: UIView {
     func updateCharacter(idx: Int, with data: CharacterCellData)
 }
 
-class CharacterViewImp: UIView, CharacterView {
+final class CharacterViewImp: UIView, CharacterView {
 
     private var section: CoreSection?
 
@@ -38,21 +38,6 @@ class CharacterViewImp: UIView, CharacterView {
         collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 
-    // MARK: - Private methods
-
-    private func layout() -> UICollectionViewLayout {
-        UICollectionViewCompositionalLayout { [unowned self] section, env -> NSCollectionLayoutSection? in
-            guard let charactersSection = self.section else {
-                return nil
-            }
-
-            guard let layoutSection = charactersSection.sectionLayoutProvider?(section, env) else {
-                return nil
-            }
-            return layoutSection
-        }
-    }
-
     func update(data: CharacterViewData) {
         section = CharactersSection(cellsData: data.cells)
         section?.registrate(collectionView: collectionView)
@@ -68,6 +53,21 @@ class CharacterViewImp: UIView, CharacterView {
             return
         }
         cell.update(with: data)
+    }
+
+    // MARK: - Private methods
+
+    private func layout() -> UICollectionViewLayout {
+        UICollectionViewCompositionalLayout { [unowned self] section, env -> NSCollectionLayoutSection? in
+            guard let charactersSection = self.section else {
+                return nil
+            }
+
+            guard let layoutSection = charactersSection.sectionLayoutProvider?(section, env) else {
+                return nil
+            }
+            return layoutSection
+        }
     }
 }
 

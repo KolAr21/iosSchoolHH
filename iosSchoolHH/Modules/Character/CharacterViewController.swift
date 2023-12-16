@@ -37,7 +37,7 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
         rootView.update(data: CharacterViewData(cells: charactersUrlList.map({ CharacterCellData(url: $0) })))
 
         let selectClosure: ((CoreCellInputData) -> Void)? = { [weak self] data in
-            guard let data = data as? CharacterCellData, !data.isLoading else {
+            guard let data = data as? CharacterCellData else {
                 return
             }
             self?.selectCharacter?(data)

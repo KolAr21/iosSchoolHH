@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProfileLogoutCell" customModule="iosSchoolHH" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="409" height="152"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="409" height="152"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ce-2E-wXq">
+                        <rect key="frame" x="16" y="0.0" width="377" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="KFs-yS-Hsy"/>
+                        </constraints>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain" title="Button">
+                            <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                        </buttonConfiguration>
+                        <connections>
+                            <action selector="logoutDidTap" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ucn-Tb-be1"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="6Ce-2E-wXq" secondAttribute="trailing" constant="16" id="XFi-gf-76c"/>
+                <constraint firstItem="6Ce-2E-wXq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="aJc-hX-g1y"/>
+                <constraint firstItem="6Ce-2E-wXq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wdL-Pd-v49"/>
+            </constraints>
+            <size key="customSize" width="409" height="152"/>
+            <connections>
+                <outlet property="logoutButton" destination="6Ce-2E-wXq" id="2MR-gx-bbE"/>
+            </connections>
+            <point key="canvasLocation" x="330.53435114503816" y="56.338028169014088"/>
+        </collectionViewCell>
+    </objects>
+</document>

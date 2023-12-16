@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CharacterCell: UICollectionViewCell, CoreCellView {
+final class CharacterCell: UICollectionViewCell, CoreCellView {
 
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var typeLabel: UILabel!

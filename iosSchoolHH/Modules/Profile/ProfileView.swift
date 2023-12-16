@@ -1,18 +1,18 @@
 //
-//  PersonView.swift
+//  ProfileView.swift
 //  iosSchoolHH
 //
-//  Created by Арина Колганова on 14.12.2023.
+//  Created by Арина Колганова on 09.12.2023.
 //
 
 import UIKit
 
-protocol PersonView: UIView {
+protocol ProfileView: UIView {
     func setView()
-    func update(data: PersonViewData)
+    func update(data: ProfileViewData)
 }
 
-final class PersonViewImp: UIView, PersonView {
+final class ProfileViewImp: UIView, ProfileView {
 
     private var sections: [CoreSection] = []
 
@@ -24,8 +24,7 @@ final class PersonViewImp: UIView, PersonView {
     }()
 
     func setView() {
-        self.backgroundColor = UIColor(named: "silver")
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = UIColor(named: "silver")
         collectionView.dataSource = self
 
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -36,10 +35,12 @@ final class PersonViewImp: UIView, PersonView {
         collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
 
-    func update(data: PersonViewData) {
+    func update(data: ProfileViewData) {
         sections = [
             Sections.photoSection.create(data: data),
-            Sections.episodes.create(data: data)
+            Sections.usernameSection.create(data: data),
+            Sections.dateColorSection.create(data: data),
+            Sections.logoutSection.create(data: data)
         ]
         sections.forEach { $0.registrate(collectionView: collectionView) }
         collectionView.reloadData()
@@ -47,14 +48,20 @@ final class PersonViewImp: UIView, PersonView {
 
     private enum Sections: Int {
         case photoSection
-        case episodes
+        case usernameSection
+        case dateColorSection
+        case logoutSection
 
-        func create(data: PersonViewData) -> CoreSection {
+        func create(data: ProfileViewData) -> CoreSection {
             switch self {
             case .photoSection:
-                return PersonPhotoSection(cellsData: [data.photoCellData])
-            case .episodes:
-                return PersonEpisodeSection(cellsData: data.episodeData, headerData: data.episodeHeader)
+                return ProfilePhotoSection(cellsData: [data.photoCellData])
+            case .usernameSection:
+                return ProfileUsernameSection(cellsData: [data.usernameCellData])
+            case .dateColorSection:
+                return ProfileDateColorSection(cellsData: data.dateColorCellData)
+            case .logoutSection:
+                return ProfileLogoutSection(cellsData: [data.logoutCellData])
             }
         }
     }
@@ -73,14 +80,13 @@ final class PersonViewImp: UIView, PersonView {
 
 // MARK: - UICollectionViewDataSource
 
-extension PersonViewImp: UICollectionViewDataSource {
-
+extension ProfileViewImp: UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         sections.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        sections[section].numberOfItem
+        self.sections[section].numberOfItem
     }
 
     func collectionView(
@@ -89,20 +95,11 @@ extension PersonViewImp: UICollectionViewDataSource {
     ) -> UICollectionViewCell {
         sections[indexPath.section].cell(collectionView: collectionView, indexPath: indexPath) ?? UICollectionViewCell()
     }
-
-    func collectionView(
-        _ collectionView: UICollectionView,
-        viewForSupplementaryElementOfKind kind: String,
-        at indexPath: IndexPath
-    ) -> UICollectionReusableView {
-        sections[indexPath.section].reusableView(
-            collectionView: collectionView,
-            indexPath: indexPath, kind: kind
-        ) ?? UICollectionReusableView()
-    }
 }
 
-private extension PersonViewImp {
-    typealias PersonPhotoSection = Section<PersonPhotoCell, EmptyReusableView, EmptyReusableView>
-    typealias PersonEpisodeSection = Section<PersonEpisodeCell, PersonHeaderView, EmptyReusableView>
+private extension ProfileViewImp {
+    typealias ProfilePhotoSection = Section<ProfilePhotoCell, EmptyReusableView, EmptyReusableView>
+    typealias ProfileUsernameSection = Section<ProfileUsernameCell, EmptyReusableView, EmptyReusableView>
+    typealias ProfileDateColorSection = Section<ProfileDateColorCell, EmptyReusableView, EmptyReusableView>
+    typealias ProfileLogoutSection = Section<ProfileLogoutCell, EmptyReusableView, EmptyReusableView>
 }

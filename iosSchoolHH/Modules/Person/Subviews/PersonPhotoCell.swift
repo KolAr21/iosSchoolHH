@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonPhotoCell: UICollectionViewCell, CoreCellView {
+final class PersonPhotoCell: UICollectionViewCell, CoreCellView {
 
     @IBOutlet weak var imageView: UIImageView!
 

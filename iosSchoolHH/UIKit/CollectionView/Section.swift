@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Section<Cell: CoreCellView, Header: CoreReusableView, Footer: CoreReusableView>: CoreSection {
+final class Section<Cell: CoreCellView, Header: CoreReusableView, Footer: CoreReusableView>: CoreSection {
 
     lazy var sectionLayoutProvider: UICollectionViewCompositionalLayoutSectionProvider? = {
         let sectionLayoutProvider: UICollectionViewCompositionalLayoutSectionProvider

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonEpisodeCell: UICollectionViewCell, CoreCellView {
+final class PersonEpisodeCell: UICollectionViewCell, CoreCellView {
 
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var numberView: UIView!

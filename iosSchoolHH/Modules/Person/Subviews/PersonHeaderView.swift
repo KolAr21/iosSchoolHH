@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonHeaderView: UICollectionReusableView, CoreReusableView {
+final class PersonHeaderView: UICollectionReusableView, CoreReusableView {
     typealias InputData = PersonHeaderViewData
 
     @IBOutlet private weak var titleLabel: UILabel!

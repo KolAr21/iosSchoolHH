@@ -37,7 +37,9 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
         setupBar()
         rootView.setView()
 
-        guard let imageURL else { return }
+        guard let imageURL else {
+            return
+        }
         imageService.getImage(url: imageURL) { [weak self] image in
             guard let image else {
                 return
@@ -51,9 +53,10 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
             }
             DispatchQueue.main.async {
                 self?.rootView.update(
-                    data: .init(image: image,
-                                episodes: self?.episodes.sorted(by: { $0.id < $1.id }) ?? []
-                               )
+                    data: .init(
+                        image: image,
+                        episodes: self?.episodes.sorted(by: { $0.id < $1.id }) ?? []
+                    )
                 )
             }
         }

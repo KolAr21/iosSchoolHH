@@ -11,9 +11,4 @@ struct PersonPhotoCellData: CoreCellInputData {
     var selectClosure: ((CoreCellInputData) -> Void)?
 
     let image: UIImage
-
-    init(image: UIImage, selectClosure: ( (CoreCellInputData) -> Void)? = nil) {
-        self.image = image
-        self.selectClosure = selectClosure
-    }
 }

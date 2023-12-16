@@ -11,14 +11,17 @@ import KeychainAccess
 protocol StorageManager {
     func cleanKeychainIfNeeded()
     func saveToken(token: TokenResponse)
-    func getToken() -> TokenResponse?
+    func getToken() -> String?
     func removeToken()
+
+    func saveUserId(userId: TokenResponse)
+    func getUserId() -> String?
 
     func saveDateLastLogin()
     func getDateLastLogin() -> String
 }
 
-class StorageManagerImp: StorageManager {
+final class StorageManagerImp: StorageManager {
 
     private let keychain = Keychain(service: Constants.serviceId)
 
@@ -43,12 +46,12 @@ class StorageManagerImp: StorageManager {
         }
     }
 
-    func getToken() -> TokenResponse? {
+    func getToken() -> String? {
         do {
             guard let token = try keychain.get(StorageManagerKey.token.rawValue) else {
                 return nil
             }
-            return TokenResponse(token: token)
+            return token
         } catch {
             print(error as Any)
         }
@@ -63,6 +66,26 @@ class StorageManagerImp: StorageManager {
         }
     }
 
+    func saveUserId(userId: TokenResponse) {
+        do {
+            try keychain.set(userId.userId, key: StorageManagerKey.userId.rawValue)
+        } catch {
+            print(error as Any)
+        }
+    }
+
+    func getUserId() -> String? {
+        do {
+            guard let userId = try keychain.get(StorageManagerKey.userId.rawValue) else {
+                return nil
+            }
+            return userId
+        } catch {
+            print(error as Any)
+        }
+        return nil
+    }
+
     func saveDateLastLogin() {
         UserDefaults.standard.set(Date().dateTimeString, forKey: StorageManagerKey.lastLoginDate.rawValue)
     }
@@ -75,6 +98,7 @@ class StorageManagerImp: StorageManager {
 private extension StorageManagerImp {
     enum StorageManagerKey: String {
         case token
+        case userId
         case notFirstLaunch
         case lastLoginDate
     }
@@ -82,6 +106,8 @@ private extension StorageManagerImp {
     struct Constants {
         static let serviceId = "StorageManagerKeychain.Service.Id"
     }
+
+    // MARK: - Private methods
 
     private func notFirstLaunch() -> Bool {
         UserDefaults.standard.bool(forKey: StorageManagerKey.notFirstLaunch.rawValue)

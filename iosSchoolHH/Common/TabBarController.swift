@@ -25,6 +25,5 @@ final class TabBarController: UITabBarController {
         tabBar.layer.shadowOpacity = 1
         tabBar.layer.shadowOffset = CGSize(width: 0, height: -3)
         tabBar.layer.shadowRadius = 8
-
     }
 }
