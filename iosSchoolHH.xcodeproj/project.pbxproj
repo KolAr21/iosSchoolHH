@@ -97,7 +97,6 @@
 		2FE276272B2CC4A000EB5D39 /* ProfileLogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE276252B2CC4A000EB5D39 /* ProfileLogoutCell.xib */; };
 		2FE276292B2CC53500EB5D39 /* UIButton+settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276282B2CC53500EB5D39 /* UIButton+settings.swift */; };
 		2FE2762B2B2CC56400EB5D39 /* ProfileLogoutCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2762A2B2CC56400EB5D39 /* ProfileLogoutCellData.swift */; };
-		2FE2762D2B2CE1D800EB5D39 /* UIImageView+settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2762C2B2CE1D800EB5D39 /* UIImageView+settings.swift */; };
 		2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */; };
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
@@ -221,7 +220,6 @@
 		2FE276252B2CC4A000EB5D39 /* ProfileLogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileLogoutCell.xib; sourceTree = "<group>"; };
 		2FE276282B2CC53500EB5D39 /* UIButton+settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+settings.swift"; sourceTree = "<group>"; };
 		2FE2762A2B2CC56400EB5D39 /* ProfileLogoutCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogoutCellData.swift; sourceTree = "<group>"; };
-		2FE2762C2B2CE1D800EB5D39 /* UIImageView+settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+settings.swift"; sourceTree = "<group>"; };
 		2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D82AF9231900EB4B53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -393,7 +391,6 @@
 				2FE276282B2CC53500EB5D39 /* UIButton+settings.swift */,
 				2FB23EAA2B1E39640073ABFC /* Date+dateFormatter.swift */,
 				2FE275B62B2B428900EB5D39 /* NSCollectionLayoutSection+SupplementaryItem.swift */,
-				2FE2762C2B2CE1D800EB5D39 /* UIImageView+settings.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -760,7 +757,6 @@
 				2FB23E852B14D4D80073ABFC /* LocationCellData.swift in Sources */,
 				2FE275FA2B2C5FBF00EB5D39 /* ProfileView.swift in Sources */,
 				2FE275B72B2B428A00EB5D39 /* NSCollectionLayoutSection+SupplementaryItem.swift in Sources */,
-				2FE2762D2B2CE1D800EB5D39 /* UIImageView+settings.swift in Sources */,
 				2F61526F2AE7629400FCC073 /* Location.swift in Sources */,
 				2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */,
 				2FEB77232B025AF800EB4B53 /* ApiClient.swift in Sources */,
