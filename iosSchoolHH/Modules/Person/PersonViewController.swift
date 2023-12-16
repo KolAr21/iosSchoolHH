@@ -44,20 +44,22 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
             guard let image else {
                 return
             }
-            self?.episodeUrls.forEach { url in
-                self?.requestEpisode(url: url) { episode in
-                    DispatchQueue.main.async {
-                        self?.episodes.append(episode)
-                    }
-                }
-            }
+
             DispatchQueue.main.async {
                 self?.rootView.update(
                     data: .init(
-                        image: image,
-                        episodes: self?.episodes.sorted(by: { $0.id < $1.id }) ?? []
+                        image: image, episodesUrls: self?.episodeUrls ?? []
                     )
                 )
+            }
+
+            self?.episodeUrls.enumerated().forEach { idx, url in
+                self?.requestEpisode(url: url) { episode in
+                    DispatchQueue.main.async {
+                        self?.rootView.updateEpisode(idx: idx, with: PersonEpisodeCellData( episode: episode
+                        ))
+                    }
+                }
             }
         }
     }

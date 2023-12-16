@@ -10,6 +10,7 @@ import UIKit
 protocol PersonView: UIView {
     func setView()
     func update(data: PersonViewData)
+    func updateEpisode(idx: Int, with data: PersonEpisodeCellData)
 }
 
 final class PersonViewImp: UIView, PersonView {
@@ -43,6 +44,17 @@ final class PersonViewImp: UIView, PersonView {
         ]
         sections.forEach { $0.registrate(collectionView: collectionView) }
         collectionView.reloadData()
+    }
+
+    func updateEpisode(idx: Int, with data: PersonEpisodeCellData) {
+        sections[1].updateCell(at: IndexPath(item: idx, section: 1), with: data)
+        guard let cell = sections[1].cell(
+            collectionView: collectionView,
+            indexPath: IndexPath(item: idx, section: 1)
+            ) as? PersonEpisodeCell else {
+            return
+        }
+        cell.update(with: data)
     }
 
     private enum Sections: Int {

@@ -55,9 +55,11 @@ final class PersonEpisodeCell: UICollectionViewCell, CoreCellView {
     }
 
     func update(with inputData: PersonEpisodeCellData) {
+        if !inputData.isLoading {
+            nameLabel.text = inputData.name
+            dateLabel.text = inputData.date
+        }
         numberLabel.text = inputData.number
-        nameLabel.text = inputData.name
-        dateLabel.text = inputData.date
     }
 
 }
