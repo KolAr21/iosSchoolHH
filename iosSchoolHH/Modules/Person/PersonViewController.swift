@@ -24,7 +24,7 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
         imageURL = data.imageUrl
         self.imageService = imageService
         super.init(nibName: nil, bundle: nil)
-        title = "Жители локации \"\(data.name ?? "")\""
+        title = data.name
     }
 
     required init?(coder: NSCoder) {
@@ -37,10 +37,7 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
         setupBar()
         rootView.setView()
 
-        guard let imageURL else {
-            return
-        }
-        imageService.getImage(url: imageURL) { [weak self] image in
+        imageService.getImage(url: imageURL ?? "") { [weak self] image in
             guard let image else {
                 return
             }
@@ -52,13 +49,12 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
                     )
                 )
             }
+        }
 
-            self?.episodeUrls.enumerated().forEach { idx, url in
-                self?.requestEpisode(url: url) { episode in
-                    DispatchQueue.main.async {
-                        self?.rootView.updateEpisode(idx: idx, with: PersonEpisodeCellData( episode: episode
-                        ))
-                    }
+        episodeUrls.enumerated().forEach { idx, url in
+            requestEpisode(url: url) { episode in
+                DispatchQueue.main.async {
+                    self.rootView.updateEpisode(idx: idx, with: PersonEpisodeCellData(episode: episode))
                 }
             }
         }

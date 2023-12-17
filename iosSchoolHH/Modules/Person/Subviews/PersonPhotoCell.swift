@@ -58,5 +58,4 @@ final class PersonPhotoCell: UICollectionViewCell, CoreCellView {
     func update(with inputData: PersonPhotoCellData) {
         imageView.image = inputData.image
     }
-
 }

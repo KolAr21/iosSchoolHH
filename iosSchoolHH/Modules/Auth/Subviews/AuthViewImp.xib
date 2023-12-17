@@ -55,7 +55,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="a2J-NB-Nt9">
                                     <rect key="frame" x="32" y="527" width="366" height="98"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lOH-Jl-Qb4">
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lOH-Jl-Qb4" customClass="CustomTextField" customModule="iosSchoolHH" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="a00-DW-Z3s"/>
@@ -63,7 +63,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhr-dX-1o7">
+                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhr-dX-1o7" customClass="CustomTextField" customModule="iosSchoolHH" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="58" width="366" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="a8z-hZ-he2"/>
@@ -76,7 +76,7 @@
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hGM-CP-0xS">
                                     <rect key="frame" x="16" y="794" width="398" height="92"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRL-nI-2Yj">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mRL-nI-2Yj" customClass="CustomButton" customModule="iosSchoolHH" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="398" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="Rdg-in-P1g"/>
@@ -90,7 +90,7 @@
                                                 <action selector="loginDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="0CO-kP-Fz8"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5f-88-RWk">
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x5f-88-RWk" customClass="CustomButton" customModule="iosSchoolHH" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="52" width="398" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="40" id="dBF-Ek-kY5"/>

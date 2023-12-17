@@ -1,13 +1,12 @@
 //
-//  UIButton+settings.swift
+//  CustomButton.swift
 //  iosSchoolHH
 //
-//  Created by Арина Колганова on 10.12.2023.
+//  Created by Арина Колганова on 17.12.2023.
 //
-
 import UIKit
 
-extension UIButton {
+final class CustomButton: UIButton {
     func setSettingsButton() {
         layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
         layer.shadowOpacity = 1

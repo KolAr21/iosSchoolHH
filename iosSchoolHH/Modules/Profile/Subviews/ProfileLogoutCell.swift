@@ -9,13 +9,16 @@ import UIKit
 
 final class ProfileLogoutCell: UICollectionViewCell, CoreCellView {
 
-    @IBOutlet private weak var logoutButton: UIButton!
-    private var logout: (() -> Void)?
-
     override func awakeFromNib() {
         super.awakeFromNib()
-        logoutButton.titleLabel?.text = "Выйти"
-        logoutButton.setSettingsButton()
+
+        clipsToBounds = false
+        layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
+        layer.shadowOpacity = 1
+        layer.shadowRadius = 8
+        layer.shadowOffset = CGSize(width: 0, height: 5)
+        backgroundColor = UIColor(named: "blue")
+        layer.cornerRadius = 10
     }
 
     static func layoutSection() -> NSCollectionLayoutSection {
@@ -40,20 +43,12 @@ final class ProfileLogoutCell: UICollectionViewCell, CoreCellView {
         let section = NSCollectionLayoutSection(group: group)
         section.contentInsets = NSDirectionalEdgeInsets(
             top: 0,
-            leading: 0,
+            leading: 16,
             bottom: sizeCell.buttonBottomSpaceCell,
-            trailing: 0
+            trailing: 16
         )
         return section
     }
 
-    func update(with inputData: ProfileLogoutCellData) {
-        logout = inputData.logoutClosure
-    }
-
-    // MARK: - Private methods
-
-    @IBAction private func logoutDidTap() {
-        logout?()
-    }
+    func update(with inputData: ProfileLogoutCellData) {}
 }

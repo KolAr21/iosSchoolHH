@@ -53,5 +53,4 @@ final class ProfilePhotoCell: UICollectionViewCell, CoreCellView {
         avatar.clipsToBounds = true
         avatarImage.addSubview(avatar)
     }
-
 }

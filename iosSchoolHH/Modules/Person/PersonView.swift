@@ -47,11 +47,12 @@ final class PersonViewImp: UIView, PersonView {
     }
 
     func updateEpisode(idx: Int, with data: PersonEpisodeCellData) {
-        sections[1].updateCell(at: IndexPath(item: idx, section: 1), with: data)
-        guard let cell = sections[1].cell(
+        guard let index = sections.firstIndex(where: { $0 is PersonEpisodeSection }) else { return }
+        sections[index].updateCell(at: IndexPath(item: idx, section: index), with: data)
+        guard let cell = sections[index].cell(
             collectionView: collectionView,
-            indexPath: IndexPath(item: idx, section: 1)
-            ) as? PersonEpisodeCell else {
+            indexPath: IndexPath(item: idx, section: index)
+        ) as? PersonEpisodeCell else {
             return
         }
         cell.update(with: data)

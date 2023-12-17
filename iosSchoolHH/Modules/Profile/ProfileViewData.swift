@@ -13,14 +13,20 @@ struct ProfileViewData {
     let dateColorCellData: [ProfileDateColorCellData]
     let logoutCellData: ProfileLogoutCellData
 
-    init(image: UIImage?, username: String, date: String, color: UIColor, logoutClosure: @escaping () -> Void) {
-        self.photoCellData = ProfilePhotoCellData(image: image ?? UIImage())
-        self.usernameCellData = ProfileUsernameCellData(username: username)
-        self.dateColorCellData = [
+    init(
+        image: UIImage?,
+        username: String,
+        date: String,
+        color: UIColor,
+        logoutClosure: @escaping (CoreCellInputData) -> Void
+    ) {
+        photoCellData = ProfilePhotoCellData(image: image)
+        usernameCellData = ProfileUsernameCellData(username: username)
+        dateColorCellData = [
             ProfileDateColorCellData(date: date, color: nil),
             ProfileDateColorCellData(date: nil, color: color)
         ]
-        self.logoutCellData = ProfileLogoutCellData(logoutClosure: logoutClosure)
+        logoutCellData = ProfileLogoutCellData(selectClosure: logoutClosure)
     }
 
 }

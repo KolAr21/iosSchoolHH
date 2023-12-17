@@ -1,13 +1,13 @@
 //
-//  UITextField+settings.swift
+//  CustomTextField.swift
 //  iosSchoolHH
 //
-//  Created by Арина Колганова on 10.12.2023.
+//  Created by Арина Колганова on 17.12.2023.
 //
 
 import UIKit
 
-extension UITextField {
+final class CustomTextField: UITextField {
     func setSettingsTextField(placeholder: String) {
         borderStyle = .none
         backgroundColor = .white

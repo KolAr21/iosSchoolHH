@@ -14,8 +14,9 @@ protocol StorageManager {
     func getToken() -> String?
     func removeToken()
 
-    func saveUserId(userId: TokenResponse)
+    func saveUserId(token: TokenResponse)
     func getUserId() -> String?
+    func removeUserId()
 
     func saveDateLastLogin()
     func getDateLastLogin() -> String
@@ -66,9 +67,9 @@ final class StorageManagerImp: StorageManager {
         }
     }
 
-    func saveUserId(userId: TokenResponse) {
+    func saveUserId(token: TokenResponse) {
         do {
-            try keychain.set(userId.userId, key: StorageManagerKey.userId.rawValue)
+            try keychain.set(token.userId, key: StorageManagerKey.userId.rawValue)
         } catch {
             print(error as Any)
         }
@@ -84,6 +85,14 @@ final class StorageManagerImp: StorageManager {
             print(error as Any)
         }
         return nil
+    }
+
+    func removeUserId() {
+        do {
+            try keychain.remove(StorageManagerKey.userId.rawValue)
+        } catch {
+            print(error as Any)
+        }
     }
 
     func saveDateLastLogin() {

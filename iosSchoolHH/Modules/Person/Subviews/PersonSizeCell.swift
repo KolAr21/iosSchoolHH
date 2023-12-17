@@ -65,7 +65,8 @@ struct PersonSizeCell {
         topSpaceHeader
     }
 
-    private var photoCell: CGFloat { PersonSizeCell.screenHeight * fractionalPhotoCell
+    private var photoCell: CGFloat {
+        PersonSizeCell.screenHeight * fractionalPhotoCell
     }
 
     enum ScreenSize {

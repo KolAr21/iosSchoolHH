@@ -26,6 +26,7 @@ final class ProfileViewImp: UIView, ProfileView {
     func setView() {
         collectionView.backgroundColor = UIColor(named: "silver")
         collectionView.dataSource = self
+        collectionView.delegate = self
 
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(collectionView)
@@ -95,6 +96,15 @@ extension ProfileViewImp: UICollectionViewDataSource {
     ) -> UICollectionViewCell {
         sections[indexPath.section].cell(collectionView: collectionView, indexPath: indexPath) ?? UICollectionViewCell()
     }
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension ProfileViewImp: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        sections[indexPath.section].selectCell(at: indexPath.row)
+    }
+
 }
 
 private extension ProfileViewImp {

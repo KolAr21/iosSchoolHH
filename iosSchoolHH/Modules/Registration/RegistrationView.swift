@@ -24,11 +24,11 @@ final class RegistrationViewImp: UIView, RegistrationView {
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var avatarView: UIImageView!
-    @IBOutlet private var loginTextField: UITextField!
-    @IBOutlet private var passwordTextField: UITextField!
-    @IBOutlet private var repeatPasswordTextField: UITextField!
-    @IBOutlet private var registrationButton: UIButton!
-    @IBOutlet private var backButton: UIButton!
+    @IBOutlet private var loginTextField: CustomTextField!
+    @IBOutlet private var passwordTextField: CustomTextField!
+    @IBOutlet private var repeatPasswordTextField: CustomTextField!
+    @IBOutlet private var registrationButton: CustomButton!
+    @IBOutlet private var backButton: CustomButton!
 
     deinit {
         NotificationCenter.default.removeObserver(self)

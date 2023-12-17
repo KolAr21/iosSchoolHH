@@ -38,5 +38,4 @@ final class ProfileUsernameCell: UICollectionViewCell, CoreCellView {
     func update(with inputData: ProfileUsernameCellData) {
         usernameLabel.text = inputData.username
     }
-
 }

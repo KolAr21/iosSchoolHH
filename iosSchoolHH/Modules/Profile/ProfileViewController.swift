@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SPIndicator
 import PKHUD
 
 final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
@@ -31,25 +32,39 @@ final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
 
         rootView.setView()
         HUD.show(.progress)
-        dataProvider.profile(userId: storageManager.getUserId() ?? "") { [weak self] profile, _ in
-            guard let self, let profile else {
-                return
+        let user = storageManager.getUserId()
+        if let user {
+            dataProvider.profile(userId: user) { [weak self] profile, _ in
+                guard let self, let profile else {
+                    return
+                }
+                update(username: profile.username)
             }
-            DispatchQueue.main.async {
-                HUD.hide()
-                self.rootView.update(
-                    data: .init(
-                        image: (UIImage(named: "registration-avatar")) ?? UIImage(),
-                        username: profile.username,
-                        date: self.storageManager.getDateLastLogin(),
-                        color: UIColor(named: "iceberg") ?? UIColor(),
-                        logoutClosure: {
-                            self.storageManager.removeToken()
-                            self.onProfileLogout?()
-                        }
-                    )
+        } else {
+            SPIndicator.present(title: "Ошибочка", haptic: .error)
+            HUD.hide()
+            update(username: "")
+        }
+    }
+
+    // MARK: - Private func
+
+    private func update(username: String) {
+        DispatchQueue.main.async {
+            HUD.hide()
+            self.rootView.update(
+                data: .init(
+                    image: (UIImage(named: "registration-avatar")) ?? UIImage(),
+                    username: username,
+                    date: self.storageManager.getDateLastLogin(),
+                    color: UIColor(named: "iceberg") ?? UIColor(),
+                    logoutClosure: { [weak self] _ in
+                        self?.storageManager.removeToken()
+                        self?.storageManager.removeUserId()
+                        self?.onProfileLogout?()
+                    }
                 )
-            }
+            )
         }
     }
 }

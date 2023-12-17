@@ -24,10 +24,10 @@ final class AuthViewImp: UIView, AuthView {
     @IBOutlet private var labelView: UIView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var subTitleLabel: UILabel!
-    @IBOutlet private var loginTextField: UITextField!
-    @IBOutlet private var passwordTextField: UITextField!
-    @IBOutlet private var loginButton: UIButton!
-    @IBOutlet private var registrationButton: UIButton!
+    @IBOutlet private var loginTextField: CustomTextField!
+    @IBOutlet private var passwordTextField: CustomTextField!
+    @IBOutlet private var loginButton: CustomButton!
+    @IBOutlet private var registrationButton: CustomButton!
 
     weak var delegate: AuthViewDelegate?
 

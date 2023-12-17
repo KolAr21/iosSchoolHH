@@ -10,39 +10,28 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProfileLogoutCell" customModule="iosSchoolHH" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="409" height="152"/>
+            <rect key="frame" x="0.0" y="0.0" width="425" height="40"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="409" height="152"/>
+                <rect key="frame" x="0.0" y="0.0" width="425" height="40"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ce-2E-wXq">
-                        <rect key="frame" x="16" y="0.0" width="377" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="KFs-yS-Hsy"/>
-                        </constraints>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Выйти">
-                            <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
-                        </buttonConfiguration>
-                        <connections>
-                            <action selector="logoutDidTap" destination="gTV-IL-0wX" eventType="touchUpInside" id="Ucn-Tb-be1"/>
-                        </connections>
-                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Выйти" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHX-qz-2Ig">
+                        <rect key="frame" x="0.0" y="9" width="425" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="6Ce-2E-wXq" secondAttribute="trailing" constant="16" id="XFi-gf-76c"/>
-                <constraint firstItem="6Ce-2E-wXq" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="aJc-hX-g1y"/>
-                <constraint firstItem="6Ce-2E-wXq" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wdL-Pd-v49"/>
+                <constraint firstItem="WHX-qz-2Ig" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="8MT-3S-98e"/>
+                <constraint firstItem="WHX-qz-2Ig" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="bqr-NX-SOM"/>
+                <constraint firstAttribute="trailing" secondItem="WHX-qz-2Ig" secondAttribute="trailing" id="vFM-W1-a20"/>
             </constraints>
-            <size key="customSize" width="409" height="152"/>
-            <connections>
-                <outlet property="logoutButton" destination="6Ce-2E-wXq" id="2MR-gx-bbE"/>
-            </connections>
-            <point key="canvasLocation" x="330.53435114503816" y="56.338028169014088"/>
+            <size key="customSize" width="425" height="40"/>
+            <point key="canvasLocation" x="354.96183206106866" y="17.605633802816904"/>
         </collectionViewCell>
     </objects>
 </document>

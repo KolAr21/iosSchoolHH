@@ -12,7 +12,7 @@ struct ProfileSizeCell {
     let textFieldCells: CGFloat = 116
     let label: CGFloat = 27
     let buttonBottomSpaceCell: CGFloat = 30
-    let button: CGFloat = 56
+    let button: CGFloat = 40
 
     static let screenHeight: CGFloat = UIScreen.main.bounds.size.height
 
@@ -45,7 +45,7 @@ struct ProfileSizeCell {
     }
 
     private var photoCell: CGFloat {
-        PersonSizeCell.screenHeight * fractionalPhotoCell
+        ProfileSizeCell.screenHeight * fractionalPhotoCell
     }
 
     enum ScreenSize {

@@ -92,11 +92,11 @@
 		2FE2761E2B2CB9E300EB5D39 /* ProfileDateColorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2761C2B2CB9E300EB5D39 /* ProfileDateColorCell.swift */; };
 		2FE2761F2B2CB9E300EB5D39 /* ProfileDateColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE2761D2B2CB9E300EB5D39 /* ProfileDateColorCell.xib */; };
 		2FE276212B2CBC3B00EB5D39 /* ProfileDateColorCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276202B2CBC3B00EB5D39 /* ProfileDateColorCellData.swift */; };
-		2FE276232B2CC41A00EB5D39 /* UITextField+settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276222B2CC41A00EB5D39 /* UITextField+settings.swift */; };
 		2FE276262B2CC4A000EB5D39 /* ProfileLogoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276242B2CC4A000EB5D39 /* ProfileLogoutCell.swift */; };
 		2FE276272B2CC4A000EB5D39 /* ProfileLogoutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE276252B2CC4A000EB5D39 /* ProfileLogoutCell.xib */; };
-		2FE276292B2CC53500EB5D39 /* UIButton+settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276282B2CC53500EB5D39 /* UIButton+settings.swift */; };
 		2FE2762B2B2CC56400EB5D39 /* ProfileLogoutCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2762A2B2CC56400EB5D39 /* ProfileLogoutCellData.swift */; };
+		2FE276422B2F17FB00EB5D39 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276412B2F17FB00EB5D39 /* CustomButton.swift */; };
+		2FE276442B2F1C2E00EB5D39 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276432B2F1C2E00EB5D39 /* CustomTextField.swift */; };
 		2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */; };
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
@@ -215,11 +215,11 @@
 		2FE2761C2B2CB9E300EB5D39 /* ProfileDateColorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDateColorCell.swift; sourceTree = "<group>"; };
 		2FE2761D2B2CB9E300EB5D39 /* ProfileDateColorCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileDateColorCell.xib; sourceTree = "<group>"; };
 		2FE276202B2CBC3B00EB5D39 /* ProfileDateColorCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDateColorCellData.swift; sourceTree = "<group>"; };
-		2FE276222B2CC41A00EB5D39 /* UITextField+settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+settings.swift"; sourceTree = "<group>"; };
 		2FE276242B2CC4A000EB5D39 /* ProfileLogoutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogoutCell.swift; sourceTree = "<group>"; };
 		2FE276252B2CC4A000EB5D39 /* ProfileLogoutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileLogoutCell.xib; sourceTree = "<group>"; };
-		2FE276282B2CC53500EB5D39 /* UIButton+settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+settings.swift"; sourceTree = "<group>"; };
 		2FE2762A2B2CC56400EB5D39 /* ProfileLogoutCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogoutCellData.swift; sourceTree = "<group>"; };
+		2FE276412B2F17FB00EB5D39 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		2FE276432B2F1C2E00EB5D39 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D82AF9231900EB4B53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -272,6 +272,8 @@
 			children = (
 				2FB23EDB2B21F3B10073ABFC /* CollectionView */,
 				2F21B3AA2B0F88B1001BCB65 /* RootTab.swift */,
+				2FE276412B2F17FB00EB5D39 /* CustomButton.swift */,
+				2FE276432B2F1C2E00EB5D39 /* CustomTextField.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -387,8 +389,6 @@
 				2FB23E872B14D7B00073ABFC /* NSObject+ClassName.swift */,
 				2FB23E892B1519B40073ABFC /* String+capitalizing.swift */,
 				2FB23EEA2B21FD690073ABFC /* UICollectionView+Registrate.swift */,
-				2FE276222B2CC41A00EB5D39 /* UITextField+settings.swift */,
-				2FE276282B2CC53500EB5D39 /* UIButton+settings.swift */,
 				2FB23EAA2B1E39640073ABFC /* Date+dateFormatter.swift */,
 				2FE275B62B2B428900EB5D39 /* NSCollectionLayoutSection+SupplementaryItem.swift */,
 			);
@@ -727,7 +727,6 @@
 				2FE275BF2B2B692900EB5D39 /* Episode.swift in Sources */,
 				2FE2761E2B2CB9E300EB5D39 /* ProfileDateColorCell.swift in Sources */,
 				2FEB76DF2AF9245700EB4B53 /* AuthDataProvider.swift in Sources */,
-				2FE276292B2CC53500EB5D39 /* UIButton+settings.swift in Sources */,
 				2FEB76FF2AFCE24700EB4B53 /* RegistrationCoordinator.swift in Sources */,
 				2FE275BA2B2B430500EB5D39 /* PersonHeaderView.swift in Sources */,
 				2FB23EAB2B1E39640073ABFC /* Date+dateFormatter.swift in Sources */,
@@ -739,7 +738,6 @@
 				2FEB76FA2AFCE24700EB4B53 /* RegistrationView.swift in Sources */,
 				2F531D202B051858009477A3 /* LocationAssembly.swift in Sources */,
 				2FB23E882B14D7B00073ABFC /* NSObject+ClassName.swift in Sources */,
-				2FE276232B2CC41A00EB5D39 /* UITextField+settings.swift in Sources */,
 				2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */,
 				2FEB76FB2AFCE24700EB4B53 /* RegistrationAssembly.swift in Sources */,
 				2FEB76E32AF9261400EB4B53 /* AuthCoordinator.swift in Sources */,
@@ -763,6 +761,7 @@
 				2FE275992B2ADF0B00EB5D39 /* PersonViewController.swift in Sources */,
 				2FEB77482B03357E00EB4B53 /* User.swift in Sources */,
 				2FEB76DD2AF9242C00EB4B53 /* AuthViewData.swift in Sources */,
+				2FE276442B2F1C2E00EB5D39 /* CustomTextField.swift in Sources */,
 				2FE2760D2B2C6E6700EB5D39 /* ProfileApiClient.swift in Sources */,
 				2FEB77022AFD12A300EB4B53 /* SplashDataProvider.swift in Sources */,
 				2FEB76FE2AFCE24700EB4B53 /* RegistrationViewController.swift in Sources */,
@@ -783,6 +782,7 @@
 				2FE275AE2B2B30A500EB5D39 /* PersonPhotoCell.swift in Sources */,
 				2F4D70192B0FA7F1001133B9 /* TabBarController.swift in Sources */,
 				2FB23E952B18CC6C0073ABFC /* ImageService.swift in Sources */,
+				2FE276422B2F17FB00EB5D39 /* CustomButton.swift in Sources */,
 				2F531D1A2B05183F009477A3 /* CharacterAssembly.swift in Sources */,
 				2FB23EED2B21FF920073ABFC /* CharacterView.swift in Sources */,
 				2FB23EE12B21F4930073ABFC /* CoreCellView.swift in Sources */,

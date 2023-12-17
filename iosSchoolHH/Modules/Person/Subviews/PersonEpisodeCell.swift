@@ -58,8 +58,10 @@ final class PersonEpisodeCell: UICollectionViewCell, CoreCellView {
         if !inputData.isLoading {
             nameLabel.text = inputData.name
             dateLabel.text = inputData.date
+        } else {
+            nameLabel.text = ""
+            dateLabel.text = ""
         }
         numberLabel.text = inputData.number
     }
-
 }

@@ -9,7 +9,7 @@ import UIKit
 
 final class ProfileDateColorCell: UICollectionViewCell, CoreCellView {
 
-    @IBOutlet private weak var textField: UITextField!
+    @IBOutlet private weak var textField: CustomTextField!
     @IBOutlet private weak var dateLabel: UILabel!
     @IBOutlet private weak var colorView: UIView!
 
@@ -47,6 +47,7 @@ final class ProfileDateColorCell: UICollectionViewCell, CoreCellView {
     func update(with inputData: ProfileDateColorCellData) {
         if let color = inputData.color {
             dateLabel.isHidden = true
+            colorView.isHidden = false
             colorView.backgroundColor = color
             textField.attributedPlaceholder = NSAttributedString(
                 string: "Цвет профиля",
@@ -54,6 +55,7 @@ final class ProfileDateColorCell: UICollectionViewCell, CoreCellView {
                     [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
             )
         } else {
+            dateLabel.isHidden = false
             dateLabel.text = inputData.date ?? ".. .. ...."
             colorView.isHidden = true
             textField.attributedPlaceholder = NSAttributedString(
