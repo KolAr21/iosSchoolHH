@@ -32,29 +32,29 @@ final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
 
         rootView.setView()
         HUD.show(.progress)
-        let user = storageManager.getUserId()
-
-        if let user {
-            dataProvider.profile(userId: user) { [weak self] profile, error in
-                guard let self, let profile, error == nil else {
-                    DispatchQueue.main.async {
-                        HUD.hide()
-                        SPIndicator.present(title: "Ошибочка", haptic: .error)
-                        self?.update(username: "")
-                    }
-                    return
-                }
-
-                update(username: profile.username)
+        guard let user = storageManager.getUserId() else {
+            showError()
+            return
+        }
+        dataProvider.profile(userId: user) { [weak self] profile, error in
+            guard let self, let profile, error == nil else {
+                self?.showError()
+                return
             }
-        } else {
-            SPIndicator.present(title: "Ошибочка", haptic: .error)
-            HUD.hide()
-            update(username: "")
+
+            update(username: profile.username)
         }
     }
 
     // MARK: - Private methods
+
+    private func showError() {
+        DispatchQueue.main.async {
+            HUD.hide()
+            SPIndicator.present(title: "Ошибочка", haptic: .error)
+            self.update(username: "")
+        }
+    }
 
     private func update(username: String) {
         DispatchQueue.main.async {
