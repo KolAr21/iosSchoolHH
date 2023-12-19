@@ -42,8 +42,13 @@ extension RegistrationViewController: RegistrationViewDelegate {
         dismiss(animated: true)
     }
 
-    func registrationButtonDidTap(login: String, password: String) {
+    func registrationButtonDidTap(login: String, password: String, repeatPassword: String) {
         HUD.show(.progress)
+        guard password == repeatPassword else {
+            HUD.hide()
+            SPIndicator.present(title: "Пароли не совпадают", haptic: .error)
+            return
+        }
         let user = User(username: login, password: password)
         dataProvider.registration(user: user) { [weak self] token, error in
             DispatchQueue.main.async {

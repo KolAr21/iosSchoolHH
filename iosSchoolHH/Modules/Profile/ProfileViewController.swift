@@ -64,7 +64,7 @@ final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
                     image: (UIImage(named: "registration-avatar")) ?? UIImage(),
                     username: username,
                     date: self.storageManager.getDateLastLogin(),
-                    color: UIColor(named: "iceberg") ?? UIColor(),
+                    color: UIColor(named: "silver") ?? UIColor(),
                     logoutClosure: { [weak self] _ in
                         self?.storageManager.removeToken()
                         self?.storageManager.removeUserId()

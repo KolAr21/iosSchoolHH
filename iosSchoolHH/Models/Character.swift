@@ -15,18 +15,10 @@ final class Character: Codable {
         case unknown
     }
 
-    enum Status: String, CaseIterable, Codable {
-        case alive = "Alive"
-        case dead = "Dead"
-        case unknown
-    }
-
-    let id: Int
     let name: String
     let species: String
     let image: String
     let url: String
     let episode: [String]
     let gender: Gender
-    let status: Status
 }

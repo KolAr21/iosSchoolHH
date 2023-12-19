@@ -14,7 +14,7 @@ protocol RegistrationView: UIView {
 
 protocol RegistrationViewDelegate: AnyObject {
     func backButtonDidTap()
-    func registrationButtonDidTap(login: String, password: String)
+    func registrationButtonDidTap(login: String, password: String, repeatPassword: String)
 }
 
 final class RegistrationViewImp: UIView, RegistrationView {
@@ -98,7 +98,11 @@ final class RegistrationViewImp: UIView, RegistrationView {
         passwordTextField.resignFirstResponder()
         repeatPasswordTextField.resignFirstResponder()
 
-        delegate?.registrationButtonDidTap(login: loginTextField.text ?? "", password: passwordTextField.text ?? "")
+        delegate?.registrationButtonDidTap(
+            login: loginTextField.text ?? "",
+            password: passwordTextField.text ?? "",
+            repeatPassword: repeatPasswordTextField.text ?? ""
+        )
     }
 
     @objc private func keyboardWillShow(notification: Notification) {
