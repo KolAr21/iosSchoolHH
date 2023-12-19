@@ -92,7 +92,6 @@ extension CharacterViewImp: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         section?.selectCell(at: indexPath.row)
     }
-
 }
 
 private extension CharacterViewImp {
