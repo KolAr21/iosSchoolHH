@@ -101,7 +101,6 @@
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
 		2FEB76DB2AF9233E00EB4B53 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76DA2AF9233E00EB4B53 /* AuthViewController.swift */; };
-		2FEB76DD2AF9242C00EB4B53 /* AuthViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76DC2AF9242C00EB4B53 /* AuthViewData.swift */; };
 		2FEB76DF2AF9245700EB4B53 /* AuthDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76DE2AF9245700EB4B53 /* AuthDataProvider.swift */; };
 		2FEB76E12AF9249900EB4B53 /* AuthAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76E02AF9249900EB4B53 /* AuthAssembly.swift */; };
 		2FEB76E32AF9261400EB4B53 /* AuthCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76E22AF9261400EB4B53 /* AuthCoordinator.swift */; };
@@ -110,13 +109,10 @@
 		2FEB76FD2AFCE24700EB4B53 /* RegistrationDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F72AFCE24700EB4B53 /* RegistrationDataProvider.swift */; };
 		2FEB76FE2AFCE24700EB4B53 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F82AFCE24700EB4B53 /* RegistrationViewController.swift */; };
 		2FEB76FF2AFCE24700EB4B53 /* RegistrationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76F92AFCE24700EB4B53 /* RegistrationCoordinator.swift */; };
-		2FEB77022AFD12A300EB4B53 /* SplashDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77012AFD12A300EB4B53 /* SplashDataProvider.swift */; };
-		2FEB77042AFD12F700EB4B53 /* SplashViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77032AFD12F700EB4B53 /* SplashViewData.swift */; };
 		2FEB77062AFD131000EB4B53 /* SplashAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77052AFD131000EB4B53 /* SplashAssembly.swift */; };
 		2FEB77082AFD132700EB4B53 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77072AFD132700EB4B53 /* SplashView.swift */; };
 		2FEB770A2AFD136400EB4B53 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77092AFD136400EB4B53 /* SplashViewController.swift */; };
 		2FEB770C2AFD141900EB4B53 /* SplashCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */; };
-		2FEB770E2AFE650F00EB4B53 /* RegistrationViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB770D2AFE650F00EB4B53 /* RegistrationViewData.swift */; };
 		2FEB77202B025A4100EB4B53 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB771F2B025A4100EB4B53 /* TokenResponse.swift */; };
 		2FEB77232B025AF800EB4B53 /* ApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77222B025AF800EB4B53 /* ApiClient.swift */; };
 		2FEB77252B025B6000EB4B53 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB77242B025B6000EB4B53 /* NetworkConstants.swift */; };
@@ -224,7 +220,6 @@
 		2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D82AF9231900EB4B53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		2FEB76DA2AF9233E00EB4B53 /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		2FEB76DC2AF9242C00EB4B53 /* AuthViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewData.swift; sourceTree = "<group>"; };
 		2FEB76DE2AF9245700EB4B53 /* AuthDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthDataProvider.swift; sourceTree = "<group>"; };
 		2FEB76E02AF9249900EB4B53 /* AuthAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAssembly.swift; sourceTree = "<group>"; };
 		2FEB76E22AF9261400EB4B53 /* AuthCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthCoordinator.swift; sourceTree = "<group>"; };
@@ -233,13 +228,10 @@
 		2FEB76F72AFCE24700EB4B53 /* RegistrationDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationDataProvider.swift; sourceTree = "<group>"; };
 		2FEB76F82AFCE24700EB4B53 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		2FEB76F92AFCE24700EB4B53 /* RegistrationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationCoordinator.swift; sourceTree = "<group>"; };
-		2FEB77012AFD12A300EB4B53 /* SplashDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashDataProvider.swift; sourceTree = "<group>"; };
-		2FEB77032AFD12F700EB4B53 /* SplashViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewData.swift; sourceTree = "<group>"; };
 		2FEB77052AFD131000EB4B53 /* SplashAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAssembly.swift; sourceTree = "<group>"; };
 		2FEB77072AFD132700EB4B53 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		2FEB77092AFD136400EB4B53 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashCoordinator.swift; sourceTree = "<group>"; };
-		2FEB770D2AFE650F00EB4B53 /* RegistrationViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewData.swift; sourceTree = "<group>"; };
 		2FEB771F2B025A4100EB4B53 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		2FEB77222B025AF800EB4B53 /* ApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiClient.swift; sourceTree = "<group>"; };
 		2FEB77242B025B6000EB4B53 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
@@ -513,7 +505,6 @@
 				2F531D292B0642C2009477A3 /* Subviews */,
 				2FEB76D82AF9231900EB4B53 /* AuthView.swift */,
 				2FEB76DA2AF9233E00EB4B53 /* AuthViewController.swift */,
-				2FEB76DC2AF9242C00EB4B53 /* AuthViewData.swift */,
 				2FEB76E02AF9249900EB4B53 /* AuthAssembly.swift */,
 				2FEB76DE2AF9245700EB4B53 /* AuthDataProvider.swift */,
 				2FEB76E22AF9261400EB4B53 /* AuthCoordinator.swift */,
@@ -527,7 +518,6 @@
 				2F531D2C2B0672C1009477A3 /* Subviews */,
 				2FEB76F42AFCE24700EB4B53 /* RegistrationView.swift */,
 				2FEB76F82AFCE24700EB4B53 /* RegistrationViewController.swift */,
-				2FEB770D2AFE650F00EB4B53 /* RegistrationViewData.swift */,
 				2FEB76F52AFCE24700EB4B53 /* RegistrationAssembly.swift */,
 				2FEB76F72AFCE24700EB4B53 /* RegistrationDataProvider.swift */,
 				2FEB76F92AFCE24700EB4B53 /* RegistrationCoordinator.swift */,
@@ -541,9 +531,7 @@
 				2FB23E4F2B0FAF1A0073ABFC /* Subviews */,
 				2FEB77072AFD132700EB4B53 /* SplashView.swift */,
 				2FEB77092AFD136400EB4B53 /* SplashViewController.swift */,
-				2FEB77032AFD12F700EB4B53 /* SplashViewData.swift */,
 				2FEB77052AFD131000EB4B53 /* SplashAssembly.swift */,
-				2FEB77012AFD12A300EB4B53 /* SplashDataProvider.swift */,
 				2FEB770B2AFD141900EB4B53 /* SplashCoordinator.swift */,
 			);
 			path = Splash;
@@ -760,10 +748,8 @@
 				2FEB77232B025AF800EB4B53 /* ApiClient.swift in Sources */,
 				2FE275992B2ADF0B00EB5D39 /* PersonViewController.swift in Sources */,
 				2FEB77482B03357E00EB4B53 /* User.swift in Sources */,
-				2FEB76DD2AF9242C00EB4B53 /* AuthViewData.swift in Sources */,
 				2FE276442B2F1C2E00EB5D39 /* CustomTextField.swift in Sources */,
 				2FE2760D2B2C6E6700EB5D39 /* ProfileApiClient.swift in Sources */,
-				2FEB77022AFD12A300EB4B53 /* SplashDataProvider.swift in Sources */,
 				2FEB76FE2AFCE24700EB4B53 /* RegistrationViewController.swift in Sources */,
 				2FE275FC2B2C5FBF00EB5D39 /* ProfileAssembly.swift in Sources */,
 				2FEB76DB2AF9233E00EB4B53 /* AuthViewController.swift in Sources */,
@@ -799,9 +785,7 @@
 				2F531D1E2B05184D009477A3 /* CharacterViewController.swift in Sources */,
 				2FEB76E12AF9249900EB4B53 /* AuthAssembly.swift in Sources */,
 				2FEB77062AFD131000EB4B53 /* SplashAssembly.swift in Sources */,
-				2FEB770E2AFE650F00EB4B53 /* RegistrationViewData.swift in Sources */,
 				2FE276122B2C6F1000EB5D39 /* ProfilePhotoCell.swift in Sources */,
-				2FEB77042AFD12F700EB4B53 /* SplashViewData.swift in Sources */,
 				2FE2761B2B2CB73C00EB5D39 /* ProfileUsernameCellData.swift in Sources */,
 				2FEB770C2AFD141900EB4B53 /* SplashCoordinator.swift in Sources */,
 				2FEB77082AFD132700EB4B53 /* SplashView.swift in Sources */,
