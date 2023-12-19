@@ -37,7 +37,11 @@ final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
         if let user {
             dataProvider.profile(userId: user) { [weak self] profile, error in
                 guard let self, let profile, error == nil else {
-                    HUD.hide()
+                    DispatchQueue.main.async {
+                        HUD.hide()
+                        SPIndicator.present(title: "Ошибочка", haptic: .error)
+                        self?.update(username: "")
+                    }
                     return
                 }
 
