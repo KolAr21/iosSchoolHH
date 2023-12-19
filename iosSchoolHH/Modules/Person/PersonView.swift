@@ -10,13 +10,10 @@ import UIKit
 protocol PersonView: UIView {
     func setView()
     func update(data: PersonViewData)
-//    func updatePerson(idx: Int, with data: PersonCellData)
+    func updateEpisode(idx: Int, with data: PersonEpisodeCellData)
 }
 
-class PersonViewImp: UIView, PersonView {
-
-    private var sections: [CoreSection] = []
-
+final class PersonViewImp: UIView, PersonView {
     private lazy var collectionView: UICollectionView = {
         UICollectionView(
             frame: .zero,
@@ -24,13 +21,15 @@ class PersonViewImp: UIView, PersonView {
         )
     }()
 
+    private var sections: [CoreSection] = []
+
     func setView() {
         self.backgroundColor = UIColor(named: "silver")
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
-
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(collectionView)
+
         collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
@@ -46,7 +45,20 @@ class PersonViewImp: UIView, PersonView {
         collectionView.reloadData()
     }
 
-    // MARK: - Private methods
+    func updateEpisode(idx: Int, with data: PersonEpisodeCellData) {
+        guard let index = sections.firstIndex(where: { $0 is PersonEpisodeSection }) else {
+            return
+        }
+
+        sections[index].updateCell(at: IndexPath(item: idx, section: index), with: data)
+        guard let cell = sections[index].cell(
+            collectionView: collectionView,
+            indexPath: IndexPath(item: idx, section: index)
+        ) as? PersonEpisodeCell else {
+            return
+        }
+        cell.update(with: data)
+    }
 
     private enum Sections: Int {
         case photoSection
@@ -62,6 +74,8 @@ class PersonViewImp: UIView, PersonView {
         }
     }
 
+    // MARK: - Private methods
+
     private func layout() -> UICollectionViewLayout {
         UICollectionViewCompositionalLayout { [unowned self] section, env -> NSCollectionLayoutSection? in
             guard let layoutSection = sections[section].sectionLayoutProvider?(section, env) else {
@@ -70,23 +84,11 @@ class PersonViewImp: UIView, PersonView {
             return layoutSection
         }
     }
-//
-//    func updateCharacter(idx: Int, with data: CharacterCellData) {
-//        section?.updateCell(at: IndexPath(item: idx, section: 0), with: data)
-//        guard let cell = section?.cell(
-//            collectionView: collectionView,
-//            indexPath: IndexPath(item: idx, section: 0)
-//            ) as? CharacterCell else {
-//            return
-//        }
-//        cell.update(with: data)
-//    }
 }
 
 // MARK: - UICollectionViewDataSource
 
 extension PersonViewImp: UICollectionViewDataSource {
-
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         sections.count
     }
@@ -102,8 +104,15 @@ extension PersonViewImp: UICollectionViewDataSource {
         sections[indexPath.section].cell(collectionView: collectionView, indexPath: indexPath) ?? UICollectionViewCell()
     }
 
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        sections[indexPath.section].reusableView(collectionView: collectionView, indexPath: indexPath, kind: kind) ?? UICollectionReusableView()
+    func collectionView(
+        _ collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        at indexPath: IndexPath
+    ) -> UICollectionReusableView {
+        sections[indexPath.section].reusableView(
+            collectionView: collectionView,
+            indexPath: indexPath, kind: kind
+        ) ?? UICollectionReusableView()
     }
 }
 
@@ -111,4 +120,3 @@ private extension PersonViewImp {
     typealias PersonPhotoSection = Section<PersonPhotoCell, EmptyReusableView, EmptyReusableView>
     typealias PersonEpisodeSection = Section<PersonEpisodeCell, PersonHeaderView, EmptyReusableView>
 }
-

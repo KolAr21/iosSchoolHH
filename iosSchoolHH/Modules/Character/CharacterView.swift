@@ -13,10 +13,7 @@ protocol CharacterView: UIView {
     func updateCharacter(idx: Int, with data: CharacterCellData)
 }
 
-class CharacterViewImp: UIView, CharacterView {
-
-    private var section: CoreSection?
-
+final class CharacterViewImp: UIView, CharacterView {
     private lazy var collectionView: UICollectionView = {
         UICollectionView(
             frame: .zero,
@@ -24,18 +21,38 @@ class CharacterViewImp: UIView, CharacterView {
         )
     }()
 
+    private var section: CoreSection?
+
     func setView() {
         self.backgroundColor = UIColor(named: "silver")
+
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self
-
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(collectionView)
+
         collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+    }
+
+    func update(data: CharacterViewData) {
+        section = CharactersSection(cellsData: data.cells)
+        section?.registrate(collectionView: collectionView)
+        collectionView.reloadData()
+    }
+
+    func updateCharacter(idx: Int, with data: CharacterCellData) {
+        section?.updateCell(at: IndexPath(item: idx, section: 0), with: data)
+        guard let cell = section?.cell(
+            collectionView: collectionView,
+            indexPath: IndexPath(item: idx, section: 0)
+        ) as? CharacterCell else {
+            return
+        }
+        cell.update(with: data)
     }
 
     // MARK: - Private methods
@@ -51,23 +68,6 @@ class CharacterViewImp: UIView, CharacterView {
             }
             return layoutSection
         }
-    }
-
-    func update(data: CharacterViewData) {
-        section = CharactersSection(cellsData: data.cells)
-        section?.registrate(collectionView: collectionView)
-        collectionView.reloadData()
-    }
-
-    func updateCharacter(idx: Int, with data: CharacterCellData) {
-        section?.updateCell(at: IndexPath(item: idx, section: 0), with: data)
-        guard let cell = section?.cell(
-            collectionView: collectionView,
-            indexPath: IndexPath(item: idx, section: 0)
-            ) as? CharacterCell else {
-            return
-        }
-        cell.update(with: data)
     }
 }
 
@@ -89,11 +89,9 @@ extension CharacterViewImp: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension CharacterViewImp: UICollectionViewDelegate {
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         section?.selectCell(at: indexPath.row)
     }
-
 }
 
 private extension CharacterViewImp {

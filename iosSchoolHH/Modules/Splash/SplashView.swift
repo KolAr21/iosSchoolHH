@@ -12,7 +12,6 @@ protocol SplashView: UIView {
 }
 
 final class SplashViewImp: UIView, SplashView {
-
     func setView() {
         self.backgroundColor = UIColor(named: "iceberg")
     }

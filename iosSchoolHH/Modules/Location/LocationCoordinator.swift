@@ -8,7 +8,6 @@
 import UIKit
 
 final class LocationCoordinator: BaseCoordinator<LocationCoordinator.Context> {
-
     struct Context {}
 
     override func make() -> UIViewController? {

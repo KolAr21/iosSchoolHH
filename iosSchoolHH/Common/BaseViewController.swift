@@ -14,7 +14,6 @@ protocol CoreViewController: AnyObject {
 }
 
 class BaseViewController<View: UIView>: UIViewController, CoreViewController {
-
     var rootView: View = {
         let nibName = String(describing: View.self)
         let bundle = Bundle(for: View.self)
@@ -30,7 +29,6 @@ class BaseViewController<View: UIView>: UIViewController, CoreViewController {
                 fatalError("Not load view \(nibName) from nib")
             }
         }
-
     }()
 
     override func loadView() {

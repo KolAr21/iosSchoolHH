@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonHeaderView: UICollectionReusableView, CoreReusableView {
+final class PersonHeaderView: UICollectionReusableView, CoreReusableView {
     typealias InputData = PersonHeaderViewData
 
     @IBOutlet private weak var titleLabel: UILabel!
@@ -29,5 +29,4 @@ class PersonHeaderView: UICollectionReusableView, CoreReusableView {
         titleLabel.text = inputData.title
         return self
     }
-    
 }

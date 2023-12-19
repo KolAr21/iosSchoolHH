@@ -7,8 +7,7 @@
 
 import UIKit
 
-class CharacterCell: UICollectionViewCell, CoreCellView {
-
+final class CharacterCell: UICollectionViewCell, CoreCellView {
     @IBOutlet private weak var nameLabel: UILabel!
     @IBOutlet private weak var typeLabel: UILabel!
     @IBOutlet private weak var imageView: UIImageView!
@@ -16,6 +15,7 @@ class CharacterCell: UICollectionViewCell, CoreCellView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
         backgroundColor = UIColor(named: "iceberg")
         layer.cornerRadius = 15
         clipsToBounds = false
@@ -38,7 +38,6 @@ class CharacterCell: UICollectionViewCell, CoreCellView {
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(167)
         )
-
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
             repeatingSubitem: item,

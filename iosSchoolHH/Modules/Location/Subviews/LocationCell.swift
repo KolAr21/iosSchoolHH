@@ -8,7 +8,6 @@
 import UIKit
 
 final class LocationCell: UITableViewCell {
-
     var data: LocationCellData? {
         didSet {
             guard let data else {
@@ -25,10 +24,11 @@ final class LocationCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
         backgroundColor = .clear
     }
 
-    // MARK: - Private func
+    // MARK: - Private methods
 
     private func update(data: LocationCellData) {
         nameLabel.text = data.name

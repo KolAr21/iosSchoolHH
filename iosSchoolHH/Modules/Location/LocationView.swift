@@ -15,10 +15,11 @@ protocol LocationView: UIView {
 }
 
 final class LocationViewImp: UIView, LocationView {
+    private let tableView = UITableView()
 
     var selectLocation: ((LocationCellData) -> Void)?
+
     private var viewData: LocationViewData?
-    private let tableView = UITableView()
 
     func setView() {
         backgroundColor = .white
@@ -42,7 +43,6 @@ final class LocationViewImp: UIView, LocationView {
         tableView.allowsSelectionDuringEditing = false
         tableView.dataSource = self
         tableView.delegate = self
-
         tableView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(tableView)
 
@@ -50,7 +50,6 @@ final class LocationViewImp: UIView, LocationView {
         tableView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-
     }
 
     func update(data: LocationViewData) {
@@ -83,7 +82,6 @@ extension LocationViewImp: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension LocationViewImp: UITableViewDelegate {
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         guard let viewData else {

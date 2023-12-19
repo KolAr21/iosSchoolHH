@@ -14,6 +14,7 @@ extension UICollectionView {
 
     func registerCell<Cell: UICollectionViewCell & CoreNibReusable>(cellType: Cell.Type) {
         let identifier = reusableViewId(viewType: cellType)
+
         if let nib = Cell.nib {
             register(nib, forCellWithReuseIdentifier: identifier)
         } else {
@@ -23,6 +24,7 @@ extension UICollectionView {
 
     func registerHeader<Header: UICollectionReusableView & CoreNibReusable>(viewType: Header.Type) {
         let identifier = reusableViewId(viewType: viewType)
+
         if let nib = Header.nib {
             register(
                 nib,
@@ -40,6 +42,7 @@ extension UICollectionView {
 
     func registerFooter<Footer: UICollectionReusableView & CoreNibReusable>(viewType: Footer.Type) {
         let identifier = reusableViewId(viewType: viewType)
+
         if let nib = Footer.nib {
             register(
                 nib,

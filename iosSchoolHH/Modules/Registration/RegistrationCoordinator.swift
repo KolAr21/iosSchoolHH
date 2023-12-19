@@ -8,7 +8,6 @@
 import UIKit
 
 final class RegistrationCoordinator: BaseCoordinator<RegistrationCoordinator.Context> {
-
     struct Context {
         let onRegistrationSuccess: (() -> Void)?
     }

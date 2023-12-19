@@ -10,7 +10,6 @@ import UIKit
 struct CoordinatorContext {}
 
 final class AppCoordinator: BaseCoordinator<CoordinatorContext> {
-
     private var window: UIWindow?
 
     func start(window: UIWindow?) {
@@ -21,7 +20,7 @@ final class AppCoordinator: BaseCoordinator<CoordinatorContext> {
         setRoot(viewController: coordinator.make())
     }
 
-    // MARK: - Private func
+    // MARK: - Private methods
 
     private func authBootstrap() {
         guard assembly.storageManager.getToken() == nil else {
@@ -39,18 +38,20 @@ final class AppCoordinator: BaseCoordinator<CoordinatorContext> {
 
     private func setTabVC() {
         let tabVC = assembly.rootTabBarController()
-
         let locationsCoord = assembly.locationCoordinator()
-        // let cabinetCoord = assembly.cabinetCoodrinator()
-        guard let locationsVC = locationsCoord.make()/*, let cabinetVC = cabinetCoord.make()*/ else {
+        let profileCoord = assembly.profileCoordinator {
+            self.authBootstrap()
+        }
+
+        guard let locationsVC = locationsCoord.make(), let profileVC = profileCoord.make() else {
             return
         }
+
         let navVC = assembly.rootNavigationController()
         navVC.setViewControllers([locationsVC], animated: false)
         navVC.tabBarItem = RootTab.locations.tabBarItem
-
-        // cabinetVC.tabBarItem = RootTab.cabinet.tabBarItem
-        tabVC.setViewControllers([navVC], animated: false)
+        profileVC.tabBarItem = RootTab.profile.tabBarItem
+        tabVC.setViewControllers([navVC, profileVC], animated: false)
         setRoot(viewController: tabVC)
     }
 

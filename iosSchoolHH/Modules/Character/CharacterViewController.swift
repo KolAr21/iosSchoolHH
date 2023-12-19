@@ -7,20 +7,20 @@
 import UIKit
 
 final class CharacterViewController<View: CharacterView>: BaseViewController<View> {
+    private let updateQueue = DispatchQueue(label: "CharacterRequestQueue")
+    private let dataProvider: CharacterDataProvider
+    private let imageService: ImageService
+    private let charactersUrlList: [String]
 
     var selectCharacter: ((CharacterCellData) -> Void)?
 
     private var characters: [Character] = []
 
-    private let dataProvider: CharacterDataProvider
-    private let charactersUrlList: [String]
-    private let updateQueue = DispatchQueue(label: "CharacterRequestQueue")
-    private let imageService: ImageService
-
-    init(dataProvider: CharacterDataProvider, data: LocationCellData, imageService: ImageService) {
+    init(dataProvider: CharacterDataProvider, imageService: ImageService, data: LocationCellData) {
         self.dataProvider = dataProvider
-        charactersUrlList = data.residents
         self.imageService = imageService
+        charactersUrlList = data.residents
+
         super.init(nibName: nil, bundle: nil)
         title = "Жители локации \"\(data.name)\""
     }
@@ -37,47 +37,46 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
         rootView.update(data: CharacterViewData(cells: charactersUrlList.map({ CharacterCellData(url: $0) })))
 
         let selectClosure: ((CoreCellInputData) -> Void)? = { [weak self] data in
-            guard let data = data as? CharacterCellData, !data.isLoading else {
+            guard let data = data as? CharacterCellData else {
                 return
             }
             self?.selectCharacter?(data)
         }
 
-                charactersUrlList.enumerated().forEach { idx, url in
-                    requestCharacter(url: url) { [weak self] character in
-                        guard let self else {
-                            return
-                        }
-//
-                        DispatchQueue.main.async {
-                            self.rootView.updateCharacter(idx: idx, with: CharacterCellData(
-                                character: character,
-                                isLoading: true,
-                                image: nil,
-                                selectClosure: selectClosure
-                            ))
-                        }
-//
-                        self.imageService.getImage(url: character.image, completion: { [weak self] image in
-                            guard let image else {
-                                return
-                            }
-//
-                            DispatchQueue.main.async {
-                                self?.rootView.updateCharacter(idx: idx, with: CharacterCellData(
-                                    character: character,
-                                    isLoading: false,
-                                    image: image,
-                                    selectClosure: selectClosure
-                                ))
-                            }
-                        })
-                    }
+        charactersUrlList.enumerated().forEach { idx, url in
+            requestCharacter(url: url) { [weak self] character in
+                guard let self else {
+                    return
                 }
-//            }
+
+                DispatchQueue.main.async {
+                    self.rootView.updateCharacter(idx: idx, with: CharacterCellData(
+                        character: character,
+                        isLoading: true,
+                        image: nil,
+                        selectClosure: selectClosure
+                    ))
+                }
+
+                self.imageService.getImage(url: character.image, completion: { [weak self] image in
+                    guard let image else {
+                        return
+                    }
+
+                    DispatchQueue.main.async {
+                        self?.rootView.updateCharacter(idx: idx, with: CharacterCellData(
+                            character: character,
+                            isLoading: false,
+                            image: image,
+                            selectClosure: selectClosure
+                        ))
+                    }
+                })
+            }
+        }
     }
 
-    // MARK: - Private func
+    // MARK: - Private methods
 
     private func requestCharacter(url: String, completion: @escaping (Character) -> Void) {
         if let character = characters.first(where: { $0.url == url }) {

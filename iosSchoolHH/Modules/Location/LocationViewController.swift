@@ -8,12 +8,13 @@
 import UIKit
 
 final class LocationViewController<View: LocationView>: BaseViewController<View> {
+    private let dataProvider: LocationDataProvider
 
     var selectLocation: ((LocationCellData) -> Void)?
-    private let dataProvider: LocationDataProvider
 
     init(dataProvider: LocationDataProvider) {
         self.dataProvider = dataProvider
+
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -30,7 +31,7 @@ final class LocationViewController<View: LocationView>: BaseViewController<View>
         getListOfLocation()
     }
 
-    // MARK: - Private func
+    // MARK: - Private methods
 
     private func getListOfLocation() {
         dataProvider.location { [weak self] location, error in

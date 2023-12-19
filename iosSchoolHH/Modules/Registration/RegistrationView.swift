@@ -17,25 +17,24 @@ protocol RegistrationViewDelegate: AnyObject {
     func registrationButtonDidTap(login: String, password: String)
 }
 
-class RegistrationViewImp: UIView, RegistrationView {
+final class RegistrationViewImp: UIView, RegistrationView {
     weak var delegate: RegistrationViewDelegate?
 
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var avatarView: UIImageView!
-    @IBOutlet private var loginTextField: UITextField!
-    @IBOutlet private var passwordTextField: UITextField!
-    @IBOutlet private var repeatPasswordTextField: UITextField!
-    @IBOutlet private var registrationButton: UIButton!
-    @IBOutlet private var backButton: UIButton!
+    @IBOutlet private var loginTextField: CustomTextField!
+    @IBOutlet private var passwordTextField: CustomTextField!
+    @IBOutlet private var repeatPasswordTextField: CustomTextField!
+    @IBOutlet private var registrationButton: CustomButton!
+    @IBOutlet private var backButton: CustomButton!
 
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
 
     func setView() {
-
         isUserInteractionEnabled = true
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
         addGestureRecognizer(recognizer)
@@ -44,7 +43,7 @@ class RegistrationViewImp: UIView, RegistrationView {
         imageView.contentMode = .scaleAspectFill
 
         avatarView.clipsToBounds = false
-        avatarView.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
+        avatarView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
         avatarView.layer.shadowRadius = 8
         avatarView.layer.shadowOffset = CGSize(width: 0, height: 5)
         avatarView.layer.shadowOpacity = 1
@@ -54,29 +53,21 @@ class RegistrationViewImp: UIView, RegistrationView {
         avatar.clipsToBounds = true
         avatarView.addSubview(avatar)
 
-        setSettingsTextField(textField: loginTextField)
         loginTextField.attributedPlaceholder = NSAttributedString(
             string: "Введите логин",
             attributes:
                 [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
         )
-
-        setSettingsTextField(textField: passwordTextField)
         passwordTextField.attributedPlaceholder = NSAttributedString(
             string: "Введите пароль",
             attributes:
                 [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
         )
-
-        setSettingsTextField(textField: repeatPasswordTextField)
         repeatPasswordTextField.attributedPlaceholder = NSAttributedString(
             string: "Повторите пароль",
             attributes:
                 [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
         )
-
-        setSettingsButton(button: registrationButton)
-        setSettingsButton(button: backButton)
 
         NotificationCenter.default.addObserver(
             self,
@@ -92,7 +83,7 @@ class RegistrationViewImp: UIView, RegistrationView {
         )
     }
 
-    // MARK: - Private func
+    // MARK: - Private methods
 
     @IBAction private func backDidTap(_ sender: UIButton) {
         loginTextField.resignFirstResponder()
@@ -108,30 +99,6 @@ class RegistrationViewImp: UIView, RegistrationView {
         repeatPasswordTextField.resignFirstResponder()
 
         delegate?.registrationButtonDidTap(login: loginTextField.text ?? "", password: passwordTextField.text ?? "")
-    }
-
-    private func setSettingsTextField(textField: UITextField) {
-        textField.borderStyle = .none
-        textField.backgroundColor = .white
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = UIColor(named: "black")?.cgColor
-        textField.layer.cornerRadius = 15
-        textField.layer.shadowOpacity = 1
-        textField.layer.shadowRadius = 8
-        textField.layer.shadowOffset = CGSize(width: 0, height: 5)
-        textField.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: textField.frame.height))
-        textField.leftView = paddingView
-        textField.leftViewMode = .always
-    }
-
-    private func setSettingsButton(button: UIButton) {
-        button.layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
-        button.layer.shadowOpacity = 1
-        button.layer.shadowRadius = 8
-        button.layer.shadowOffset = CGSize(width: 0, height: 5)
-        button.backgroundColor = UIColor(named: "blue")
-        button.layer.cornerRadius = 10
     }
 
     @objc private func keyboardWillShow(notification: Notification) {

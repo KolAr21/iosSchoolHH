@@ -8,22 +8,17 @@
 import Foundation
 
 protocol PersonDataProvider {
-//    func person(onRequestCompleted: @escaping (Character?, ApiError?) -> Void)
-//    func person(url: String, onRequestCompleted: @escaping (Character?, ApiError?) -> Void)
+    func episode(url: String, onRequestCompleted: @escaping (Episode?, ApiError?) -> Void)
 }
 
 final class PersonDataProviderImp: PersonDataProvider {
-//    private let apiClient: PersonApiClient
+    private let apiClient: PersonApiClient
 
-    init(/*apiClient: PersonApiClient*/) {
-//        self.apiClient = apiClient
+    init(apiClient: PersonApiClient) {
+        self.apiClient = apiClient
     }
 
-//    func person(onRequestCompleted: @escaping (Character?, ApiError?) -> Void) {
-//        apiClient.person(onRequestCompleted: onRequestCompleted)
-//    }
-//
-//    func person(url: String, onRequestCompleted: @escaping (Character?, ApiError?) -> Void) {
-//        apiClient.person(url: url, onRequestCompleted: onRequestCompleted)
-//    }
+    func episode(url: String, onRequestCompleted: @escaping (Episode?, ApiError?) -> Void) {
+        apiClient.episode(url: url, onRequestCompleted: onRequestCompleted)
+    }
 }

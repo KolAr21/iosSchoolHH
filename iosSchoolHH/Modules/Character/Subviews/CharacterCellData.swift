@@ -8,34 +8,34 @@
 import UIKit
 
 struct CharacterCellData: CoreCellInputData {
-    var selectClosure: ((CoreCellInputData) -> Void)?
-
     let url: String
-    let isLoading: Bool
     let name: String?
     let gender: String?
     let imageUrl: String?
-    let image: UIImage?
     let episodes: [String]
+    let isLoading: Bool
+    let image: UIImage?
+
+    var selectClosure: ((CoreCellInputData) -> Void)?
 
     init(character: Character, isLoading: Bool, image: UIImage?, selectClosure: ((CoreCellInputData) -> Void)?) {
         url = character.url
-        self.isLoading = isLoading
         name = character.name
         gender = "\(character.species) \(character.gender)"
         imageUrl = character.image
+        episodes = character.episode
+        self.isLoading = isLoading
         self.image = image
         self.selectClosure = selectClosure
-        episodes = character.episode
     }
 
     init(url: String) {
         self.url = url
-        isLoading = true
         name = nil
         gender = nil
         imageUrl = nil
-        image = nil
         episodes = []
+        isLoading = true
+        image = nil
     }
 }

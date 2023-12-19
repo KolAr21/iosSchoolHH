@@ -21,6 +21,7 @@ final class ApiClient {
 
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
+
         if method != .get, let data, !data.isEmpty {
             request.httpBody = data
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -44,8 +45,10 @@ final class ApiClient {
             completion?(nil)
             return
         }
+
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+
         let task = URLSession.shared.dataTask(with: request) { data, _, error in
             if error != nil {
                 completion?(nil)

@@ -12,9 +12,9 @@ struct PersonViewData {
     let episodeData: [PersonEpisodeCellData]
     let episodeHeader: PersonHeaderViewData
 
-    init(image: UIImage?, episodeUrls: [String]) {
-        self.photoCellData = PersonPhotoCellData()
-        self.episodeData = episodeUrls.compactMap { PersonEpisodeCellData(url: $0) }
+    init(image: UIImage?, episodesUrls: [String]) {
+        photoCellData = PersonPhotoCellData(image: image ?? UIImage())
+        episodeData = episodesUrls.compactMap { PersonEpisodeCellData(url: $0) }
         episodeHeader = PersonHeaderViewData()
     }
 }

@@ -8,12 +8,9 @@
 import UIKit
 
 final class SplashViewController<View: SplashView>: BaseViewController<View> {
-
-    private let dataProvider: SplashDataProvider
     private let onSuccess: (() -> Void)?
 
-    init(dataProvider: SplashDataProvider, onSuccess: (() -> Void)?) {
-        self.dataProvider = dataProvider
+    init(onSuccess: (() -> Void)?) {
         self.onSuccess = onSuccess
 
         super.init(nibName: nil, bundle: nil)

@@ -8,7 +8,6 @@
 import UIKit
 
 final class Assembly {
-
     lazy var imageService: ImageService = ImageServiceImp(apiClient: apiClient)
     lazy var storageManager: StorageManager = StorageManagerImp()
 
@@ -16,13 +15,8 @@ final class Assembly {
         ApiClient()
     }
 
-    func colorGenerator(alpha: Double) -> ColorGenerator {
-        ColorGenerator(alpha: alpha)
-    }
-
     func appCoordinator() -> AppCoordinator {
         AppCoordinator(assembly: self, context: CoordinatorContext())
-        // AppCoordinator(assembly: self, context: .init())
     }
 
     func rootTabBarController() -> UITabBarController {

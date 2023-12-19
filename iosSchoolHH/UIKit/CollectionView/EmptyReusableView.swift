@@ -7,8 +7,7 @@
 
 import UIKit
 
-class EmptyReusableView: UICollectionReusableView, CoreReusableView {
-
+final class EmptyReusableView: UICollectionReusableView, CoreReusableView {
     static func layoutItem() -> NSCollectionLayoutBoundarySupplementaryItem? {
         nil
     }
