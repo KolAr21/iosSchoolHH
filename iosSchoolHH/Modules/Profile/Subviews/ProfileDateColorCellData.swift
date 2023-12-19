@@ -8,8 +8,8 @@
 import UIKit
 
 struct ProfileDateColorCellData: CoreCellInputData {
-    var selectClosure: ((CoreCellInputData) -> Void)?
-
     let date: String?
     let color: UIColor?
+
+    var selectClosure: ((CoreCellInputData) -> Void)?
 }

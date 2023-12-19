@@ -14,9 +14,6 @@ protocol CharacterView: UIView {
 }
 
 final class CharacterViewImp: UIView, CharacterView {
-
-    private var section: CoreSection?
-
     private lazy var collectionView: UICollectionView = {
         UICollectionView(
             frame: .zero,
@@ -24,14 +21,17 @@ final class CharacterViewImp: UIView, CharacterView {
         )
     }()
 
+    private var section: CoreSection?
+
     func setView() {
         self.backgroundColor = UIColor(named: "silver")
+
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
         collectionView.delegate = self
-
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(collectionView)
+
         collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
@@ -49,7 +49,7 @@ final class CharacterViewImp: UIView, CharacterView {
         guard let cell = section?.cell(
             collectionView: collectionView,
             indexPath: IndexPath(item: idx, section: 0)
-            ) as? CharacterCell else {
+        ) as? CharacterCell else {
             return
         }
         cell.update(with: data)
@@ -89,7 +89,6 @@ extension CharacterViewImp: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 
 extension CharacterViewImp: UICollectionViewDelegate {
-
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         section?.selectCell(at: indexPath.row)
     }

@@ -8,7 +8,7 @@
 import UIKit
 
 struct ProfileUsernameCellData: CoreCellInputData {
-    var selectClosure: ((CoreCellInputData) -> Void)?
-
     let username: String
+
+    var selectClosure: ((CoreCellInputData) -> Void)?
 }

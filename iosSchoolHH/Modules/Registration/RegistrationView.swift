@@ -35,7 +35,6 @@ final class RegistrationViewImp: UIView, RegistrationView {
     }
 
     func setView() {
-
         isUserInteractionEnabled = true
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
         addGestureRecognizer(recognizer)
@@ -54,12 +53,21 @@ final class RegistrationViewImp: UIView, RegistrationView {
         avatar.clipsToBounds = true
         avatarView.addSubview(avatar)
 
-        loginTextField.setSettingsTextField(placeholder: "Введите логин")
-        passwordTextField.setSettingsTextField(placeholder: "Введите пароль")
-        repeatPasswordTextField.setSettingsTextField(placeholder: "Повторите пароль")
-
-        registrationButton.setSettingsButton()
-        backButton.setSettingsButton()
+        loginTextField.attributedPlaceholder = NSAttributedString(
+            string: "Введите логин",
+            attributes:
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        )
+        passwordTextField.attributedPlaceholder = NSAttributedString(
+            string: "Введите пароль",
+            attributes:
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        )
+        repeatPasswordTextField.attributedPlaceholder = NSAttributedString(
+            string: "Повторите пароль",
+            attributes:
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        )
 
         NotificationCenter.default.addObserver(
             self,
@@ -75,7 +83,7 @@ final class RegistrationViewImp: UIView, RegistrationView {
         )
     }
 
-    // MARK: - Private func
+    // MARK: - Private methods
 
     @IBAction private func backDidTap(_ sender: UIButton) {
         loginTextField.resignFirstResponder()

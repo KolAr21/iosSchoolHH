@@ -8,7 +8,6 @@
 import UIKit
 
 protocol CoreSection: AnyObject {
-
     var sectionLayoutProvider: UICollectionViewCompositionalLayoutSectionProvider? { get }
     var numberOfItem: Int { get }
     var isContainsHeader: Bool { get }

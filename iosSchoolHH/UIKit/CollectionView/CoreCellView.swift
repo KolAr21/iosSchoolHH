@@ -11,5 +11,6 @@ protocol CoreCellView: UICollectionViewCell, CoreNibReusable {
     associatedtype InputData: CoreCellInputData
 
     static func layoutSection() -> NSCollectionLayoutSection
+
     func update(with inputData: InputData)
 }

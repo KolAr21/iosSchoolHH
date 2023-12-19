@@ -376,9 +376,9 @@
 		2FB23E7F2B14D1C10073ABFC /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				2FB23E842B14D4D80073ABFC /* LocationCellData.swift */,
 				2FB23E802B14D1FB0073ABFC /* LocationCell.swift */,
 				2FB23E812B14D1FB0073ABFC /* LocationCell.xib */,
-				2FB23E842B14D4D80073ABFC /* LocationCellData.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";

@@ -10,9 +10,9 @@ import SPIndicator
 import PKHUD
 
 final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
-
     private let dataProvider: ProfileDataProvider
     private let storageManager: StorageManager
+
     private var onProfileLogout: (() -> Void)?
 
     init(dataProvider: ProfileDataProvider, storageManager: StorageManager, onProfileLogout: (() -> Void)?) {
@@ -33,11 +33,14 @@ final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
         rootView.setView()
         HUD.show(.progress)
         let user = storageManager.getUserId()
+
         if let user {
-            dataProvider.profile(userId: user) { [weak self] profile, _ in
-                guard let self, let profile else {
+            dataProvider.profile(userId: user) { [weak self] profile, error in
+                guard let self, let profile, error == nil else {
+                    HUD.hide()
                     return
                 }
+
                 update(username: profile.username)
             }
         } else {
@@ -47,7 +50,7 @@ final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
         }
     }
 
-    // MARK: - Private func
+    // MARK: - Private methods
 
     private func update(username: String) {
         DispatchQueue.main.async {

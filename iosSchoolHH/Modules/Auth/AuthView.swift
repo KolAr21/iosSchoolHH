@@ -18,7 +18,6 @@ protocol AuthViewDelegate: AnyObject {
 }
 
 final class AuthViewImp: UIView, AuthView {
-
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var labelView: UIView!
@@ -36,7 +35,6 @@ final class AuthViewImp: UIView, AuthView {
     }
 
     func setView() {
-
         isUserInteractionEnabled = true
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(viewDidTap))
         addGestureRecognizer(recognizer)
@@ -55,13 +53,18 @@ final class AuthViewImp: UIView, AuthView {
         labelView.backgroundColor = UIColor(named: "shadow-silver")
 
         loginTextField.backgroundColor = UIColor(named: "lightGray")
-        loginTextField.setSettingsTextField(placeholder: "Логин")
+        loginTextField.attributedPlaceholder = NSAttributedString(
+            string: "Логин",
+            attributes:
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        )
 
         passwordTextField.backgroundColor = UIColor(named: "lightGray")
-        passwordTextField.setSettingsTextField(placeholder: "Пароль")
-
-        loginButton.setSettingsButton()
-        registrationButton.setSettingsButton()
+        passwordTextField.attributedPlaceholder = NSAttributedString(
+            string: "Пароль",
+            attributes:
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        )
 
         registrationButton.addTarget(self, action: #selector(registrationDidTap), for: .touchUpInside)
 
@@ -80,7 +83,7 @@ final class AuthViewImp: UIView, AuthView {
 
     }
 
-    // MARK: - Private func
+    // MARK: - Private methods
 
     @IBAction private func loginDidTap(_ sender: UIButton) {
         loginTextField.resignFirstResponder()

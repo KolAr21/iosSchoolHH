@@ -8,7 +8,6 @@
 import UIKit
 
 final class ProfileCoordinator: BaseCoordinator<ProfileCoordinator.Context> {
-
     struct Context {
         let onProfileLogout: (() -> Void)?
     }

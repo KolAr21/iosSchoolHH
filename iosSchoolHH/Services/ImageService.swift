@@ -12,11 +12,10 @@ protocol ImageService {
 }
 
 final class ImageServiceImp: ImageService {
+    private let updateQueue = DispatchQueue(label: "ImageServiceQueue")
+    private let apiClient: ApiClient
 
     private var imageDict: [String: UIImage] = [:]
-
-    private let apiClient: ApiClient
-    private let updateQueue = DispatchQueue(label: "ImageServiceQueue")
 
     init(apiClient: ApiClient) {
         self.apiClient = apiClient
@@ -29,12 +28,14 @@ final class ImageServiceImp: ImageService {
             if imageDict.count >= 50 {
                 imageDict.removeAll()
             }
+
             DispatchQueue.global().async {
                 self.apiClient.requestImageData(url: url) { [weak self] data in
                     guard let self, let data, let dataImage = UIImage(data: data) else {
                         completion(nil)
                         return
                     }
+
                     self.updateQueue.async {
                         self.imageDict[url] = dataImage
                         completion(dataImage)

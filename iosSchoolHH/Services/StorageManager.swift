@@ -23,7 +23,6 @@ protocol StorageManager {
 }
 
 final class StorageManagerImp: StorageManager {
-
     private let keychain = Keychain(service: Constants.serviceId)
 
     func cleanKeychainIfNeeded() {
@@ -52,6 +51,7 @@ final class StorageManagerImp: StorageManager {
             guard let token = try keychain.get(StorageManagerKey.token.rawValue) else {
                 return nil
             }
+
             return token
         } catch {
             print(error as Any)
@@ -80,6 +80,7 @@ final class StorageManagerImp: StorageManager {
             guard let userId = try keychain.get(StorageManagerKey.userId.rawValue) else {
                 return nil
             }
+
             return userId
         } catch {
             print(error as Any)

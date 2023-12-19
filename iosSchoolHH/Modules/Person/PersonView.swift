@@ -14,9 +14,6 @@ protocol PersonView: UIView {
 }
 
 final class PersonViewImp: UIView, PersonView {
-
-    private var sections: [CoreSection] = []
-
     private lazy var collectionView: UICollectionView = {
         UICollectionView(
             frame: .zero,
@@ -24,13 +21,15 @@ final class PersonViewImp: UIView, PersonView {
         )
     }()
 
+    private var sections: [CoreSection] = []
+
     func setView() {
         self.backgroundColor = UIColor(named: "silver")
         collectionView.backgroundColor = .clear
         collectionView.dataSource = self
-
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(collectionView)
+
         collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
@@ -47,7 +46,10 @@ final class PersonViewImp: UIView, PersonView {
     }
 
     func updateEpisode(idx: Int, with data: PersonEpisodeCellData) {
-        guard let index = sections.firstIndex(where: { $0 is PersonEpisodeSection }) else { return }
+        guard let index = sections.firstIndex(where: { $0 is PersonEpisodeSection }) else {
+            return
+        }
+
         sections[index].updateCell(at: IndexPath(item: idx, section: index), with: data)
         guard let cell = sections[index].cell(
             collectionView: collectionView,
@@ -87,7 +89,6 @@ final class PersonViewImp: UIView, PersonView {
 // MARK: - UICollectionViewDataSource
 
 extension PersonViewImp: UICollectionViewDataSource {
-
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         sections.count
     }

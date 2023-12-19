@@ -8,9 +8,9 @@
 import UIKit
 
 struct ProfilePhotoCellData: CoreCellInputData {
-    var selectClosure: ((CoreCellInputData) -> Void)?
-
     let image: UIImage
+
+    var selectClosure: ((CoreCellInputData) -> Void)?
 
     init(image: UIImage?) {
         self.image = image ?? UIImage()

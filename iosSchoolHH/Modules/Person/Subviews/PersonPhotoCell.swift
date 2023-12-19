@@ -8,7 +8,6 @@
 import UIKit
 
 final class PersonPhotoCell: UICollectionViewCell, CoreCellView {
-
     @IBOutlet weak var imageView: UIImageView!
 
     override func awakeFromNib() {
@@ -26,9 +25,7 @@ final class PersonPhotoCell: UICollectionViewCell, CoreCellView {
     }
 
     static func layoutSection() -> NSCollectionLayoutSection {
-
         let sizeCell = PersonSizeCell(screenSize: (PersonSizeCell.screenHeight > 800 ? .bigSize : .smallSize))
-
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)
@@ -38,7 +35,6 @@ final class PersonPhotoCell: UICollectionViewCell, CoreCellView {
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(sizeCell.fractionalPhotoCell)
         )
-
         let group = NSCollectionLayoutGroup.vertical(
             layoutSize: groupSize,
             repeatingSubitem: item,
@@ -52,7 +48,6 @@ final class PersonPhotoCell: UICollectionViewCell, CoreCellView {
             trailing: 16
         )
         return section
-
     }
 
     func update(with inputData: PersonPhotoCellData) {

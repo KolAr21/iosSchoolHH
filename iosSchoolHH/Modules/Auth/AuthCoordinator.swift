@@ -8,7 +8,6 @@
 import UIKit
 
 final class AuthCoordinator: BaseCoordinator<AuthCoordinator.Context> {
-
     struct Context {
         let onOpenLogin: (() -> Void)?
     }

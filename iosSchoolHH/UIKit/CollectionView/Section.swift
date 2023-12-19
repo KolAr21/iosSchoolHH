@@ -8,7 +8,6 @@
 import UIKit
 
 final class Section<Cell: CoreCellView, Header: CoreReusableView, Footer: CoreReusableView>: CoreSection {
-
     lazy var sectionLayoutProvider: UICollectionViewCompositionalLayoutSectionProvider? = {
         let sectionLayoutProvider: UICollectionViewCompositionalLayoutSectionProvider
         sectionLayoutProvider = { [unowned self] _, env -> NSCollectionLayoutSection? in
@@ -16,6 +15,7 @@ final class Section<Cell: CoreCellView, Header: CoreReusableView, Footer: CoreRe
         }
         return sectionLayoutProvider
     }()
+
     var numberOfItem: Int {
         cellsData.count
     }
@@ -29,6 +29,7 @@ final class Section<Cell: CoreCellView, Header: CoreReusableView, Footer: CoreRe
     var headerData: Header.InputData?
     var footerData: Footer.InputData?
     var cellsData: [Cell.InputData]
+
     private weak var collectionView: UICollectionView?
 
     init(
@@ -60,6 +61,7 @@ final class Section<Cell: CoreCellView, Header: CoreReusableView, Footer: CoreRe
             for: indexPath
         )
         let cellData = cellsData[indexPath.row]
+
         if let cell = cell as? Cell {
             cell.update(with: cellData)
         }
@@ -76,6 +78,7 @@ final class Section<Cell: CoreCellView, Header: CoreReusableView, Footer: CoreRe
             guard let headerData = headerData else {
                 return nil
             }
+
             return (collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: String(describing: Header.self),
@@ -86,6 +89,7 @@ final class Section<Cell: CoreCellView, Header: CoreReusableView, Footer: CoreRe
             guard let footerData = footerData else {
                 return nil
             }
+
             return (collectionView.dequeueReusableSupplementaryView(
                 ofKind: kind,
                 withReuseIdentifier: String(describing: Footer.self),
@@ -105,9 +109,9 @@ final class Section<Cell: CoreCellView, Header: CoreReusableView, Footer: CoreRe
         guard let data = data as? Cell.InputData else {
             return
         }
+
         cellsData[path.row] = data
         collectionView?.reloadItems(at: [path])
-
     }
 }
 
@@ -118,6 +122,7 @@ private extension Section {
         guard !cellsData.isEmpty else {
             return nil
         }
+
         let layout = Cell.layoutSection()
         layout.boundarySupplementaryItems = [headerItem(env: env), footerItem(env: env)].compactMap { $0 }
         return Cell.layoutSection()

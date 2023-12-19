@@ -7,20 +7,20 @@
 import UIKit
 
 final class CharacterViewController<View: CharacterView>: BaseViewController<View> {
+    private let updateQueue = DispatchQueue(label: "CharacterRequestQueue")
+    private let dataProvider: CharacterDataProvider
+    private let imageService: ImageService
+    private let charactersUrlList: [String]
 
     var selectCharacter: ((CharacterCellData) -> Void)?
 
     private var characters: [Character] = []
 
-    private let dataProvider: CharacterDataProvider
-    private let charactersUrlList: [String]
-    private let updateQueue = DispatchQueue(label: "CharacterRequestQueue")
-    private let imageService: ImageService
-
-    init(dataProvider: CharacterDataProvider, data: LocationCellData, imageService: ImageService) {
+    init(dataProvider: CharacterDataProvider, imageService: ImageService, data: LocationCellData) {
         self.dataProvider = dataProvider
-        charactersUrlList = data.residents
         self.imageService = imageService
+        charactersUrlList = data.residents
+
         super.init(nibName: nil, bundle: nil)
         title = "Жители локации \"\(data.name)\""
     }
@@ -74,10 +74,9 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
                 })
             }
         }
-        //            }
     }
 
-    // MARK: - Private func
+    // MARK: - Private methods
 
     private func requestCharacter(url: String, completion: @escaping (Character) -> Void) {
         if let character = characters.first(where: { $0.url == url }) {

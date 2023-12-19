@@ -28,5 +28,4 @@ struct ProfileViewData {
         ]
         logoutCellData = ProfileLogoutCellData(selectClosure: logoutClosure)
     }
-
 }

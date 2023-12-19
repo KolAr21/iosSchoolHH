@@ -8,7 +8,6 @@
 import UIKit
 
 final class PersonCoordinator: BaseCoordinator<PersonCoordinator.Context> {
-
     struct Context {
         let data: CharacterCellData
     }

@@ -15,7 +15,7 @@ protocol PersonAssembly {
 
 extension Assembly: PersonAssembly {
     func personVC(data: CharacterCellData) -> PersonViewController<PersonViewImp> {
-        .init(dataProvider: personDataProvider(), data: data, imageService: imageService)
+        .init(dataProvider: personDataProvider(), imageService: imageService, data: data)
     }
 
     func personDataProvider() -> PersonDataProvider {

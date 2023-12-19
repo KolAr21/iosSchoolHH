@@ -8,7 +8,6 @@
 import UIKit
 
 final class PersonEpisodeCell: UICollectionViewCell, CoreCellView {
-
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var numberView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -40,7 +39,6 @@ final class PersonEpisodeCell: UICollectionViewCell, CoreCellView {
             widthDimension: .absolute(PersonSizeCell.episodeCell),
             heightDimension: .absolute(PersonSizeCell.episodeCell)
         )
-
         let group = NSCollectionLayoutGroup.vertical(layoutSize: groupSize, subitems: [item])
         let section = NSCollectionLayoutSection(group: group)
         section.interGroupSpacing = 26
@@ -55,6 +53,8 @@ final class PersonEpisodeCell: UICollectionViewCell, CoreCellView {
     }
 
     func update(with inputData: PersonEpisodeCellData) {
+        numberLabel.text = inputData.number
+
         if !inputData.isLoading {
             nameLabel.text = inputData.name
             dateLabel.text = inputData.date
@@ -62,6 +62,5 @@ final class PersonEpisodeCell: UICollectionViewCell, CoreCellView {
             nameLabel.text = ""
             dateLabel.text = ""
         }
-        numberLabel.text = inputData.number
     }
 }

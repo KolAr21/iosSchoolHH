@@ -9,20 +9,20 @@ import UIKit
 import PKHUD
 
 final class PersonViewController<View: PersonView>: BaseViewController<View> {
+    private let updateQueue = DispatchQueue(label: "PersonRequestQueue")
+    private let dataProvider: PersonDataProvider
+    private let imageService: ImageService
+    private let episodeUrls: [String]
+    private let imageURL: String?
 
     private var episodes: [Episode] = []
 
-    private let dataProvider: PersonDataProvider
-    private let episodeUrls: [String]
-    private let updateQueue = DispatchQueue(label: "PersonRequestQueue")
-    private let imageURL: String?
-    private let imageService: ImageService
-
-    init(dataProvider: PersonDataProvider, data: CharacterCellData, imageService: ImageService) {
+    init(dataProvider: PersonDataProvider, imageService: ImageService, data: CharacterCellData) {
         self.dataProvider = dataProvider
+        self.imageService = imageService
         episodeUrls = data.episodes
         imageURL = data.imageUrl
-        self.imageService = imageService
+
         super.init(nibName: nil, bundle: nil)
         title = data.name
     }
@@ -37,20 +37,21 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
         setupBar()
         rootView.setView()
 
-        imageService.getImage(url: imageURL ?? "") { [weak self] image in
-            guard let image else {
-                return
-            }
+        if let image = imageURL {
+            imageService.getImage(url: image) { [weak self] image in
+                guard let image else {
+                    return
+                }
 
-            DispatchQueue.main.async {
-                self?.rootView.update(
-                    data: .init(
-                        image: image, episodesUrls: self?.episodeUrls ?? []
+                DispatchQueue.main.async {
+                    self?.rootView.update(
+                        data: .init(
+                            image: image, episodesUrls: self?.episodeUrls ?? []
+                        )
                     )
-                )
+                }
             }
         }
-
         episodeUrls.enumerated().forEach { idx, url in
             requestEpisode(url: url) { episode in
                 DispatchQueue.main.async {
@@ -60,7 +61,7 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
         }
     }
 
-    // MARK: - Private func
+    // MARK: - Private methods
 
     private func requestEpisode(url: String, completion: @escaping (Episode) -> Void) {
         DispatchQueue.global().async {
@@ -69,6 +70,7 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
                     print(error ?? "no error")
                     return
                 }
+
                 self?.updateQueue.async {
                     self?.episodes.append(episode)
                     completion(episode)

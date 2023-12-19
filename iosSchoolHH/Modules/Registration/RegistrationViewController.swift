@@ -10,9 +10,9 @@ import SPIndicator
 import PKHUD
 
 final class RegistrationViewController<View: RegistrationView>: BaseViewController<View> {
-
     private let dataProvider: RegistrationDataProvider
     private let storageManager: StorageManager
+
     private var onRegistrationSuccess: (() -> Void)?
 
     init(dataProvider: RegistrationDataProvider, storageManager: StorageManager, onRegistrationSuccess: (() -> Void)?) {
@@ -29,6 +29,7 @@ final class RegistrationViewController<View: RegistrationView>: BaseViewControll
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         rootView.setView()
         rootView.delegate = self
     }
@@ -48,12 +49,14 @@ extension RegistrationViewController: RegistrationViewDelegate {
             DispatchQueue.main.async {
                 HUD.hide()
             }
+            
             guard let self, let token else {
                 DispatchQueue.main.async {
                     SPIndicator.present(title: error?.rawValue ?? "", haptic: .error)
                 }
                 return
             }
+
             self.storageManager.saveToken(token: token)
             self.storageManager.saveUserId(token: token)
             self.storageManager.saveDateLastLogin()

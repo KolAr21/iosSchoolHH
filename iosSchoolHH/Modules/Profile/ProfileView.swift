@@ -13,9 +13,6 @@ protocol ProfileView: UIView {
 }
 
 final class ProfileViewImp: UIView, ProfileView {
-
-    private var sections: [CoreSection] = []
-
     private lazy var collectionView: UICollectionView = {
         UICollectionView(
             frame: .zero,
@@ -23,13 +20,15 @@ final class ProfileViewImp: UIView, ProfileView {
         )
     }()
 
+    private var sections: [CoreSection] = []
+
     func setView() {
         collectionView.backgroundColor = UIColor(named: "silver")
         collectionView.dataSource = self
         collectionView.delegate = self
-
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(collectionView)
+
         collectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
@@ -74,6 +73,7 @@ final class ProfileViewImp: UIView, ProfileView {
             guard let layoutSection = sections[section].sectionLayoutProvider?(section, env) else {
                 return nil
             }
+
             return layoutSection
         }
     }
@@ -104,7 +104,6 @@ extension ProfileViewImp: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         sections[indexPath.section].selectCell(at: indexPath.row)
     }
-
 }
 
 private extension ProfileViewImp {

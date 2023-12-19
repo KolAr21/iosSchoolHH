@@ -8,7 +8,9 @@
 import UIKit
 
 final class CustomTextField: UITextField {
-    func setSettingsTextField(placeholder: String) {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
         borderStyle = .none
         backgroundColor = .white
         layer.borderWidth = 1
@@ -21,11 +23,5 @@ final class CustomTextField: UITextField {
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: frame.height))
         leftView = paddingView
         leftViewMode = .always
-
-        attributedPlaceholder = NSAttributedString(
-            string: placeholder,
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
-        )
     }
 }

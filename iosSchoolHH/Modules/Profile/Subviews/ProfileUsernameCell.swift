@@ -8,13 +8,10 @@
 import UIKit
 
 final class ProfileUsernameCell: UICollectionViewCell, CoreCellView {
-
     @IBOutlet private weak var usernameLabel: UILabel!
 
     static func layoutSection() -> NSCollectionLayoutSection {
-
         let sizeCell = ProfileSizeCell(screenSize: (PersonSizeCell.screenHeight > 800 ? .bigSize : .smallSize))
-
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)
@@ -24,7 +21,6 @@ final class ProfileUsernameCell: UICollectionViewCell, CoreCellView {
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(sizeCell.label)
         )
-
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
             repeatingSubitem: item,

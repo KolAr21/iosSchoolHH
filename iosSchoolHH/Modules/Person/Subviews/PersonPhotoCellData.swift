@@ -8,7 +8,7 @@
 import UIKit
 
 struct PersonPhotoCellData: CoreCellInputData {
-    var selectClosure: ((CoreCellInputData) -> Void)?
-
     let image: UIImage
+
+    var selectClosure: ((CoreCellInputData) -> Void)?
 }

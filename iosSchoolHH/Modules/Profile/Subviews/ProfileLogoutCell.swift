@@ -8,7 +8,6 @@
 import UIKit
 
 final class ProfileLogoutCell: UICollectionViewCell, CoreCellView {
-
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -22,9 +21,7 @@ final class ProfileLogoutCell: UICollectionViewCell, CoreCellView {
     }
 
     static func layoutSection() -> NSCollectionLayoutSection {
-
         let sizeCell = ProfileSizeCell(screenSize: (PersonSizeCell.screenHeight > 800 ? .bigSize : .smallSize))
-
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .fractionalHeight(1)
@@ -34,7 +31,6 @@ final class ProfileLogoutCell: UICollectionViewCell, CoreCellView {
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(sizeCell.button)
         )
-
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
             repeatingSubitem: item,

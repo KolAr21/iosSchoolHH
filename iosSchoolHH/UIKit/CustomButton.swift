@@ -7,7 +7,9 @@
 import UIKit
 
 final class CustomButton: UIButton {
-    func setSettingsButton() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+
         layer.shadowColor = UIColor(named: "shadow-black")?.cgColor
         layer.shadowOpacity = 1
         layer.shadowRadius = 8
