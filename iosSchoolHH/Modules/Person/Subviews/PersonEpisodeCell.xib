@@ -36,7 +36,7 @@
                             <constraint firstItem="HTK-uA-fGx" firstAttribute="leading" secondItem="i3K-TT-AsK" secondAttribute="leading" constant="6" id="zS9-v6-EUv"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRi-LP-BLl">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yRi-LP-BLl">
                         <rect key="frame" x="16" y="117" width="302" height="19.333333333333343"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                         <nil key="textColor"/>
@@ -53,7 +53,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="hqD-tD-wIS" secondAttribute="bottom" constant="12" id="3nf-sP-L30"/>
-                <constraint firstItem="hqD-tD-wIS" firstAttribute="top" secondItem="yRi-LP-BLl" secondAttribute="bottom" constant="29" id="DzW-48-PFf"/>
+                <constraint firstItem="hqD-tD-wIS" firstAttribute="top" relation="lessThanOrEqual" secondItem="yRi-LP-BLl" secondAttribute="bottom" constant="29" id="DzW-48-PFf"/>
                 <constraint firstItem="hqD-tD-wIS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="eit-2M-2iv"/>
                 <constraint firstItem="yRi-LP-BLl" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="jq2-We-BFy"/>
                 <constraint firstAttribute="trailing" secondItem="hqD-tD-wIS" secondAttribute="trailing" constant="6" id="jrU-f8-ULe"/>

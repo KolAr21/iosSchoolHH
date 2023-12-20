@@ -7,6 +7,7 @@
 
 import UIKit
 import PKHUD
+import SPIndicator
 
 final class PersonViewController<View: PersonView>: BaseViewController<View> {
     private let updateQueue = DispatchQueue(label: "PersonRequestQueue")
@@ -67,7 +68,9 @@ final class PersonViewController<View: PersonView>: BaseViewController<View> {
         DispatchQueue.global().async {
             self.dataProvider.episode(url: url) { [weak self] episode, error in
                 guard let episode else {
-                    print(error ?? "no error")
+                    DispatchQueue.main.async {
+                        SPIndicator.present(title: error?.rawValue ?? "Ошибочка", haptic: .error)
+                    }
                     return
                 }
 

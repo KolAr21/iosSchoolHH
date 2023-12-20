@@ -19,13 +19,12 @@ enum ApiError: Error {
         case .serverError:
             return "Ошибка получения данных"
         case let .common(data):
-            if let data {
-                let error = try? JSONDecoder().decode(CommonError.self, from: data)
-                let returnError = error?.code ?? error?.message ?? ""
-                return returnError.capitalizingFirstLetter().replacingOccurrences(of: "_", with: " ")
-            } else {
+            guard let data else {
                 return "Произошла неизвестная ошибка"
             }
+            let error = try? JSONDecoder().decode(CommonError.self, from: data)
+            let returnError = error?.code ?? error?.message ?? ""
+            return returnError.capitalizingFirstLetter().replacingOccurrences(of: "_", with: " ")
         }
     }
 }

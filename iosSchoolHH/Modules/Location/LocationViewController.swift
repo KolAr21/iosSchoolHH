@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SPIndicator
 
 final class LocationViewController<View: LocationView>: BaseViewController<View> {
     private let dataProvider: LocationDataProvider
@@ -36,7 +37,9 @@ final class LocationViewController<View: LocationView>: BaseViewController<View>
     private func getListOfLocation() {
         dataProvider.location { [weak self] location, error in
             guard let location else {
-                print(error ?? "no error")
+                DispatchQueue.main.async {
+                    SPIndicator.present(title: error?.rawValue ?? "Ошибочка", haptic: .error)
+                }
                 return
             }
             self?.rootView.update(data: LocationViewData(list: location))

@@ -9,6 +9,7 @@ import UIKit
 
 protocol RegistrationView: UIView {
     var delegate: RegistrationViewDelegate? { get set }
+
     func setView()
 }
 

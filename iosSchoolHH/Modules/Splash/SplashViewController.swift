@@ -20,12 +20,6 @@ final class SplashViewController<View: SplashView>: BaseViewController<View> {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        rootView.setView()
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 

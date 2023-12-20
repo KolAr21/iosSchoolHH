@@ -5,6 +5,7 @@
 //  Created by Арина Колганова on 14.11.2023.
 //
 import UIKit
+import SPIndicator
 
 final class CharacterViewController<View: CharacterView>: BaseViewController<View> {
     private let updateQueue = DispatchQueue(label: "CharacterRequestQueue")
@@ -59,10 +60,6 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
                 }
 
                 self.imageService.getImage(url: character.image, completion: { [weak self] image in
-                    guard let image else {
-                        return
-                    }
-
                     DispatchQueue.main.async {
                         self?.rootView.updateCharacter(idx: idx, with: CharacterCellData(
                             character: character,
@@ -86,9 +83,12 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
         DispatchQueue.global().async {
             self.dataProvider.character(url: url) { [weak self] character, error in
                 guard let character else {
-                    print(error ?? "no error")
+                    DispatchQueue.main.async {
+                        SPIndicator.present(title: error?.rawValue ?? "Ошибочка", haptic: .error)
+                    }
                     return
                 }
+
                 self?.updateQueue.async {
                     self?.characters.append(character)
                     completion(character)

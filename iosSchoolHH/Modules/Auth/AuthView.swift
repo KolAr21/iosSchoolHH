@@ -9,6 +9,7 @@ import UIKit
 
 protocol AuthView: UIView {
     var delegate: AuthViewDelegate? { get set }
+
     func setView()
 }
 
@@ -80,7 +81,6 @@ final class AuthViewImp: UIView, AuthView {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
-
     }
 
     // MARK: - Private methods
