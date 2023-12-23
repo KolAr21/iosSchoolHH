@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR" customClass="PersonHeaderView" customModule="iosSchoolHH" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="332" height="108"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7x-pC-Isk">
+                    <rect key="frame" x="16" y="16" width="300" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="VXr-Tz-HHm"/>
+            <constraints>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="bottom" secondItem="z7x-pC-Isk" secondAttribute="bottom" constant="24" id="ZeJ-ff-Er9"/>
+                <constraint firstItem="z7x-pC-Isk" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="16" id="jMy-1v-0BN"/>
+                <constraint firstItem="z7x-pC-Isk" firstAttribute="leading" secondItem="VXr-Tz-HHm" secondAttribute="leading" constant="16" id="pdX-cO-YOm"/>
+                <constraint firstItem="VXr-Tz-HHm" firstAttribute="trailing" secondItem="z7x-pC-Isk" secondAttribute="trailing" constant="16" id="v3o-c2-Q7T"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="z7x-pC-Isk" id="Nz5-GB-WUj"/>
+            </connections>
+            <point key="canvasLocation" x="51.908396946564885" y="-30.281690140845072"/>
+        </collectionReusableView>
+    </objects>
+</document>
