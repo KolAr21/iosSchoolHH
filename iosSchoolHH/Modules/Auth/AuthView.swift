@@ -26,6 +26,7 @@ final class AuthViewImp: UIView, AuthView {
     @IBOutlet private var subTitleLabel: UILabel!
     @IBOutlet private var loginTextField: CustomTextField!
     @IBOutlet private var passwordTextField: CustomTextField!
+    @IBOutlet private var eyeButton: UIButton!
     @IBOutlet private var loginButton: CustomButton!
     @IBOutlet private var registrationButton: CustomButton!
 
@@ -84,6 +85,15 @@ final class AuthViewImp: UIView, AuthView {
     }
 
     // MARK: - Private methods
+
+    @IBAction private func eyeDidTap(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        if passwordTextField.isSecureTextEntry {
+            eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
+    }
 
     @IBAction private func loginDidTap(_ sender: UIButton) {
         loginTextField.resignFirstResponder()

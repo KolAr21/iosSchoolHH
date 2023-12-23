@@ -3,6 +3,7 @@
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -63,14 +64,32 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
-                                        <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhr-dX-1o7" customClass="CustomTextField" customModule="iosSchoolHH" customModuleProvider="target">
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="-52" translatesAutoresizingMaskIntoConstraints="NO" id="GtJ-53-6Mf">
                                             <rect key="frame" x="0.0" y="58" width="366" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="40" id="a8z-hZ-he2"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
-                                        </textField>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hhr-dX-1o7" customClass="CustomTextField" customModule="iosSchoolHH" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="a8z-hZ-he2"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSt-oh-cm4">
+                                                    <rect key="frame" x="314" y="0.0" width="52" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="52" id="o4x-rd-Mx6"/>
+                                                        <constraint firstAttribute="height" constant="40" id="oIx-3O-s4G"/>
+                                                    </constraints>
+                                                    <color key="tintColor" name="matterhorn"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" image="eye" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="eyeDidTap:" destination="iN0-l3-epB" eventType="touchUpInside" id="T5I-0w-3Ob"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                 </stackView>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="hGM-CP-0xS">
@@ -144,6 +163,7 @@
                 <constraint firstItem="Jug-Iq-5dL" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="tTE-zt-Bmo"/>
             </constraints>
             <connections>
+                <outlet property="eyeButton" destination="oSt-oh-cm4" id="uWj-Jd-WeF"/>
                 <outlet property="imageView" destination="Jug-Iq-5dL" id="Umh-3k-qD8"/>
                 <outlet property="labelView" destination="FLG-PO-Ox4" id="Hei-0y-oSi"/>
                 <outlet property="loginButton" destination="mRL-nI-2Yj" id="6Cj-el-4SO"/>
@@ -158,6 +178,10 @@
         </view>
     </objects>
     <resources>
+        <image name="eye" catalog="system" width="128" height="79"/>
+        <namedColor name="matterhorn">
+            <color red="0.31799998879432678" green="0.3059999942779541" blue="0.3059999942779541" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

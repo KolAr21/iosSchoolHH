@@ -53,7 +53,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="sGn-Vb-ksE"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         </textField>
                                         <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="    Повторите пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KAU-XS-PWe" userLabel="Repeat password" customClass="CustomTextField" customModule="iosSchoolHH" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="116" width="311" height="40"/>
@@ -61,7 +61,7 @@
                                                 <constraint firstAttribute="height" constant="40" id="R1K-EG-8EO"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         </textField>
                                     </subviews>
                                 </stackView>
