@@ -18,7 +18,7 @@ protocol AuthViewDelegate: AnyObject {
     func registrationButtonDidTap()
 }
 
-final class AuthViewImp: UIView, AuthView {
+final class AuthViewImp: UIView, AuthView, UITextFieldDelegate {
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var labelView: UIView!
@@ -54,6 +54,9 @@ final class AuthViewImp: UIView, AuthView {
         labelView.layer.cornerRadius = 10
         labelView.backgroundColor = UIColor(named: "shadow-silver")
 
+        loginTextField.delegate = self
+        loginTextField.returnKeyType = .next
+        loginTextField.tag = 0
         loginTextField.backgroundColor = UIColor(named: "lightGray")
         loginTextField.attributedPlaceholder = NSAttributedString(
             string: "Логин",
@@ -61,6 +64,9 @@ final class AuthViewImp: UIView, AuthView {
                 [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
         )
 
+        passwordTextField.delegate = self
+        passwordTextField.returnKeyType = .go
+        passwordTextField.tag = 1
         passwordTextField.backgroundColor = UIColor(named: "lightGray")
         passwordTextField.attributedPlaceholder = NSAttributedString(
             string: "Пароль",
@@ -82,6 +88,16 @@ final class AuthViewImp: UIView, AuthView {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            delegate?.loginButtonDidTap(login: loginTextField.text ?? "", password: passwordTextField.text ?? "")
+        }
+        return false
     }
 
     // MARK: - Private methods

@@ -18,7 +18,7 @@ protocol RegistrationViewDelegate: AnyObject {
     func registrationButtonDidTap(login: String, password: String, repeatPassword: String)
 }
 
-final class RegistrationViewImp: UIView, RegistrationView {
+final class RegistrationViewImp: UIView, RegistrationView, UITextFieldDelegate {
     weak var delegate: RegistrationViewDelegate?
 
     @IBOutlet private var scrollView: UIScrollView!
@@ -54,20 +54,15 @@ final class RegistrationViewImp: UIView, RegistrationView {
         avatar.clipsToBounds = true
         avatarView.addSubview(avatar)
 
-        loginTextField.attributedPlaceholder = NSAttributedString(
-            string: "Введите логин",
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
-        )
-        passwordTextField.attributedPlaceholder = NSAttributedString(
-            string: "Введите пароль",
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
-        )
-        repeatPasswordTextField.attributedPlaceholder = NSAttributedString(
-            string: "Повторите пароль",
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        setTextFieldSettings(textField: loginTextField, idx: 0, keyIsNext: true, placeholder: "Введите логин")
+        passwordTextField.textContentType = .oneTimeCode
+        setTextFieldSettings(textField: passwordTextField, idx: 1, keyIsNext: true, placeholder: "Введите пароль")
+        repeatPasswordTextField.textContentType = .oneTimeCode
+        setTextFieldSettings(
+            textField: repeatPasswordTextField,
+            idx: 2,
+            keyIsNext: false,
+            placeholder: "Повторите пароль"
         )
 
         NotificationCenter.default.addObserver(
@@ -82,6 +77,31 @@ final class RegistrationViewImp: UIView, RegistrationView {
             name: UIResponder.keyboardWillHideNotification,
             object: nil
         )
+    }
+
+    func setTextFieldSettings(textField: UITextField, idx: Int, keyIsNext: Bool, placeholder: String) {
+        textField.delegate = self
+        textField.tag = idx
+        textField.returnKeyType = keyIsNext ? .next : .go
+        textField.attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes:
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        )
+    }
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            delegate?.registrationButtonDidTap(
+                login: loginTextField.text ?? "",
+                password: passwordTextField.text ?? "",
+                repeatPassword: repeatPasswordTextField.text ?? ""
+            )
+        }
+        return false
     }
 
     // MARK: - Private methods
