@@ -79,17 +79,6 @@ final class RegistrationViewImp: UIView, RegistrationView, UITextFieldDelegate {
         )
     }
 
-    func setTextFieldSettings(textField: UITextField, idx: Int, keyIsNext: Bool, placeholder: String) {
-        textField.delegate = self
-        textField.tag = idx
-        textField.returnKeyType = keyIsNext ? .next : .go
-        textField.attributedPlaceholder = NSAttributedString(
-            string: placeholder,
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
-        )
-    }
-
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
             nextField.becomeFirstResponder()
@@ -105,6 +94,17 @@ final class RegistrationViewImp: UIView, RegistrationView, UITextFieldDelegate {
     }
 
     // MARK: - Private methods
+
+    private func setTextFieldSettings(textField: UITextField, idx: Int, keyIsNext: Bool, placeholder: String) {
+        textField.delegate = self
+        textField.tag = idx
+        textField.returnKeyType = keyIsNext ? .next : .go
+        textField.attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes:
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        )
+    }
 
     @IBAction private func backDidTap(_ sender: UIButton) {
         loginTextField.resignFirstResponder()
