@@ -54,21 +54,11 @@ final class RegistrationViewImp: UIView, RegistrationView {
         avatar.clipsToBounds = true
         avatarView.addSubview(avatar)
 
-        loginTextField.attributedPlaceholder = NSAttributedString(
-            string: "Введите логин",
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
-        )
-        passwordTextField.attributedPlaceholder = NSAttributedString(
-            string: "Введите пароль",
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
-        )
-        repeatPasswordTextField.attributedPlaceholder = NSAttributedString(
-            string: "Повторите пароль",
-            attributes:
-                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
-        )
+        setTextFieldSettings(textField: loginTextField, idx: 0, placeholder: "Введите логин")
+        passwordTextField.textContentType = .oneTimeCode
+        setTextFieldSettings(textField: passwordTextField, idx: 1, placeholder: "Введите пароль")
+        repeatPasswordTextField.textContentType = .oneTimeCode
+        setTextFieldSettings(textField: repeatPasswordTextField, idx: 2, placeholder: "Повторите пароль")
 
         NotificationCenter.default.addObserver(
             self,
@@ -85,6 +75,17 @@ final class RegistrationViewImp: UIView, RegistrationView {
     }
 
     // MARK: - Private methods
+
+    private func setTextFieldSettings(textField: UITextField, idx: Int, placeholder: String) {
+        textField.delegate = self
+        textField.tag = idx
+        textField.returnKeyType = idx == 2 ? .go : .next
+        textField.attributedPlaceholder = NSAttributedString(
+            string: placeholder,
+            attributes:
+                [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
+        )
+    }
 
     @IBAction private func backDidTap(_ sender: UIButton) {
         loginTextField.resignFirstResponder()
@@ -127,5 +128,23 @@ final class RegistrationViewImp: UIView, RegistrationView {
         loginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         repeatPasswordTextField.resignFirstResponder()
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension RegistrationViewImp: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            delegate?.registrationButtonDidTap(
+                login: loginTextField.text ?? "",
+                password: passwordTextField.text ?? "",
+                repeatPassword: repeatPasswordTextField.text ?? ""
+            )
+        }
+        return false
     }
 }

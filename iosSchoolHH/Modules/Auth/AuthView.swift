@@ -26,6 +26,7 @@ final class AuthViewImp: UIView, AuthView {
     @IBOutlet private var subTitleLabel: UILabel!
     @IBOutlet private var loginTextField: CustomTextField!
     @IBOutlet private var passwordTextField: CustomTextField!
+    @IBOutlet private var eyeButton: UIButton!
     @IBOutlet private var loginButton: CustomButton!
     @IBOutlet private var registrationButton: CustomButton!
 
@@ -53,6 +54,9 @@ final class AuthViewImp: UIView, AuthView {
         labelView.layer.cornerRadius = 10
         labelView.backgroundColor = UIColor(named: "shadow-silver")
 
+        loginTextField.delegate = self
+        loginTextField.returnKeyType = .next
+        loginTextField.tag = 0
         loginTextField.backgroundColor = UIColor(named: "lightGray")
         loginTextField.attributedPlaceholder = NSAttributedString(
             string: "Логин",
@@ -60,6 +64,9 @@ final class AuthViewImp: UIView, AuthView {
                 [NSAttributedString.Key.foregroundColor: UIColor(named: "matterhorn") ?? .darkGray]
         )
 
+        passwordTextField.delegate = self
+        passwordTextField.returnKeyType = .go
+        passwordTextField.tag = 1
         passwordTextField.backgroundColor = UIColor(named: "lightGray")
         passwordTextField.attributedPlaceholder = NSAttributedString(
             string: "Пароль",
@@ -84,6 +91,15 @@ final class AuthViewImp: UIView, AuthView {
     }
 
     // MARK: - Private methods
+
+    @IBAction private func eyeDidTap(_ sender: UIButton) {
+        passwordTextField.isSecureTextEntry = !passwordTextField.isSecureTextEntry
+        if passwordTextField.isSecureTextEntry {
+            eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
+    }
 
     @IBAction private func loginDidTap(_ sender: UIButton) {
         loginTextField.resignFirstResponder()
@@ -116,5 +132,19 @@ final class AuthViewImp: UIView, AuthView {
     @objc private func viewDidTap() {
         loginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension AuthViewImp: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            delegate?.loginButtonDidTap(login: loginTextField.text ?? "", password: passwordTextField.text ?? "")
+        }
+        return false
     }
 }
