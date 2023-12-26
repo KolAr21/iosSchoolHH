@@ -18,7 +18,7 @@ protocol AuthViewDelegate: AnyObject {
     func registrationButtonDidTap()
 }
 
-final class AuthViewImp: UIView, AuthView, UITextFieldDelegate {
+final class AuthViewImp: UIView, AuthView {
     @IBOutlet private var scrollView: UIScrollView!
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var labelView: UIView!
@@ -90,16 +90,6 @@ final class AuthViewImp: UIView, AuthView, UITextFieldDelegate {
         )
     }
 
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
-            nextField.becomeFirstResponder()
-        } else {
-            textField.resignFirstResponder()
-            delegate?.loginButtonDidTap(login: loginTextField.text ?? "", password: passwordTextField.text ?? "")
-        }
-        return false
-    }
-
     // MARK: - Private methods
 
     @IBAction private func eyeDidTap(_ sender: UIButton) {
@@ -142,5 +132,19 @@ final class AuthViewImp: UIView, AuthView, UITextFieldDelegate {
     @objc private func viewDidTap() {
         loginTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension AuthViewImp: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if let nextField = textField.superview?.viewWithTag(textField.tag + 1) as? UITextField {
+            nextField.becomeFirstResponder()
+        } else {
+            textField.resignFirstResponder()
+            delegate?.loginButtonDidTap(login: loginTextField.text ?? "", password: passwordTextField.text ?? "")
+        }
+        return false
     }
 }
