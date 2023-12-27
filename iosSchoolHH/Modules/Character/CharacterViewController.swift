@@ -20,7 +20,6 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
 
     var selectCharacter: ((CharacterCellData) -> Void)?
 
-    private var location: String?
     private var characters: [Character] = []
     private var charactersDictionary: [String: String] = [:]
 
@@ -28,7 +27,6 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
         self.dataProvider = dataProvider
         self.imageService = imageService
         charactersUrlList = data.residents
-        location = data.name
 
         super.init(nibName: nil, bundle: nil)
         title = "Жители локации \"\(data.name)\""
