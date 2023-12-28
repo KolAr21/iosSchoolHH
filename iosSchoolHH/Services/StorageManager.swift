@@ -5,7 +5,7 @@
 //  Created by Арина Колганова on 04.12.2023.
 //
 
-import Foundation
+import UIKit
 import KeychainAccess
 
 protocol StorageManager {
@@ -20,6 +20,9 @@ protocol StorageManager {
 
     func saveDateLastLogin()
     func getDateLastLogin() -> String
+
+    func saveColor(color: UIColor)
+    func getColor() -> UIColor?
 }
 
 final class StorageManagerImp: StorageManager {
@@ -103,6 +106,28 @@ final class StorageManagerImp: StorageManager {
     func getDateLastLogin() -> String {
         UserDefaults.standard.string(forKey: StorageManagerKey.lastLoginDate.rawValue) ?? ""
     }
+
+    func saveColor(color: UIColor) {
+        do {
+            let data = try NSKeyedArchiver.archivedData(withRootObject: color, requiringSecureCoding: false) as NSData?
+            UserDefaults.standard.set(data, forKey: StorageManagerKey.color.rawValue)
+        } catch {
+            print(error as Any)
+        }
+    }
+
+    func getColor() -> UIColor? {
+        if let data = UserDefaults.standard.data(forKey: StorageManagerKey.color.rawValue) {
+            do {
+                if let color = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIColor.self, from: data) {
+                    return color
+                }
+            } catch {
+                print("Error UserDefaults")
+            }
+        }
+        return nil
+    }
 }
 
 private extension StorageManagerImp {
@@ -111,6 +136,7 @@ private extension StorageManagerImp {
         case userId
         case notFirstLaunch
         case lastLoginDate
+        case color
     }
 
     struct Constants {
