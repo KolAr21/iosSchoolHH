@@ -9,11 +9,12 @@ import UIKit
 import SPIndicator
 import PKHUD
 
-final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
+final class ProfileViewController<View: ProfileView>: BaseViewController<View>, UIColorPickerViewControllerDelegate {
     private let dataProvider: ProfileDataProvider
     private let storageManager: StorageManager
 
     private var onProfileLogout: (() -> Void)?
+    private var username: String?
 
     init(dataProvider: ProfileDataProvider, storageManager: StorageManager, onProfileLogout: (() -> Void)?) {
         self.dataProvider = dataProvider
@@ -42,6 +43,7 @@ final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
                 return
             }
 
+            username = profile.username
             update(username: profile.username)
         }
     }
@@ -64,7 +66,10 @@ final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
                     image: (UIImage(named: "registration-avatar")) ?? UIImage(),
                     username: username,
                     date: self.storageManager.getDateLastLogin(),
-                    color: UIColor(named: "silver") ?? UIColor(),
+                    color: self.storageManager.getColor() ?? UIColor(named: "silver") ?? UIColor(),
+                    colorClosure: { [weak self] _ in
+                        self?.setColorPicker()
+                    },
                     logoutClosure: { [weak self] _ in
                         self?.storageManager.removeToken()
                         self?.storageManager.removeUserId()
@@ -73,5 +78,18 @@ final class ProfileViewController<View: ProfileView>: BaseViewController<View> {
                 )
             )
         }
+    }
+
+    private func setColorPicker() {
+        let picker = UIColorPickerViewController()
+        picker.selectedColor = UIColor(named: "silver") ?? UIColor()
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
+    }
+
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        storageManager.saveColor(color: viewController.selectedColor)
+
+        update(username: username ?? "")
     }
 }
