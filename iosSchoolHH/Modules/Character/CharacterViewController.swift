@@ -7,6 +7,11 @@
 import UIKit
 import SPIndicator
 
+protocol CharacterViewControllerDelegate: AnyObject {
+    func searchCharacter(name: String)
+    func showAllCharacters()
+}
+
 final class CharacterViewController<View: CharacterView>: BaseViewController<View> {
     private let updateQueue = DispatchQueue(label: "CharacterRequestQueue")
     private let dataProvider: CharacterDataProvider
@@ -16,6 +21,7 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
     var selectCharacter: ((CharacterCellData) -> Void)?
 
     private var characters: [Character] = []
+    private var charactersDictionary: [String: String] = [:]
 
     init(dataProvider: CharacterDataProvider, imageService: ImageService, data: LocationCellData) {
         self.dataProvider = dataProvider
@@ -35,16 +41,13 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
 
         setupBar()
         rootView.setView()
-        rootView.update(data: CharacterViewData(cells: charactersUrlList.map({ CharacterCellData(url: $0) })))
+        showAllCharacters()
+    }
 
-        let selectClosure: ((CoreCellInputData) -> Void)? = { [weak self] data in
-            guard let data = data as? CharacterCellData else {
-                return
-            }
-            self?.selectCharacter?(data)
-        }
+    // MARK: - Private methods
 
-        charactersUrlList.enumerated().forEach { idx, url in
+    private func loadCharacters(url: [String]) {
+        url.enumerated().forEach { idx, url in
             requestCharacter(url: url) { [weak self] character in
                 guard let self else {
                     return
@@ -55,7 +58,7 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
                         character: character,
                         isLoading: true,
                         image: nil,
-                        selectClosure: selectClosure
+                        selectClosure: self.selectClosure
                     ))
                 }
 
@@ -65,15 +68,21 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
                             character: character,
                             isLoading: false,
                             image: image,
-                            selectClosure: selectClosure
+                            selectClosure: self?.selectClosure
                         ))
+                        self?.charactersDictionary[character.name] = url
                     }
                 })
             }
         }
     }
 
-    // MARK: - Private methods
+    private func selectClosure(data: CoreCellInputData) {
+        guard let data = data as? CharacterCellData else {
+            return
+        }
+        selectCharacter?(data)
+    }
 
     private func requestCharacter(url: String, completion: @escaping (Character) -> Void) {
         if let character = characters.first(where: { $0.url == url }) {
@@ -108,5 +117,33 @@ final class CharacterViewController<View: CharacterView>: BaseViewController<Vie
 
     @objc private func back() {
         self.navigationController?.popViewController(animated: true)
+    }
+}
+
+extension CharacterViewController: CharacterViewControllerDelegate {
+    func searchCharacter(name: String) {
+        let charactersFilter: [String] = Array(charactersDictionary.filter {$0.key.lowercased().contains(
+            name.lowercased())}.values
+        )
+
+        rootView.update(
+            data: CharacterViewData(
+                find: CharacterFindCellData(delegate: self),
+                cells: charactersFilter.map {CharacterCellData(url: $0)}
+            )
+        )
+
+        loadCharacters(url: charactersFilter)
+    }
+
+    func showAllCharacters() {
+        rootView.update(
+            data: CharacterViewData(
+                find: CharacterFindCellData(delegate: self),
+                cells: charactersUrlList.map {CharacterCellData(url: $0)}
+            )
+        )
+
+        loadCharacters(url: charactersUrlList)
     }
 }

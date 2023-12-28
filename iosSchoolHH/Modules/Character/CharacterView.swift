@@ -21,7 +21,7 @@ final class CharacterViewImp: UIView, CharacterView {
         )
     }()
 
-    private var section: CoreSection?
+    private var sections: [CoreSection] = []
 
     func setView() {
         self.backgroundColor = UIColor(named: "silver")
@@ -39,31 +39,48 @@ final class CharacterViewImp: UIView, CharacterView {
     }
 
     func update(data: CharacterViewData) {
-        section = CharactersSection(cellsData: data.cells)
-        section?.registrate(collectionView: collectionView)
+        sections = [
+            Sections.findSection.create(data: data),
+            Sections.characterSection.create(data: data)
+        ]
+        sections.forEach { $0.registrate(collectionView: collectionView) }
         collectionView.reloadData()
     }
 
     func updateCharacter(idx: Int, with data: CharacterCellData) {
-        section?.updateCell(at: IndexPath(item: idx, section: 0), with: data)
-        guard let cell = section?.cell(
+        guard let index = sections.firstIndex(where: { $0 is CharactersSection }) else {
+            return
+        }
+
+        sections[index].updateCell(at: IndexPath(item: idx, section: index), with: data)
+        guard let cell = sections[index].cell(
             collectionView: collectionView,
-            indexPath: IndexPath(item: idx, section: 0)
+            indexPath: IndexPath(item: idx, section: index)
         ) as? CharacterCell else {
             return
         }
         cell.update(with: data)
     }
 
+    private enum Sections: Int {
+        case findSection
+        case characterSection
+
+        func create(data: CharacterViewData) -> CoreSection {
+            switch self {
+            case .findSection:
+                return CharactersFindSection(cellsData: [data.find])
+            case .characterSection:
+                return CharactersSection(cellsData: data.cells)
+            }
+        }
+    }
+
     // MARK: - Private methods
 
     private func layout() -> UICollectionViewLayout {
         UICollectionViewCompositionalLayout { [unowned self] section, env -> NSCollectionLayoutSection? in
-            guard let charactersSection = self.section else {
-                return nil
-            }
-
-            guard let layoutSection = charactersSection.sectionLayoutProvider?(section, env) else {
+            guard let layoutSection = sections[section].sectionLayoutProvider?(section, env) else {
                 return nil
             }
             return layoutSection
@@ -74,15 +91,19 @@ final class CharacterViewImp: UIView, CharacterView {
 // MARK: - UICollectionViewDataSource
 
 extension CharacterViewImp: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        sections.count
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.section?.numberOfItem ?? 0
+        sections[section].numberOfItem
     }
 
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        section?.cell(collectionView: collectionView, indexPath: indexPath) ?? UICollectionViewCell()
+        sections[indexPath.section].cell(collectionView: collectionView, indexPath: indexPath) ?? UICollectionViewCell()
     }
 }
 
@@ -90,10 +111,11 @@ extension CharacterViewImp: UICollectionViewDataSource {
 
 extension CharacterViewImp: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        section?.selectCell(at: indexPath.row)
+        sections[indexPath.section].selectCell(at: indexPath.row)
     }
 }
 
 private extension CharacterViewImp {
+    typealias CharactersFindSection = Section<CharacterFindViewCell, EmptyReusableView, EmptyReusableView>
     typealias CharactersSection = Section<CharacterCell, EmptyReusableView, EmptyReusableView>
 }

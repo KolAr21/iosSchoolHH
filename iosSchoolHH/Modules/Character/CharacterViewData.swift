@@ -8,5 +8,6 @@
 import Foundation
 
 struct CharacterViewData {
+    let find: CharacterFindCellData
     let cells: [CharacterCellData]
 }

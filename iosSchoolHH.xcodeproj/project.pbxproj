@@ -97,6 +97,9 @@
 		2FE2762B2B2CC56400EB5D39 /* ProfileLogoutCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE2762A2B2CC56400EB5D39 /* ProfileLogoutCellData.swift */; };
 		2FE276422B2F17FB00EB5D39 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276412B2F17FB00EB5D39 /* CustomButton.swift */; };
 		2FE276442B2F1C2E00EB5D39 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276432B2F1C2E00EB5D39 /* CustomTextField.swift */; };
+		2FE276842B3C16BF00EB5D39 /* CharacterFindViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276822B3C16BF00EB5D39 /* CharacterFindViewCell.swift */; };
+		2FE276852B3C16BF00EB5D39 /* CharacterFindViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2FE276832B3C16BF00EB5D39 /* CharacterFindViewCell.xib */; };
+		2FE276872B3C17C500EB5D39 /* CharacterFindCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE276862B3C17C500EB5D39 /* CharacterFindCellData.swift */; };
 		2FEB76D12AF9185000EB4B53 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */; };
 		2FEB76D32AF9194200EB4B53 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */; };
 		2FEB76D92AF9231A00EB4B53 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEB76D82AF9231900EB4B53 /* AuthView.swift */; };
@@ -216,6 +219,9 @@
 		2FE2762A2B2CC56400EB5D39 /* ProfileLogoutCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLogoutCellData.swift; sourceTree = "<group>"; };
 		2FE276412B2F17FB00EB5D39 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		2FE276432B2F1C2E00EB5D39 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		2FE276822B3C16BF00EB5D39 /* CharacterFindViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFindViewCell.swift; sourceTree = "<group>"; };
+		2FE276832B3C16BF00EB5D39 /* CharacterFindViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterFindViewCell.xib; sourceTree = "<group>"; };
+		2FE276862B3C17C500EB5D39 /* CharacterFindCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFindCellData.swift; sourceTree = "<group>"; };
 		2FEB76D02AF9185000EB4B53 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D22AF9194200EB4B53 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		2FEB76D82AF9231900EB4B53 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -413,6 +419,9 @@
 		2FB23EF02B2204070073ABFC /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
+				2FE276862B3C17C500EB5D39 /* CharacterFindCellData.swift */,
+				2FE276822B3C16BF00EB5D39 /* CharacterFindViewCell.swift */,
+				2FE276832B3C16BF00EB5D39 /* CharacterFindViewCell.xib */,
 				2FB23EF52B2204CB0073ABFC /* CharacterCellData.swift */,
 				2FB23EF12B2204390073ABFC /* CharacterCell.swift */,
 				2FB23EF22B2204390073ABFC /* CharacterCell.xib */,
@@ -655,6 +664,7 @@
 				2FE275BB2B2B430500EB5D39 /* PersonHeaderView.xib in Resources */,
 				2FB23EF42B2204390073ABFC /* CharacterCell.xib in Resources */,
 				2FB23E832B14D1FB0073ABFC /* LocationCell.xib in Resources */,
+				2FE276852B3C16BF00EB5D39 /* CharacterFindViewCell.xib in Resources */,
 				2FB23E512B0FAF460073ABFC /* SplashViewImp.xib in Resources */,
 				2F531D2E2B0672EE009477A3 /* RegistrationViewImp.xib in Resources */,
 				2FE276192B2C893100EB5D39 /* ProfileUsernameCell.xib in Resources */,
@@ -697,6 +707,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE276872B3C17C500EB5D39 /* CharacterFindCellData.swift in Sources */,
 				2FE275FB2B2C5FBF00EB5D39 /* ProfileCoordinator.swift in Sources */,
 				2FE275AB2B2B1FB000EB5D39 /* PersonApiClient.swift in Sources */,
 				2FE2759D2B2ADF2300EB5D39 /* PersonView.swift in Sources */,
@@ -771,6 +782,7 @@
 				2FE276422B2F17FB00EB5D39 /* CustomButton.swift in Sources */,
 				2F531D1A2B05183F009477A3 /* CharacterAssembly.swift in Sources */,
 				2FB23EED2B21FF920073ABFC /* CharacterView.swift in Sources */,
+				2FE276842B3C16BF00EB5D39 /* CharacterFindViewCell.swift in Sources */,
 				2FB23EE12B21F4930073ABFC /* CoreCellView.swift in Sources */,
 				2F6152722AE7629400FCC073 /* LocationsList.swift in Sources */,
 				2FEB774A2B03386900EB4B53 /* CharacterCoordinator.swift in Sources */,
